@@ -71,9 +71,9 @@
           <p class="text-gray-500 text-sm">Memuat kalender...</p>
         </div>
         
-        <!-- Google Calendar Appointment Scheduling -->
+        <!-- Google Calendar Appointment Scheduling begin -->
         <iframe
-          :src="calendarUrl"
+          src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0C0xUYmrrDxsOwzi6fIRPRpw3Owed-HgBYwrmT_C47MYpHd0eBqPdng_RzkZKDcPtq7fWkEGeP?gv=true"
           style="border: 0"
           width="100%"
           height="600"
