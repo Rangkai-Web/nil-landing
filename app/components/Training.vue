@@ -1,96 +1,180 @@
 <template>
-  <section id="training" class="py-24 px-6 max-w-7xl mx-auto">
-    <div class="text-center mb-12">
-      <span
-        class="text-[#3B82F6] font-extrabold tracking-widest uppercase mb-3 text-sm"
-        >Program Unggulan</span
-      >
-      <h2 class="text-4xl md:text-5xl font-extrabold text-[#0F172A] mb-6">
-        Our Training Program
-      </h2>
-      <p class="text-slate-500 max-w-2xl mx-auto font-medium">
-        Temukan kelas pengembangan diri dan profesionalisme yang dikurasi khusus
-        untuk kebutuhan industri.
-      </p>
+  <section id="training" class="relative py-32 px-6 overflow-hidden">
+    <!-- Background SVG Pattern -->
+    <div class="absolute inset-0 z-0 opacity-[0.03] pointer-events-none">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern
+            id="training-dots"
+            x="0"
+            y="0"
+            width="40"
+            height="40"
+            patternUnits="userSpaceOnUse"
+          >
+            <circle
+              cx="2"
+              cy="2"
+              r="1.5"
+              fill="currentColor"
+              class="text-primary"
+            />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#training-dots)" />
+      </svg>
     </div>
 
-    <!-- Tabs Desktop & Accordion Mobile-like feel -->
-    <div
-      class="bg-white rounded-[2rem] shadow-[0_4px_30px_rgba(0,0,0,0.03)] border border-slate-100 overflow-hidden mb-12"
-    >
-      <div
-        class="flex overflow-x-auto border-b border-slate-100 hide-scrollbar bg-slate-50/50"
-      >
-        <button
-          v-for="(courses, cat) in trainingData"
-          :key="cat"
-          @click="activeTab = cat"
-          :class="[
-            'flex-none py-5 px-6 md:px-8 text-center font-bold text-sm md:text-base whitespace-nowrap transition-all border-b-4',
-            activeTab === cat
-              ? 'text-[#0F766E] border-[#0F766E] bg-white'
-              : 'text-slate-500 border-transparent hover:text-[#0F172A] hover:bg-slate-100',
-          ]"
+    <div class="max-w-7xl mx-auto relative z-10">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <div class="flex items-center justify-center gap-3 mb-6">
+          <div class="w-12 h-[2px] bg-accent"></div>
+          <span
+            class="text-accent font-black tracking-[0.2em] uppercase text-sm"
+          >
+            Program Unggulan
+          </span>
+          <div class="w-12 h-[2px] bg-accent"></div>
+        </div>
+        <h2
+          class="text-4xl md:text-5xl lg:text-6xl font-black text-text tracking-tight leading-[1.1]"
         >
-          {{ cat }}
-        </button>
+          Program <span class="text-primary italic">Pelatihan</span> Kami
+        </h2>
+        <p
+          class="text-slate-500 max-w-2xl mx-auto mt-6 text-lg font-medium leading-relaxed"
+        >
+          Temukan kelas pengembangan diri dan profesionalisme yang dikurasi
+          khusus untuk kebutuhan industri.
+        </p>
       </div>
 
-      <div class="p-8 md:p-12 min-h-[300px]">
-        <h3 class="text-2xl font-bold text-[#0F172A] mb-8">
-          {{ activeTab }} Programs
-        </h3>
-        <div class="grid md:grid-cols-2 gap-x-12 gap-y-6">
+      <!-- Category Tabs -->
+      <div class="flex justify-center mb-12">
+        <div
+          class="inline-flex flex-wrap justify-center gap-3 p-2 bg-white/60 backdrop-blur-sm border border-white/80 rounded-2xl shadow-lg shadow-primary/5"
+        >
+          <button
+            v-for="(courses, cat) in trainingData"
+            :key="cat"
+            @click="activeTab = String(cat)"
+            :class="[
+              'px-6 py-3 rounded-xl text-sm font-black tracking-tight transition-all duration-300 whitespace-nowrap cursor-pointer',
+              activeTab === cat
+                ? 'bg-primary text-white shadow-lg shadow-primary/30'
+                : 'text-slate-500 hover:text-primary hover:bg-primary/5',
+            ]"
+          >
+            {{ cat }}
+          </button>
+        </div>
+      </div>
+
+      <!-- Course Cards -->
+      <div
+        class="bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl p-8 md:p-12 shadow-xl shadow-primary/5 mb-16"
+      >
+        <div class="flex items-center gap-4 mb-10">
+          <div
+            class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary"
+          >
+            <Icon name="lucide:book-open" size="24" />
+          </div>
+          <div>
+            <h3 class="text-2xl font-black text-text tracking-tight">
+              {{ activeTab }}
+            </h3>
+            <p class="text-slate-500 text-sm font-medium">
+              {{ (trainingData[activeTab] || []).length }} program tersedia
+            </p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
           <div
             v-for="(course, idx) in trainingData[activeTab]"
             :key="idx"
-            class="flex items-start gap-4 p-5 rounded-2xl bg-[#F8FAFC] border border-slate-100 hover:border-[#3B82F6] transition-colors group"
+            class="group flex items-center gap-5 p-5 rounded-2xl bg-background/80 border border-slate-300 hover:border-primary/30 hover:bg-white transition-all duration-300"
           >
             <div
-              class="w-10 h-10 rounded-full bg-white text-[#3B82F6] shadow-sm flex items-center justify-center font-bold shrink-0"
+              class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-black text-sm shrink-0 group-hover:text-white transition-all duration-500"
             >
-              {{ idx + 1 }}
+              {{ String(idx + 1).padStart(2, "0") }}
             </div>
-            <div>
+            <div class="flex flex-col">
               <h4
-                class="font-bold text-[#0F172A] group-hover:text-[#0F766E] transition-colors"
+                class="font-black text-text tracking-tight group-hover:text-primary transition-colors duration-300"
               >
                 {{ course }}
               </h4>
-              <p class="text-xs font-semibold text-slate-400 mt-1 uppercase">
+              <span
+                class="text-xs text-slate-400 font-bold uppercase tracking-wider mt-1"
+              >
                 Digital Material
-              </p>
+              </span>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- 🔥 Highlight CTA Section inline -->
-    <div
-      class="bg-gradient-to-r from-[#0F766E] to-[#22C55E] rounded-3xl p-10 flex flex-col md:flex-row items-center justify-between shadow-xl relative overflow-hidden"
-    >
+      <!-- CTA Banner -->
       <div
-        class="absolute right-0 top-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-20 -mt-20"
-      ></div>
-
-      <div class="relative z-10 text-left mb-6 md:mb-0">
-        <h3 class="text-2xl md:text-3xl font-extrabold text-white mb-2">
-          Akses Materi Tanpa Batas
-        </h3>
-        <p class="text-emerald-100 font-medium">
-          Seluruh program tersedia di platform Moodle kami.
-        </p>
-      </div>
-
-      <a
-        href="https://dkn.moodle.com"
-        target="_blank"
-        rel="noreferrer"
-        class="relative z-10 bg-white text-[#0F766E] px-8 py-4 rounded-full font-bold hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] transition-all flex items-center gap-2 shrink-0"
+        class="relative bg-linear-to-r from-primary to-secondary rounded-3xl p-10 md:p-14 overflow-hidden"
       >
-        👉 Akses Full Program di E-Learning
-      </a>
+        <!-- Decorative SVGs -->
+        <svg
+          class="absolute -top-12 -right-12 w-64 h-64 text-white opacity-[0.06]"
+          viewBox="0 0 256 256"
+        >
+          <circle
+            cx="128"
+            cy="128"
+            r="100"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+          <circle
+            cx="128"
+            cy="128"
+            r="70"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-dasharray="8 6"
+          />
+        </svg>
+        <div
+          class="absolute -bottom-16 -left-16 w-48 h-48 bg-accent/10 rounded-full blur-3xl"
+        ></div>
+
+        <div
+          class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8"
+        >
+          <div>
+            <h3
+              class="text-3xl md:text-4xl font-black text-white mb-3 tracking-tight"
+            >
+              Akses Materi
+              <span class="text-accent">Tanpa Batas</span>
+            </h3>
+            <p class="text-white/60 text-lg font-medium max-w-lg">
+              Seluruh program pelatihan tersedia di platform E-Learning Moodle
+              kami — kapan saja, di mana saja.
+            </p>
+          </div>
+          <a
+            href="https://dkn.moodle.com"
+            target="_blank"
+            rel="noreferrer"
+            class="flex items-center justify-center bg-white text-primary px-10 py-5 rounded-full font-black text-lg hover:bg-slate-100 hover:scale-110 transition-all duration-300 shadow-2xl uppercase tracking-wider shrink-0"
+          >
+            Akses E-Learning
+            <Icon name="lucide:external-link" size="24" class="ml-3" />
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -135,3 +219,5 @@ const trainingData = {
   ],
 };
 </script>
+
+<style scoped></style>

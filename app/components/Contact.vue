@@ -52,11 +52,31 @@
             </div>
           </div>
         </div>
+        <div class="flex gap-4 mt-8">
+          <a
+            href="http://wa.me/6282343424071"
+            target="_blank"
+            rel="noreferrer"
+            class="flex-1 bg-primary text-white px-6 py-3.5 rounded-full font-bold text-center flex items-center justify-center gap-2 hover:scale-105 transition-all duration-300"
+          >
+            Hubungi WhatsApp
+            <Icon name="lucide:phone" size="18" />
+          </a>
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=Jl.%20Sono%20No.18%2C%20RT.6%2FRW.8%2C%20Bungur%2C%20Kec.%20Senen%2C%20Kota%20Jakarta%20Pusat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2010460"
+            target="_blank"
+            rel="noreferrer"
+            class="flex-1 bg-primary text-white px-6 py-3.5 rounded-full font-bold text-center flex items-center justify-center gap-2 hover:scale-105 transition-all duration-300"
+          >
+            Get Direction
+            <Icon name="lucide:map-pin" size="18" />
+          </a>
+        </div>
       </div>
 
       <div class="h-[400px] lg:h-auto bg-slate-200">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m3!1d3966.6025256247783!2d106.8415497!3d-6.1764663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f44cb255d64b%3A0x6b6d2a4a7f3dfb20!2sJl.%20Kalibaru%20Timur%20V%20No.18%2C%20Bungur%2C%20Kec.%20Senen%2C%20Kota%20Jakarta%20Pusat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2010460!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4023.5222368646246!2d106.84857577508069!3d-6.169917960463763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5b18fbbb5d5%3A0x7451adc44b67af87!2sJl.%20Sono%20No.18%2C%20RT.6%2FRW.8%2C%20Bungur%2C%20Kec.%20Senen%2C%20Kota%20Jakarta%20Pusat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2010460!5e1!3m2!1sid!2sid!4v1774927577245!5m2!1sid!2sid"
           width="100%"
           height="100%"
           style="border: 0"
@@ -64,8 +84,7 @@
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
           title="Map"
-        >
-        </iframe>
+        ></iframe>
       </div>
     </div>
   </section>

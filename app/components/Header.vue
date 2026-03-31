@@ -4,7 +4,7 @@
   >
     <nav
       :class="[
-        'pointer-events-auto w-full max-w-7xl rounded-2xl transition-all duration-500 flex justify-between items-center px-6 md:px-8 py-3',
+        'pointer-events-auto w-full max-w-7xl rounded-full transition-all duration-500 flex justify-between items-center px-6 md:px-8 py-3',
         isScrolled
           ? 'bg-white/80 backdrop-blur-lg shadow-xl border border-white/20 py-3'
           : 'bg-transparent border-transparent py-5',
@@ -41,7 +41,7 @@
           :class="[
             'px-6 py-2.5 rounded-full text-sm font-black transition-all duration-300 shadow-lg flex items-center gap-2 group',
             isScrolled
-              ? 'bg-primary text-white hover:bg-slate-800'
+              ? 'bg-primary text-white hover:bg-slate-800 animate-bounce'
               : 'bg-accent text-primary shadow-accent/20',
           ]"
         >
@@ -103,7 +103,7 @@ const navLinks = [
   { name: "About", href: "#about" },
   { name: "Services", href: "#services" },
   { name: "Training", href: "#training" },
-  { name: "Why Us", href: "#why-us" },
+  // { name: "Why Us", href: "#why-us" },
   { name: "Contact", href: "#contact" },
 ];
 

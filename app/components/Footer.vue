@@ -1,110 +1,244 @@
 <template>
-  <footer class="bg-[#0F172A] text-white pt-20 pb-10">
-    <div
-      class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16"
-    >
-      <div class="lg:col-span-1">
-        <div class="flex items-center gap-2 mb-6">
-          <div
-            class="w-9 h-9 bg-gradient-to-br from-[#0F766E] to-[#3B82F6] rounded-full flex items-center justify-center"
-          >
-            <span class="text-white font-bold text-lg">D</span>
-          </div>
-          <span class="font-extrabold text-xl tracking-tight"
-            >DKN<span class="text-[#22C55E]">.</span></span
-          >
-        </div>
-        <p class="text-slate-400 text-sm leading-relaxed font-medium">
-          Top learning experiences that create more talent. Mitra pengembangan
-          sumber daya manusia profesional dan berdaya saing.
-        </p>
-      </div>
+  <footer class="relative bg-primary pt-24 pb-8 overflow-hidden">
+    <!-- Decorative SVG elements -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <!-- Dashed circle top-right -->
+      <svg
+        class="absolute -top-20 -right-20 w-[400px] h-[400px] opacity-[0.05]"
+        viewBox="0 0 400 400"
+      >
+        <circle
+          cx="200"
+          cy="200"
+          r="160"
+          fill="none"
+          stroke="white"
+          stroke-width="1.5"
+          stroke-dasharray="10 6"
+        />
+        <circle
+          cx="200"
+          cy="200"
+          r="120"
+          fill="none"
+          stroke="white"
+          stroke-width="0.8"
+        />
+      </svg>
 
-      <div>
-        <h4 class="font-bold mb-6 text-sm uppercase tracking-widest text-white">
-          Quick Links
-        </h4>
-        <ul class="space-y-3 text-sm text-slate-400 font-medium">
-          <li>
-            <a href="#home" class="hover:text-white transition-colors">Home</a>
-          </li>
-          <li>
-            <a href="#about" class="hover:text-white transition-colors"
-              >About Us</a
-            >
-          </li>
-          <li>
-            <a href="#services" class="hover:text-white transition-colors"
-              >Services</a
-            >
-          </li>
-          <li>
-            <a href="#training" class="hover:text-white transition-colors"
-              >Training</a
-            >
-          </li>
-          <li>
-            <a href="#why-us" class="hover:text-white transition-colors"
-              >Why Choose Us</a
-            >
-          </li>
-        </ul>
-      </div>
+      <!-- Rotated square bottom-left -->
+      <svg
+        class="absolute -bottom-12 -left-12 w-[250px] h-[250px] opacity-[0.04]"
+        viewBox="0 0 250 250"
+      >
+        <rect
+          x="50"
+          y="50"
+          width="150"
+          height="150"
+          rx="30"
+          fill="none"
+          stroke="white"
+          stroke-width="1.5"
+          transform="rotate(20 125 125)"
+        />
+      </svg>
 
-      <div>
-        <h4 class="font-bold mb-6 text-sm uppercase tracking-widest text-white">
-          Contact
-        </h4>
-        <ul class="space-y-3 text-sm text-slate-400 font-medium">
-          <li>+62 823-4342-4071</li>
-          <li class="break-all">dayagunakompetensinusantara@gmail.com</li>
-          <li>Jakarta Pusat, DKI Jakarta</li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 class="font-bold mb-6 text-sm uppercase tracking-widest text-white">
-          Social Media
-        </h4>
-        <div class="flex gap-4 text-slate-400">
-          <a
-            href="#"
-            class="hover:text-white transition-colors bg-white/5 p-2 rounded-lg"
-            ><Icon name="lucide:facebook" size="20"
-          /></a>
-          <a
-            href="#"
-            class="hover:text-white transition-colors bg-white/5 p-2 rounded-lg"
-            ><Icon name="lucide:twitter" size="20"
-          /></a>
-          <a
-            href="#"
-            class="hover:text-white transition-colors bg-white/5 p-2 rounded-lg"
-            ><Icon name="lucide:linkedin" size="20"
-          /></a>
-          <a
-            href="#"
-            class="hover:text-white transition-colors bg-white/5 p-2 rounded-lg"
-            ><Icon name="lucide:instagram" size="20"
-          /></a>
-        </div>
-      </div>
+      <!-- Floating dots -->
+      <div
+        class="absolute top-[15%] left-[10%] w-2 h-2 rounded-full bg-accent/15"
+      ></div>
+      <div
+        class="absolute top-[40%] right-[15%] w-3 h-3 rounded-full bg-white/5"
+      ></div>
+      <div
+        class="absolute bottom-[30%] left-[40%] w-2 h-2 rounded-full bg-accent/10"
+      ></div>
     </div>
 
-    <div
-      class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center pt-8 border-t border-slate-800"
-    >
-      <p class="text-slate-500 text-sm mb-4 md:mb-0 font-medium">
-        © 2026 PT Dayaguna Kompetensi Nusantara. All rights reserved.
-      </p>
-      <div class="flex gap-6 text-slate-500 text-sm font-medium">
-        <a href="#" class="hover:text-white transition-colors"
-          >Privacy Policy</a
-        >
-        <a href="#" class="hover:text-white transition-colors"
-          >Terms of Service</a
-        >
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <!-- Main Footer Grid -->
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16"
+      >
+        <!-- Brand Column -->
+        <div class="lg:col-span-1">
+          <div class="flex items-center gap-3 mb-6">
+            <NuxtImg
+              src="/logo/dkn-logo.webp"
+              alt="Logo DKN"
+              class="w-12 h-12 rounded-xl"
+            />
+            <span class="font-black text-2xl text-white tracking-tighter">
+              DKN<span class="text-accent">.</span>
+            </span>
+          </div>
+          <p
+            class="text-white/40 text-sm leading-relaxed font-medium mb-8 max-w-xs"
+          >
+            Mitra pengembangan sumber daya manusia yang profesional, unggul, dan
+            berdaya saing. Top learning experiences that create more talent.
+          </p>
+          <!-- Social Icons -->
+          <div class="flex gap-3">
+            <a
+              v-for="social in socials"
+              :key="social.name"
+              :href="social.href"
+              target="_blank"
+              rel="noreferrer"
+              class="w-10 h-10 rounded-xl bg-white/[0.07] border border-white/10 flex items-center justify-center text-white/40 hover:bg-accent hover:text-primary hover:border-accent transition-all duration-300"
+            >
+              <Icon :name="social.icon" size="18" />
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4
+            class="font-black text-xs uppercase tracking-[0.2em] text-accent mb-8"
+          >
+            Quick Links
+          </h4>
+          <ul class="space-y-4">
+            <li v-for="link in quickLinks" :key="link.name">
+              <a
+                :href="link.href"
+                class="text-white/40 text-sm font-bold hover:text-accent transition-colors duration-300 flex items-center gap-2 group"
+              >
+                <span
+                  class="w-0 h-[2px] bg-accent group-hover:w-4 transition-all duration-300"
+                ></span>
+                {{ link.name }}
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4
+            class="font-black text-xs uppercase tracking-[0.2em] text-accent mb-8"
+          >
+            Kontak
+          </h4>
+          <ul class="space-y-5">
+            <li
+              v-for="contact in contactInfo"
+              :key="contact.label"
+              class="flex items-start gap-3"
+            >
+              <div
+                class="w-8 h-8 rounded-lg bg-white/[0.07] flex items-center justify-center text-accent shrink-0 mt-0.5"
+              >
+                <Icon :name="contact.icon" size="14" />
+              </div>
+              <div class="flex flex-col">
+                <span
+                  class="text-white/30 text-xs font-bold uppercase tracking-wider"
+                >
+                  {{ contact.label }}
+                </span>
+                <span class="text-white/60 text-sm font-medium break-all">
+                  {{ contact.value }}
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- E-Learning -->
+        <div>
+          <h4
+            class="font-black text-xs uppercase tracking-[0.2em] text-accent mb-8"
+          >
+            Platform
+          </h4>
+          <div class="bg-white/[0.05] border border-white/10 rounded-2xl p-6">
+            <div
+              class="w-12 h-12 bg-accent/15 rounded-xl flex items-center justify-center text-accent mb-4"
+            >
+              <Icon name="lucide:monitor-play" size="24" />
+            </div>
+            <h5 class="text-white font-black text-lg mb-2 tracking-tight">
+              E-Learning
+            </h5>
+            <p class="text-white/40 text-sm font-medium mb-5 leading-relaxed">
+              Akses materi pelatihan kapan saja, di mana saja melalui platform
+              Moodle.
+            </p>
+            <a
+              href="https://dkn.moodle.com"
+              target="_blank"
+              rel="noreferrer"
+              class="inline-flex items-center gap-2 bg-accent text-primary px-5 py-2.5 rounded-full font-black text-sm hover:scale-105 transition-all duration-300 shadow-lg shadow-accent/20"
+            >
+              Masuk Platform
+              <Icon name="lucide:external-link" size="14" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div
+        class="flex flex-col md:flex-row justify-center items-center pt-8 border-t border-white/10"
+      >
+        <p class="text-white/30 text-sm mb-4 md:mb-0 font-medium">
+          © {{ new Date().getFullYear() }} PT Dayaguna Kompetensi Nusantara. All
+          rights reserved.
+        </p>
       </div>
     </div>
   </footer>
 </template>
+
+<script setup>
+const quickLinks = [
+  { name: "Home", href: "#home" },
+  { name: "About Us", href: "#about" },
+  { name: "Services", href: "#services" },
+  { name: "Training", href: "#training" },
+  { name: "Why Choose Us", href: "#why-us" },
+  { name: "Contact", href: "#contact" },
+];
+
+const contactInfo = [
+  {
+    label: "Telepon",
+    value: "+62 823-4342-4071",
+    icon: "lucide:phone",
+  },
+  {
+    label: "Email",
+    value: "dayagunakompetensinusantara@gmail.com",
+    icon: "lucide:mail",
+  },
+  {
+    label: "Lokasi",
+    value: "Jakarta Pusat, DKI Jakarta",
+    icon: "lucide:map-pin",
+  },
+];
+
+const socials = [
+  {
+    name: "Instagram",
+    icon: "lucide:instagram",
+    href: "https://www.instagram.com/dknofficial.id/",
+  },
+  {
+    name: "LinkedIn",
+    icon: "lucide:linkedin",
+    href: "https://www.linkedin.com/company/pt-dayaguna-kompetensi-nusantara/?originalSubdomain=id",
+  },
+  {
+    name: "WhatsApp",
+    icon: "lucide:phone",
+    href: "http://wa.me/6282343424071",
+  },
+];
+</script>
+
+<style scoped></style>

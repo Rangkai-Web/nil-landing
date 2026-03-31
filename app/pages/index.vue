@@ -7,7 +7,6 @@
     <WhyUs />
     <Service />
     <Training />
-    <WhyUs />
     <Cta />
     <Contact />
     <Footer />
@@ -16,7 +15,7 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: "DKN Digital - Pengembangan SDM & Solusi Digital",
+  title: "DKN Digital - Dayaguna Kompetensi Nusantara",
   description:
     "Mitra pengembangan SDM profesional, unggul, dan berdaya saing. Solusi pelatihan dan pengembangan karir digital terpercaya.",
   ogTitle: "DKN Digital - Partner Pengembangan SDM Strategis",
@@ -62,20 +61,19 @@ useHead({
       innerHTML: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "DKN Digital",
-        "url": "https://dkn.digital",
-        "logo": "https://dkn.digital/logo/dkn-logo.jpeg",
-        "description": "Mitra pengembangan SDM profesional, unggul, dan berdaya saing.",
-        "sameAs": [
-          "https://www.instagram.com/dkndigital/"
-        ],
-        "contactPoint": {
+        name: "DKN Digital",
+        url: "https://dkn.digital",
+        logo: "https://dkn.digital/logo/dkn-logo.jpeg",
+        description:
+          "Mitra pengembangan SDM profesional, unggul, dan berdaya saing.",
+        sameAs: ["https://www.instagram.com/dkndigital/"],
+        contactPoint: {
           "@type": "ContactPoint",
-          "telephone": "+6287831377755",
-          "contactType": "customer service",
-          "areaServed": "ID",
-          "availableLanguage": ["id", "en"]
-        }
+          telephone: "+6287831377755",
+          contactType: "customer service",
+          areaServed: "ID",
+          availableLanguage: ["id", "en"],
+        },
       }),
     },
   ],

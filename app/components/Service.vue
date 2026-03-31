@@ -1,43 +1,170 @@
 <template>
-  <section id="services" class="py-24 relative overflow-hidden bg-[#0F172A]">
-    <!-- Background Gradients -->
+  <section
+    id="services"
+    class="relative py-32 overflow-hidden"
+  >
+    <!-- Dark gradient background -->
     <div
-      class="absolute top-0 right-0 w-[600px] h-[600px] bg-[#0F766E] rounded-full blur-[150px] opacity-40"
+      class="absolute inset-0 bg-linear-to-br from-primary via-primary to-secondary"
     ></div>
-    <div
-      class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#7C3AED] rounded-full blur-[150px] opacity-30"
-    ></div>
+
+    <!-- Decorative SVG elements -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <!-- Large geometric shape top-right -->
+      <svg
+        class="absolute -top-20 -right-20 w-[600px] h-[600px] opacity-[0.04]"
+        viewBox="0 0 600 600"
+      >
+        <rect
+          x="100"
+          y="100"
+          width="400"
+          height="400"
+          rx="80"
+          fill="none"
+          stroke="white"
+          stroke-width="1.5"
+          transform="rotate(15 300 300)"
+        />
+        <rect
+          x="150"
+          y="150"
+          width="300"
+          height="300"
+          rx="60"
+          fill="none"
+          stroke="white"
+          stroke-width="1"
+          stroke-dasharray="12 8"
+          transform="rotate(15 300 300)"
+        />
+      </svg>
+
+      <!-- Circle bottom-left -->
+      <svg
+        class="absolute -bottom-24 -left-24 w-[400px] h-[400px] opacity-[0.05]"
+        viewBox="0 0 400 400"
+      >
+        <circle
+          cx="200"
+          cy="200"
+          r="160"
+          fill="none"
+          stroke="white"
+          stroke-width="1.5"
+        />
+        <circle
+          cx="200"
+          cy="200"
+          r="120"
+          fill="none"
+          stroke="white"
+          stroke-width="0.8"
+          stroke-dasharray="6 4"
+        />
+      </svg>
+
+      <!-- Floating accent dots -->
+      <div
+        class="absolute top-[15%] left-[8%] w-3 h-3 rounded-full bg-accent/20"
+      ></div>
+      <div
+        class="absolute top-[60%] right-[12%] w-2 h-2 rounded-full bg-accent/15"
+      ></div>
+      <div
+        class="absolute bottom-[20%] left-[25%] w-4 h-4 rounded-full bg-white/5"
+      ></div>
+    </div>
 
     <div class="max-w-7xl mx-auto px-6 relative z-10">
-      <div class="text-center mb-16">
-        <span
-          class="text-[#22C55E] font-extrabold tracking-widest uppercase mb-3 text-sm"
-          >Layanan Utama Kami</span
+      <!-- Section Header -->
+      <div class="text-center mb-20">
+        <div class="flex items-center justify-center gap-3 mb-6">
+          <div class="w-12 h-[2px] bg-accent"></div>
+          <span
+            class="text-accent font-black tracking-[0.2em] uppercase text-sm"
+          >
+            Layanan Utama
+          </span>
+          <div class="w-12 h-[2px] bg-accent"></div>
+        </div>
+        <h2
+          class="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]"
         >
-        <h2 class="text-4xl md:text-5xl font-extrabold text-white">
-          Our Services
+          Solusi Lengkap untuk <br class="hidden md:block" />
+          <span class="text-accent italic">Pengembangan SDM</span>
         </h2>
+        <p
+          class="text-white/50 text-lg md:text-xl max-w-2xl mx-auto mt-6 font-medium leading-relaxed"
+        >
+          Kami menyediakan berbagai layanan terintegrasi untuk membantu organisasi
+          Anda dalam membangun sumber daya manusia yang unggul.
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Services Grid: Top Row (3 cards) -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
         <div
-          v-for="(srv, idx) in services"
+          v-for="(srv, idx) in services.slice(0, 3)"
           :key="idx"
-          :class="[
-            'bg-white/10 backdrop-blur-xl p-8 rounded-3xl border border-white/10 hover:bg-white/15 hover:border-white/20 transition-all duration-300',
-            idx === 3 ? 'lg:col-start-1 lg:ml-auto lg:w-full' : '',
-            idx === 4 ? 'lg:col-start-2 lg:mr-auto lg:w-full' : '',
-          ]"
+          class="group relative bg-white/[0.07] hover:bg-white/[0.14] backdrop-blur-md border border-white/10 hover:border-accent/40 rounded-3xl p-10 transition-all duration-500 hover:-translate-y-2"
         >
+          <!-- Hover glow -->
           <div
-            class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center text-white mb-6 shadow-inner border border-white/10"
-          >
-            <Icon :name="srv.icon" size="32" />
+            class="absolute inset-0 rounded-3xl bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl"
+          ></div>
+
+          <div class="relative z-10">
+            <div
+              class="w-16 h-16 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center text-accent mb-8 group-hover:bg-accent/20 group-hover:border-accent/30 transition-all duration-500"
+            >
+              <Icon :name="srv.icon" size="32" />
+            </div>
+            <h3
+              class="text-2xl font-black text-white mb-4 tracking-tight group-hover:text-accent transition-colors duration-300"
+            >
+              {{ srv.title }}
+            </h3>
+            <p
+              class="text-white/50 leading-relaxed font-medium group-hover:text-white/70 transition-colors duration-300"
+            >
+              {{ srv.desc }}
+            </p>
           </div>
-          <h3 class="text-xl font-bold mb-3 text-white">{{ srv.title }}</h3>
-          <p class="text-slate-300 text-sm leading-relaxed font-medium">
-            {{ srv.desc }}
-          </p>
+        </div>
+      </div>
+
+      <!-- Services Grid: Bottom Row (2 cards, centered) -->
+      <div
+        class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto"
+      >
+        <div
+          v-for="(srv, idx) in services.slice(3)"
+          :key="idx + 3"
+          class="group relative bg-white/[0.07] hover:bg-white/[0.14] backdrop-blur-md border border-white/10 hover:border-accent/40 rounded-3xl p-10 transition-all duration-500 hover:-translate-y-2"
+        >
+          <!-- Hover glow -->
+          <div
+            class="absolute inset-0 rounded-3xl bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl"
+          ></div>
+
+          <div class="relative z-10">
+            <div
+              class="w-16 h-16 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center text-accent mb-8 group-hover:bg-accent/20 group-hover:border-accent/30 transition-all duration-500"
+            >
+              <Icon :name="srv.icon" size="32" />
+            </div>
+            <h3
+              class="text-2xl font-black text-white mb-4 tracking-tight group-hover:text-accent transition-colors duration-300"
+            >
+              {{ srv.title }}
+            </h3>
+            <p
+              class="text-white/50 leading-relaxed font-medium group-hover:text-white/70 transition-colors duration-300"
+            >
+              {{ srv.desc }}
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -49,27 +176,29 @@ const services = [
   {
     icon: "lucide:graduation-cap",
     title: "Training & Development",
-    desc: "Pelatihan kerja sesuai kebutuhan industri (hard skill, soft skill, sikap kerja).",
+    desc: "Pelatihan kerja sesuai kebutuhan industri mencakup hard skill, soft skill, dan sikap kerja profesional.",
   },
   {
     icon: "lucide:target",
     title: "Assessment Center",
-    desc: "Penilaian psikologi untuk pemetaan kemampuan dan kesiapan peran.",
+    desc: "Penilaian psikologi untuk pemetaan kemampuan, potensi individu, dan kesiapan peran strategis.",
   },
   {
     icon: "lucide:heart-handshake",
     title: "Employee Counseling",
-    desc: "Pendukung SDM menghadapi tantangan kerja & menjaga keseimbangan mental.",
+    desc: "Layanan pendukung SDM dalam menghadapi tantangan kerja dan menjaga keseimbangan mental.",
   },
   {
     icon: "lucide:users",
     title: "Team Building",
-    desc: "Peningkatan kerja sama, komunikasi, kepemimpinan, dan efektivitas tim.",
+    desc: "Program peningkatan kerja sama, komunikasi, kepemimpinan, dan efektivitas tim secara menyeluruh.",
   },
   {
     icon: "lucide:building",
     title: "Advisory Services",
-    desc: "Pendampingan BPD untuk Manajemen Risiko, Perkreditan, Digital Banking.",
+    desc: "Pendampingan BPD untuk Manajemen Risiko, Perkreditan, dan transformasi Digital Banking.",
   },
 ];
 </script>
+
+<style scoped></style>

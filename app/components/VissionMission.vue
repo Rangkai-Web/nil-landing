@@ -1,51 +1,149 @@
 <template>
-  <section class="py-24 bg-white border-y border-slate-100">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid lg:grid-cols-2 gap-16">
-        <!-- Vision Highlight -->
-        <div class="flex flex-col justify-center">
+  <section class="relative py-32 overflow-hidden">
+    <!-- Full-width background with gradient -->
+    <div
+      class="absolute inset-0 bg-linear-to-br from-primary via-primary to-secondary"
+    ></div>
+
+    <!-- Decorative SVG shapes -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <!-- Large circle top-right -->
+      <svg
+        class="absolute -top-32 -right-32 w-[500px] h-[500px] opacity-[0.06]"
+        viewBox="0 0 500 500"
+      >
+        <circle
+          cx="250"
+          cy="250"
+          r="200"
+          fill="none"
+          stroke="white"
+          stroke-width="1.5"
+        />
+        <circle
+          cx="250"
+          cy="250"
+          r="230"
+          fill="none"
+          stroke="white"
+          stroke-width="0.5"
+          stroke-dasharray="8 6"
+        />
+      </svg>
+
+      <!-- Small circle bottom-left -->
+      <svg
+        class="absolute -bottom-20 -left-20 w-[300px] h-[300px] opacity-[0.05]"
+        viewBox="0 0 300 300"
+      >
+        <circle
+          cx="150"
+          cy="150"
+          r="120"
+          fill="none"
+          stroke="white"
+          stroke-width="1.5"
+        />
+      </svg>
+
+      <!-- Floating dots -->
+      <svg
+        class="absolute top-20 left-[15%] w-4 h-4 opacity-20"
+        viewBox="0 0 16 16"
+      >
+        <circle cx="8" cy="8" r="8" fill="white" />
+      </svg>
+      <svg
+        class="absolute bottom-32 right-[20%] w-3 h-3 opacity-15"
+        viewBox="0 0 12 12"
+      >
+        <circle cx="6" cy="6" r="6" fill="white" />
+      </svg>
+      <svg
+        class="absolute top-[40%] right-[10%] w-2 h-2 opacity-25"
+        viewBox="0 0 8 8"
+      >
+        <circle cx="4" cy="4" r="4" fill="white" />
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <!-- Vision Section -->
+      <div class="text-center mb-24">
+        <div class="flex items-center justify-center gap-3 mb-6">
+          <div class="w-12 h-[2px] bg-accent"></div>
           <span
-            class="text-[#F59E0B] font-extrabold tracking-widest uppercase mb-3 text-sm"
-            >Our Vision</span
+            class="text-accent font-black tracking-[0.2em] uppercase text-sm"
           >
-          <h3
-            class="text-3xl md:text-5xl font-extrabold text-[#0F172A] leading-tight mb-6"
-          >
-            Menjadi mitra pengembangan sumber daya manusia yang profesional,
-            unggul, dan berdaya saing.
-          </h3>
-          <div
-            class="w-24 h-2 bg-gradient-to-r from-[#0F766E] to-[#22C55E] rounded-full"
-          ></div>
+            Visi Kami
+          </span>
+          <div class="w-12 h-[2px] bg-accent"></div>
         </div>
 
-        <!-- Mission Timeline -->
         <div
-          class="bg-[#F8FAFC] p-8 md:p-12 rounded-[2rem] border border-slate-100"
+          class="max-w-4xl mx-auto bg-white/[0.07] backdrop-blur-md border border-white/10 rounded-[2.5rem] p-10 md:p-16"
         >
-          <span
-            class="text-[#0F766E] font-extrabold tracking-widest uppercase mb-6 block text-sm"
-            >Our Mission</span
-          >
           <div
-            class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-slate-200"
+            class="w-20 h-20 bg-accent/20 rounded-3xl flex items-center justify-center text-accent mx-auto mb-8"
           >
+            <Icon name="lucide:eye" size="40" />
+          </div>
+          <h3
+            class="text-2xl md:text-4xl lg:text-5xl font-black text-white leading-[1.15] tracking-tight"
+          >
+            Menjadi mitra pengembangan sumber daya manusia yang
+            <span class="text-accent italic">profesional</span>,
+            <span class="text-accent italic">unggul</span>, dan
+            <span class="text-accent italic">berdaya saing</span>.
+          </h3>
+          <div
+            class="w-24 h-1.5 bg-linear-to-r from-accent to-white/30 rounded-full mx-auto mt-10"
+          ></div>
+        </div>
+      </div>
+
+      <!-- Mission Section -->
+      <div>
+        <div class="flex items-center justify-center gap-3 mb-12">
+          <div class="w-12 h-[2px] bg-accent"></div>
+          <span
+            class="text-accent font-black tracking-[0.2em] uppercase text-sm"
+          >
+            Misi Kami
+          </span>
+          <div class="w-12 h-[2px] bg-accent"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+          <div
+            v-for="(mission, idx) in missions"
+            :key="idx"
+            class="group relative bg-white/[0.07] hover:bg-white/[0.14] backdrop-blur-md border border-white/10 hover:border-accent/40 rounded-3xl p-8 md:p-10 transition-all duration-500 hover:-translate-y-1"
+          >
+            <!-- Number badge -->
             <div
-              v-for="(mission, idx) in missions"
-              :key="idx"
-              class="relative flex items-start gap-6 group"
+              class="absolute -top-4 -left-2 w-10 h-10 bg-accent rounded-xl flex items-center justify-center text-primary font-black text-sm shadow-lg shadow-accent/30 group-hover:scale-110 transition-transform duration-500"
             >
+              {{ String(idx + 1).padStart(2, "0") }}
+            </div>
+
+            <div class="flex items-start gap-5 pt-2">
               <div
-                class="absolute left-0 w-10 h-10 flex items-center justify-center z-10 bg-[#F8FAFC] md:left-1/2 md:-ml-5"
+                class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-accent shrink-0 group-hover:bg-accent/20 transition-colors duration-500"
               >
-                <div
-                  class="w-4 h-4 rounded-full bg-white border-4 border-[#3B82F6] group-hover:scale-150 group-hover:bg-[#22C55E] group-hover:border-[#22C55E] transition-all duration-300"
-                ></div>
+                <Icon :name="mission.icon" size="24" />
               </div>
-              <div
-                class="pl-14 md:pl-0 md:w-1/2 md:odd:pr-14 md:even:pl-14 md:odd:text-right md:even:text-left md:even:ml-auto flex flex-col justify-center min-h-[40px]"
-              >
-                <p class="text-slate-600 font-medium">{{ mission }}</p>
+              <div>
+                <h4
+                  class="text-white font-black text-lg mb-2 tracking-tight group-hover:text-accent transition-colors duration-300"
+                >
+                  {{ mission.title }}
+                </h4>
+                <p
+                  class="text-white/60 leading-relaxed font-medium group-hover:text-white/80 transition-colors duration-300"
+                >
+                  {{ mission.description }}
+                </p>
               </div>
             </div>
           </div>
@@ -57,9 +155,31 @@
 
 <script setup>
 const missions = [
-  "Menyelenggarakan program pelatihan kerja yang relevan dengan kebutuhan industri dan dunia usaha.",
-  "Menyediakan layanan pemetaan potensi dan pengelolaan talenta yang objektif dan terukur.",
-  "Meningkatkan kinerja individu dan tim melalui program pengembangan yang berkelanjutan.",
-  "Mendukung organisasi dalam menciptakan sumber daya manusia yang produktif dan berkualitas.",
+  {
+    title: "Pelatihan Relevan",
+    description:
+      "Menyelenggarakan program pelatihan kerja yang relevan dengan kebutuhan industri dan dunia usaha.",
+    icon: "lucide:graduation-cap",
+  },
+  {
+    title: "Pemetaan Talenta",
+    description:
+      "Menyediakan layanan pemetaan potensi dan pengelolaan talenta yang objektif dan terukur.",
+    icon: "lucide:search",
+  },
+  {
+    title: "Pengembangan Berkelanjutan",
+    description:
+      "Meningkatkan kinerja individu dan tim melalui program pengembangan yang berkelanjutan.",
+    icon: "lucide:trending-up",
+  },
+  {
+    title: "SDM Berkualitas",
+    description:
+      "Mendukung organisasi dalam menciptakan sumber daya manusia yang produktif dan berkualitas.",
+    icon: "lucide:shield-check",
+  },
 ];
 </script>
+
+<style scoped></style>
