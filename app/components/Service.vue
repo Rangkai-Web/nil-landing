@@ -1,8 +1,5 @@
 <template>
-  <section
-    id="services"
-    class="relative py-32 overflow-hidden"
-  >
+  <section id="services" class="relative py-32 overflow-hidden">
     <!-- Dark gradient background -->
     <div
       class="absolute inset-0 bg-linear-to-br from-primary via-primary to-secondary"
@@ -97,8 +94,8 @@
         <p
           class="text-white/50 text-lg md:text-xl max-w-2xl mx-auto mt-6 font-medium leading-relaxed"
         >
-          Kami menyediakan berbagai layanan terintegrasi untuk membantu organisasi
-          Anda dalam membangun sumber daya manusia yang unggul.
+          Kami menyediakan berbagai layanan terintegrasi untuk membantu
+          organisasi Anda dalam membangun sumber daya manusia yang unggul.
         </p>
       </div>
 
@@ -135,9 +132,7 @@
       </div>
 
       <!-- Services Grid: Bottom Row (2 cards, centered) -->
-      <div
-        class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto"
-      >
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
         <div
           v-for="(srv, idx) in services.slice(3)"
           :key="idx + 3"

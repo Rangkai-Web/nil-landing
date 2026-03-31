@@ -80,7 +80,7 @@
     >
       {{ link.name }}
     </a>
-    <hr class="border-slate-100 my-2" />
+    <hr class="border-slate-300 my-2" />
     <a
       href="https://dkn.moodle.com"
       target="_blank"

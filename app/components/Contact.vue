@@ -52,7 +52,7 @@
             </div>
           </div>
         </div>
-        <div class="flex gap-4 mt-8">
+        <div class="flex flex-col md:flex-row gap-4 mt-8">
           <a
             href="http://wa.me/6282343424071"
             target="_blank"

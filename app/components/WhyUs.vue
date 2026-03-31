@@ -131,7 +131,7 @@
             <div
               v-for="(doc, idx) in legalDocs"
               :key="idx"
-              class="group flex items-center justify-between p-5 rounded-2xl bg-background/80 border border-slate-300 hover:border-primary/30 transition-colors duration-300"
+              class="group flex flex-col md:flex-row md:items-center gap-4 justify-between p-5 rounded-2xl bg-background/80 border border-slate-300 hover:border-primary/30 transition-colors duration-300"
             >
               <div class="flex items-center gap-3">
                 <div
@@ -202,7 +202,7 @@
             >
               <NuxtImg
                 :src="person.img"
-                class="w-full h-32 rounded-xl hover:scale-110 transition-all duration-300"
+                class="w-full h-60 lg:h-32 rounded-xl hover:scale-110 transition-all duration-300"
                 draggable="false"
               />
               <div class="flex flex-col">
