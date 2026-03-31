@@ -194,21 +194,22 @@
             </div>
           </div>
 
-          <div class="space-y-4">
+          <div class="grid md:grid-cols-3 gap-4">
             <div
               v-for="(person, idx) in directors"
               :key="idx"
-              class="group flex items-center gap-5 p-5 rounded-2xl bg-background/80 border border-slate-300 hover:border-accent/30 transition-all duration-300"
+              class="group flex flex-col items-center gap-5 p-5 rounded-2xl bg-background/80 border border-slate-300 hover:border-accent/30 transition-all duration-300"
             >
               <NuxtImg
                 :src="person.img"
-                class="w-12 h-12 rounded-xl border border-slate-300 p-1"
+                class="w-full h-32 rounded-xl hover:scale-110 transition-all duration-300"
+                draggable="false"
               />
               <div class="flex flex-col">
-                <span class="font-black text-text tracking-tight">
+                <span class="font-black text-text tracking-tight text-center">
                   {{ person.name }}
                 </span>
-                <span class="text-sm text-slate-500 font-medium">
+                <span class="text-sm text-slate-500 font-medium text-center">
                   {{ person.role }}
                 </span>
               </div>

@@ -59,7 +59,7 @@
             rel="noreferrer"
             class="flex-1 bg-primary text-white px-6 py-3.5 rounded-full font-bold text-center flex items-center justify-center gap-2 hover:scale-105 transition-all duration-300"
           >
-            Hubungi WhatsApp
+            WhatsApp
             <Icon name="lucide:phone" size="18" />
           </a>
           <a

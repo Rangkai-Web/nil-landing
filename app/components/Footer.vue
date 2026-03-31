@@ -59,7 +59,7 @@
     <div class="max-w-7xl mx-auto px-6 relative z-10">
       <!-- Main Footer Grid -->
       <div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-6 mb-16"
       >
         <!-- Brand Column -->
         <div class="lg:col-span-1">

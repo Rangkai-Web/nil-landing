@@ -35,11 +35,11 @@
 
           <!-- Content Layer -->
           <div
-            class="absolute inset-0 z-20 flex flex-col items-start justify-center px-6 md:px-12 lg:px-24"
+            class="absolute inset-0 z-20 flex flex-col items-start justify-center px-6 md:px-12 lg:px-32"
           >
             <div class="max-w-4xl">
               <h1
-                class="text-5xl md:text-6xl lg:text-8xl font-black text-white leading-[1.05] mb-8 tracking-tighter"
+                class="text-5xl md:text-7xl font-black text-white leading-[1.05] mb-8 tracking-tighter"
               >
                 Where Competence <br />
                 <span

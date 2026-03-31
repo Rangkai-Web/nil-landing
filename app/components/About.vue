@@ -83,7 +83,7 @@
         </div>
 
         <!-- Visual Side -->
-        <div class="relative group">
+        <div class="relative group hidden lg:block">
           <!-- Abstract Decorations -->
           <div
             class="absolute -top-12 -right-12 w-64 h-64 bg-accent/10 rounded-full blur-3xl animate-pulse"
