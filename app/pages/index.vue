@@ -9,6 +9,7 @@
     <Training />
     <Cta />
     <Contact />
+    <Product />
     <Footer />
   </div>
 </template>

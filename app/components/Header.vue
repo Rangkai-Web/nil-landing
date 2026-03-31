@@ -105,6 +105,7 @@ const navLinks = [
   { name: "Training", href: "#training" },
   // { name: "Why Us", href: "#why-us" },
   { name: "Contact", href: "#contact" },
+  { name: "Products", href: "#products" },
 ];
 
 const handleScroll = () => {

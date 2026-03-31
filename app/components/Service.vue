@@ -7,70 +7,24 @@
 
     <!-- Decorative SVG elements -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
-      <!-- Large geometric shape top-right -->
-      <svg
-        class="absolute -top-20 -right-20 w-[600px] h-[600px] opacity-[0.04]"
-        viewBox="0 0 600 600"
-      >
-        <rect
-          x="100"
-          y="100"
-          width="400"
-          height="400"
-          rx="80"
-          fill="none"
-          stroke="white"
-          stroke-width="1.5"
-          transform="rotate(15 300 300)"
-        />
-        <rect
-          x="150"
-          y="150"
-          width="300"
-          height="300"
-          rx="60"
-          fill="none"
-          stroke="white"
-          stroke-width="1"
-          stroke-dasharray="12 8"
-          transform="rotate(15 300 300)"
-        />
-      </svg>
-
-      <!-- Circle bottom-left -->
-      <svg
-        class="absolute -bottom-24 -left-24 w-[400px] h-[400px] opacity-[0.05]"
-        viewBox="0 0 400 400"
-      >
-        <circle
-          cx="200"
-          cy="200"
-          r="160"
-          fill="none"
-          stroke="white"
-          stroke-width="1.5"
-        />
-        <circle
-          cx="200"
-          cy="200"
-          r="120"
-          fill="none"
-          stroke="white"
-          stroke-width="0.8"
-          stroke-dasharray="6 4"
-        />
-      </svg>
-
-      <!-- Floating accent dots -->
-      <div
-        class="absolute top-[15%] left-[8%] w-3 h-3 rounded-full bg-accent/20"
-      ></div>
-      <div
-        class="absolute top-[60%] right-[12%] w-2 h-2 rounded-full bg-accent/15"
-      ></div>
-      <div
-        class="absolute bottom-[20%] left-[25%] w-4 h-4 rounded-full bg-white/5"
-      ></div>
+      <SvgIconRotatedSquare
+        class="text-white"
+        :size="600"
+        :rotation="15"
+        position-class="absolute -top-20 -right-20 opacity-[0.04] pointer-events-none"
+      />
+      <SvgIconDashedCircle
+        class="text-white"
+        :size="400"
+        position-class="absolute -bottom-24 -left-24 opacity-[0.05] pointer-events-none"
+      />
+      <SvgIconFloatingDots
+        :dots="[
+          { top: '15%', left: '8%', size: '12px', color: 'bg-accent/20' },
+          { top: '60%', right: '12%', size: '8px', color: 'bg-accent/15' },
+          { bottom: '20%', left: '25%', size: '16px', color: 'bg-white/5' },
+        ]"
+      />
     </div>
 
     <div class="max-w-7xl mx-auto px-6 relative z-10">

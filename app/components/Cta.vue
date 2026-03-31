@@ -12,103 +12,29 @@
 
     <!-- Decorative SVG elements -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
-      <!-- Large dashed circle top-right -->
-      <!-- <svg
-        class="absolute -top-24 -right-24 w-[500px] h-[500px] opacity-[0.06]"
-        viewBox="0 0 500 500"
-      >
-        <circle
-          cx="250"
-          cy="250"
-          r="200"
-          fill="none"
-          stroke="white"
-          stroke-width="1.5"
-          stroke-dasharray="12 8"
-        />
-        <circle
-          cx="250"
-          cy="250"
-          r="160"
-          fill="none"
-          stroke="white"
-          stroke-width="1"
-        />
-      </svg> -->
-
-      <!-- Rotated square bottom-left -->
-      <svg
-        class="absolute -bottom-16 -left-16 w-[350px] h-[350px] opacity-[0.05]"
-        viewBox="0 0 350 350"
-      >
-        <rect
-          x="75"
-          y="75"
-          width="200"
-          height="200"
-          rx="40"
-          fill="none"
-          stroke="white"
-          stroke-width="1.5"
-          transform="rotate(25 175 175)"
-        />
-        <rect
-          x="100"
-          y="100"
-          width="150"
-          height="150"
-          rx="30"
-          fill="none"
-          stroke="white"
-          stroke-width="0.8"
-          stroke-dasharray="8 5"
-          transform="rotate(25 175 175)"
-        />
-      </svg>
-
-      <!-- Small accent circle center-left -->
-      <svg
-        class="absolute top-[30%] left-[5%] w-[120px] h-[120px] opacity-[0.08]"
-        viewBox="0 0 120 120"
-      >
-        <circle
-          cx="60"
-          cy="60"
-          r="50"
-          fill="none"
-          stroke="white"
-          stroke-width="1"
-        />
-      </svg>
-
-      <!-- Diamond shape right -->
-      <svg
-        class="absolute bottom-[25%] right-[8%] w-[80px] h-[80px] opacity-[0.07]"
-        viewBox="0 0 80 80"
-      >
-        <rect
-          x="15"
-          y="15"
-          width="50"
-          height="50"
-          rx="8"
-          fill="none"
-          stroke="white"
-          stroke-width="1.5"
-          transform="rotate(45 40 40)"
-        />
-      </svg>
-
-      <!-- Floating dots -->
-      <div
-        class="absolute top-[20%] right-[25%] w-3 h-3 rounded-full bg-accent/20"
-      ></div>
-      <div
-        class="absolute bottom-[15%] left-[30%] w-2 h-2 rounded-full bg-white/15"
-      ></div>
-      <div
-        class="absolute top-[55%] left-[15%] w-4 h-4 rounded-full bg-accent/10"
-      ></div>
+      <SvgIconRotatedSquare
+        class="text-white"
+        :size="350"
+        :rotation="25"
+        position-class="absolute -bottom-16 -left-16 opacity-[0.05] pointer-events-none"
+      />
+      <SvgIconSimpleCircle
+        class="text-white"
+        :size="120"
+        position-class="absolute top-[30%] left-[5%] opacity-[0.08] pointer-events-none"
+      />
+      <SvgIconDiamond
+        class="text-white"
+        :size="80"
+        position-class="absolute bottom-[25%] right-[8%] opacity-[0.07] pointer-events-none"
+      />
+      <SvgIconFloatingDots
+        :dots="[
+          { top: '20%', right: '25%', size: '12px', color: 'bg-accent/20' },
+          { bottom: '15%', left: '30%', size: '8px', color: 'bg-white/15' },
+          { top: '55%', left: '15%', size: '16px', color: 'bg-accent/10' },
+        ]"
+      />
 
       <!-- Glow blobs -->
       <div

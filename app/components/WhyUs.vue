@@ -4,29 +4,7 @@
     class="relative py-32 px-6 overflow-hidden bg-background"
   >
     <!-- Background SVG Pattern -->
-    <div class="absolute inset-0 z-0 opacity-[0.03] pointer-events-none">
-      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern
-            id="grid-pattern"
-            x="0"
-            y="0"
-            width="60"
-            height="60"
-            patternUnits="userSpaceOnUse"
-          >
-            <path
-              d="M 60 0 L 0 0 0 60"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="0.5"
-              class="text-primary"
-            />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#grid-pattern)" />
-      </svg>
-    </div>
+    <SvgIconGridPattern patternId="whyus-grid" />
 
     <div class="max-w-7xl mx-auto relative z-10">
       <!-- Section Header -->
@@ -78,38 +56,17 @@
       </div>
 
       <!-- Legalitas & Manajemen -->
-      <div class="grid lg:grid-cols-2 gap-8">
+      <div class="grid gap-8">
         <!-- Legalitas Card -->
         <div
           class="relative bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl p-10 md:p-12 shadow-xl shadow-primary/5 overflow-hidden"
         >
           <!-- Decorative corner SVG -->
-          <svg
-            class="absolute -top-6 -right-6 w-40 h-40 text-primary opacity-[0.04]"
-            viewBox="0 0 160 160"
-          >
-            <rect
-              x="20"
-              y="20"
-              width="120"
-              height="120"
-              rx="24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            />
-            <rect
-              x="40"
-              y="40"
-              width="80"
-              height="80"
-              rx="16"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-dasharray="6 4"
-            />
-          </svg>
+          <SvgIconNestedSquare
+            class="text-primary"
+            :size="160"
+            position-class="absolute -top-6 -right-6 opacity-[0.04] pointer-events-none"
+          />
 
           <div class="flex items-center gap-4 mb-10">
             <div
@@ -127,13 +84,13 @@
             </div>
           </div>
 
-          <div class="space-y-4">
+          <div class="grid md:grid-cols-3 gap-4">
             <div
               v-for="(doc, idx) in legalDocs"
               :key="idx"
-              class="group flex flex-col md:flex-row md:items-center gap-4 justify-between p-5 rounded-2xl bg-background/80 border border-slate-300 hover:border-primary/30 transition-colors duration-300"
+              class="group flex flex-col md:flex-row md:items-center gap-2 justify-between p-4 rounded-2xl bg-background/80 border border-slate-300 hover:border-primary/30 transition-colors duration-300"
             >
-              <div class="flex items-center gap-3">
+              <div class="flex items-center gap-2">
                 <div
                   class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary"
                 >
@@ -151,32 +108,14 @@
         </div>
 
         <!-- Manajemen Card -->
-        <div
+        <!-- <div
           class="relative bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl p-10 md:p-12 shadow-xl shadow-primary/5 overflow-hidden"
         >
-          <!-- Decorative corner SVG -->
-          <svg
-            class="absolute -bottom-6 -left-6 w-40 h-40 text-accent opacity-[0.06]"
-            viewBox="0 0 160 160"
-          >
-            <circle
-              cx="80"
-              cy="80"
-              r="60"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            />
-            <circle
-              cx="80"
-              cy="80"
-              r="40"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1"
-              stroke-dasharray="5 3"
-            />
-          </svg>
+          <SvgIconDashedCircle
+            class="text-accent"
+            :size="160"
+            position-class="absolute -bottom-6 -left-6 opacity-[0.06] pointer-events-none"
+          />
 
           <div class="flex items-center gap-4 mb-10">
             <div
@@ -215,7 +154,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>

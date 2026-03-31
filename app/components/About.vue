@@ -1,29 +1,7 @@
 <template>
   <section id="about" class="relative py-32 px-6 overflow-hidden bg-background">
     <!-- Background SVG Pattern -->
-    <div class="absolute inset-0 z-0 opacity-[0.03] pointer-events-none">
-      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern
-            id="dots"
-            x="0"
-            y="0"
-            width="40"
-            height="40"
-            patternUnits="userSpaceOnUse"
-          >
-            <circle
-              cx="2"
-              cy="2"
-              r="1.5"
-              fill="currentColor"
-              class="text-primary"
-            />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#dots)" />
-      </svg>
-    </div>
+    <SvgIconDotPattern patternId="about-dots" />
 
     <div class="max-w-7xl mx-auto relative z-10">
       <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -135,20 +113,11 @@
           </div>
 
           <!-- Decorative SVGs -->
-          <svg
-            class="absolute -top-8 -left-8 text-accent opacity-20 w-32 h-32"
-            viewBox="0 0 100 100"
-          >
-            <circle
-              cx="50"
-              cy="50"
-              r="40"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-dasharray="10 5"
-            />
-          </svg>
+          <SvgIconDashedCircle
+            class="text-accent"
+            :size="128"
+            position-class="absolute -top-8 -left-8 opacity-20 pointer-events-none"
+          />
         </div>
       </div>
     </div>

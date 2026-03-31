@@ -2,58 +2,24 @@
   <footer class="relative bg-primary pt-24 pb-8 overflow-hidden">
     <!-- Decorative SVG elements -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
-      <!-- Dashed circle top-right -->
-      <svg
-        class="absolute -top-20 -right-20 w-[400px] h-[400px] opacity-[0.05]"
-        viewBox="0 0 400 400"
-      >
-        <circle
-          cx="200"
-          cy="200"
-          r="160"
-          fill="none"
-          stroke="white"
-          stroke-width="1.5"
-          stroke-dasharray="10 6"
-        />
-        <circle
-          cx="200"
-          cy="200"
-          r="120"
-          fill="none"
-          stroke="white"
-          stroke-width="0.8"
-        />
-      </svg>
-
-      <!-- Rotated square bottom-left -->
-      <svg
-        class="absolute -bottom-12 -left-12 w-[250px] h-[250px] opacity-[0.04]"
-        viewBox="0 0 250 250"
-      >
-        <rect
-          x="50"
-          y="50"
-          width="150"
-          height="150"
-          rx="30"
-          fill="none"
-          stroke="white"
-          stroke-width="1.5"
-          transform="rotate(20 125 125)"
-        />
-      </svg>
-
-      <!-- Floating dots -->
-      <div
-        class="absolute top-[15%] left-[10%] w-2 h-2 rounded-full bg-accent/15"
-      ></div>
-      <div
-        class="absolute top-[40%] right-[15%] w-3 h-3 rounded-full bg-white/5"
-      ></div>
-      <div
-        class="absolute bottom-[30%] left-[40%] w-2 h-2 rounded-full bg-accent/10"
-      ></div>
+      <SvgIconDashedCircle
+        class="text-white"
+        :size="400"
+        position-class="absolute -top-20 -right-20 opacity-[0.05] pointer-events-none"
+      />
+      <SvgIconRotatedSquare
+        class="text-white"
+        :size="250"
+        :rotation="20"
+        position-class="absolute -bottom-12 -left-12 opacity-[0.04] pointer-events-none"
+      />
+      <SvgIconFloatingDots
+        :dots="[
+          { top: '15%', left: '10%', size: '8px', color: 'bg-accent/15' },
+          { top: '40%', right: '15%', size: '12px', color: 'bg-white/5' },
+          { bottom: '30%', left: '40%', size: '8px', color: 'bg-accent/10' },
+        ]"
+      />
     </div>
 
     <div class="max-w-7xl mx-auto px-6 relative z-10">
@@ -202,6 +168,7 @@ const quickLinks = [
   { name: "Training", href: "#training" },
   { name: "Why Choose Us", href: "#why-us" },
   { name: "Contact", href: "#contact" },
+  { name: "Products", href: "#products" },
 ];
 
 const contactInfo = [
@@ -212,7 +179,7 @@ const contactInfo = [
   },
   {
     label: "Email",
-    value: "dayagunakompetensinusantara@gmail.com",
+    value: "info@dkn.digital ",
     icon: "lucide:mail",
   },
   {

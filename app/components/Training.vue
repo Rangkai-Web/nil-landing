@@ -1,29 +1,7 @@
 <template>
   <section id="training" class="relative py-32 px-6 overflow-hidden">
     <!-- Background SVG Pattern -->
-    <div class="absolute inset-0 z-0 opacity-[0.03] pointer-events-none">
-      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern
-            id="training-dots"
-            x="0"
-            y="0"
-            width="40"
-            height="40"
-            patternUnits="userSpaceOnUse"
-          >
-            <circle
-              cx="2"
-              cy="2"
-              r="1.5"
-              fill="currentColor"
-              class="text-primary"
-            />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#training-dots)" />
-      </svg>
-    </div>
+    <SvgIconDotPattern patternId="training-dots" />
 
     <div class="max-w-7xl mx-auto relative z-10">
       <!-- Section Header -->
@@ -56,9 +34,9 @@
           class="inline-flex flex-wrap justify-center gap-3 p-2 bg-white/60 backdrop-blur-sm border border-white/80 rounded-2xl shadow-lg shadow-primary/5"
         >
           <button
-            v-for="(courses, cat) in trainingData"
+            v-for="cat in categories"
             :key="cat"
-            @click="activeTab = String(cat)"
+            @click="setActiveTab(cat)"
             :class="[
               'px-6 py-3 rounded-xl text-sm font-black tracking-tight transition-all duration-300 whitespace-nowrap cursor-pointer',
               activeTab === cat
@@ -71,48 +49,64 @@
         </div>
       </div>
 
-      <!-- Course Cards -->
+      <!-- Course List -->
       <div
         class="bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl p-8 md:p-12 shadow-xl shadow-primary/5 mb-16"
       >
-        <div class="flex items-center gap-4 mb-10">
+        <div class="flex justify-center flex-col items-center gap-2 mb-10">
           <div
             class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary"
           >
             <Icon name="lucide:book-open" size="24" />
           </div>
-          <div>
-            <h3 class="text-2xl font-black text-text tracking-tight">
-              {{ activeTab }}
-            </h3>
-            <p class="text-slate-500 text-sm font-medium">
-              {{ (trainingData[activeTab] || []).length }} program tersedia
-            </p>
-          </div>
+          <h3 class="text-2xl font-black text-text tracking-tight">
+            {{ activeTab }}
+          </h3>
+          <!-- <p class="text-slate-500 text-sm font-medium">
+            {{ activeCourseCount }} program tersedia
+          </p> -->
         </div>
 
-        <div class="grid md:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div
-            v-for="(course, idx) in trainingData[activeTab]"
-            :key="idx"
-            class="group flex items-center gap-5 p-5 rounded-2xl bg-background/80 border border-slate-300 hover:border-primary/30 hover:bg-white transition-all duration-300"
+            v-for="course in filteredCourses"
+            :key="course.id"
+            class="group relative bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl overflow-hidden shadow-xl shadow-primary/5 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2 flex flex-col"
           >
-            <div
-              class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-black text-sm shrink-0 group-hover:text-white transition-all duration-500"
-            >
-              {{ String(idx + 1).padStart(2, "0") }}
+            <!-- Image -->
+            <div class="relative h-48 overflow-hidden">
+              <NuxtImg
+                :src="course.image"
+                :alt="course.title"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                loading="lazy"
+              />
+              <div
+                class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500"
+              ></div>
             </div>
-            <div class="flex flex-col">
-              <h4
-                class="font-black text-text tracking-tight group-hover:text-primary transition-colors duration-300"
+
+            <!-- Content -->
+            <div class="p-6 flex flex-col flex-1">
+              <h3
+                class="text-lg font-black text-text tracking-tight mb-2 group-hover:text-primary transition-colors duration-300 line-clamp-2"
               >
-                {{ course }}
-              </h4>
-              <span
-                class="text-xs text-slate-400 font-bold uppercase tracking-wider mt-1"
+                {{ course.title }}
+              </h3>
+              <p
+                class="text-slate-500 text-sm leading-relaxed font-medium mb-6 line-clamp-3 flex-1"
               >
-                Digital Material
-              </span>
+                {{ course.description }}
+              </p>
+              <!-- <a
+                :href="course.link"
+                target="_blank"
+                rel="noreferrer"
+                class="inline-flex items-center justify-center gap-2 bg-primary/10 text-primary px-5 py-3 rounded-xl font-black text-sm hover:bg-primary hover:text-white! transition-all duration-300 w-full mt-auto"
+              >
+                Akses Materi
+                <Icon name="lucide:external-link" size="16" />
+              </a> -->
             </div>
           </div>
         </div>
@@ -123,28 +117,11 @@
         class="relative bg-linear-to-r from-primary to-secondary rounded-3xl p-10 md:p-14 overflow-hidden"
       >
         <!-- Decorative SVGs -->
-        <svg
-          class="absolute -top-12 -right-12 w-64 h-64 text-white opacity-[0.06]"
-          viewBox="0 0 256 256"
-        >
-          <circle
-            cx="128"
-            cy="128"
-            r="100"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          />
-          <circle
-            cx="128"
-            cy="128"
-            r="70"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1"
-            stroke-dasharray="8 6"
-          />
-        </svg>
+        <SvgIconDoubleCircle
+          class="text-white"
+          :size="256"
+          position-class="absolute -top-12 -right-12 opacity-[0.06] pointer-events-none"
+        />
         <div
           class="absolute -bottom-16 -left-16 w-48 h-48 bg-accent/10 rounded-full blur-3xl"
         ></div>
@@ -179,45 +156,14 @@
   </section>
 </template>
 
-<script setup>
-import { ref } from "vue";
+<script setup lang="ts">
+import { storeToRefs } from "pinia";
+import { useTrainingStore } from "~/stores/trainingStore";
 
-const activeTab = ref("Core Banking");
-
-const trainingData = {
-  "Core Banking": [
-    "General Banking Level 4",
-    "Cash Handling Level 4",
-    "Cash Handling Level 5",
-    "Branch Operations Excellence Program",
-  ],
-  Leadership: [
-    "Officer Development Program (ODP)",
-    "Building High-Performance Corporate Culture",
-    "Performance Management for High-Impact Teams",
-    "Coaching Skills for Leaders & Supervisors",
-    "Strategic Personal Branding for Professionals",
-  ],
-  Finance: [
-    "Financial Statement Analysis & Investment Evaluation",
-    "Fundamentals of Financial Management",
-    "Financial Planning",
-    "Wealth Management Basics",
-  ],
-  "Business Strategy": [
-    "Strategic Management & Execution Excellence",
-    "Business Planning & Business Model Development",
-    "Value Chain Management & Business Ecosystem Strategy",
-    "Business Case Writing for Decision Making",
-    "Value-Based Management for Organizational Performance",
-  ],
-  "Marketing & Sales": [
-    "Digital Marketing",
-    "Marketing Fundamentals for Business Growth",
-    "Smart Selling Skills",
-    "Service Excellence & Customer Experience Mastery",
-  ],
-};
+const store = useTrainingStore();
+const { activeTab, categories, filteredCourses, activeCourseCount } =
+  storeToRefs(store);
+const { setActiveTab } = store;
 </script>
 
 <style scoped></style>

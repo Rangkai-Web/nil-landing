@@ -7,64 +7,23 @@
 
     <!-- Decorative SVG shapes -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
-      <!-- Large circle top-right -->
-      <svg
-        class="absolute -top-32 -right-32 w-[500px] h-[500px] opacity-[0.06]"
-        viewBox="0 0 500 500"
-      >
-        <circle
-          cx="250"
-          cy="250"
-          r="200"
-          fill="none"
-          stroke="white"
-          stroke-width="1.5"
-        />
-        <circle
-          cx="250"
-          cy="250"
-          r="230"
-          fill="none"
-          stroke="white"
-          stroke-width="0.5"
-          stroke-dasharray="8 6"
-        />
-      </svg>
-
-      <!-- Small circle bottom-left -->
-      <svg
-        class="absolute -bottom-20 -left-20 w-[300px] h-[300px] opacity-[0.05]"
-        viewBox="0 0 300 300"
-      >
-        <circle
-          cx="150"
-          cy="150"
-          r="120"
-          fill="none"
-          stroke="white"
-          stroke-width="1.5"
-        />
-      </svg>
-
-      <!-- Floating dots -->
-      <svg
-        class="absolute top-20 left-[15%] w-4 h-4 opacity-20"
-        viewBox="0 0 16 16"
-      >
-        <circle cx="8" cy="8" r="8" fill="white" />
-      </svg>
-      <svg
-        class="absolute bottom-32 right-[20%] w-3 h-3 opacity-15"
-        viewBox="0 0 12 12"
-      >
-        <circle cx="6" cy="6" r="6" fill="white" />
-      </svg>
-      <svg
-        class="absolute top-[40%] right-[10%] w-2 h-2 opacity-25"
-        viewBox="0 0 8 8"
-      >
-        <circle cx="4" cy="4" r="4" fill="white" />
-      </svg>
+      <SvgIconDoubleCircle
+        class="text-white"
+        :size="500"
+        position-class="absolute -top-32 -right-32 opacity-[0.06] pointer-events-none"
+      />
+      <SvgIconSimpleCircle
+        class="text-white"
+        :size="300"
+        position-class="absolute -bottom-20 -left-20 opacity-[0.05] pointer-events-none"
+      />
+      <SvgIconFloatingDots
+        :dots="[
+          { top: '80px', left: '15%', size: '16px', color: 'bg-white/20' },
+          { bottom: '128px', right: '20%', size: '12px', color: 'bg-white/15' },
+          { top: '40%', right: '10%', size: '8px', color: 'bg-white/25' },
+        ]"
+      />
     </div>
 
     <div class="max-w-7xl mx-auto px-6 relative z-10">

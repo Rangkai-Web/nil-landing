@@ -33,7 +33,7 @@
             <div>
               <h4 class="text-sm font-bold text-slate-400 mb-1">Email</h4>
               <p class="text-lg font-bold text-[#0F172A] break-all">
-                dayagunakompetensinusantara@gmail.com
+                info@dkn.digital
               </p>
             </div>
           </div>
