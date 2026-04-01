@@ -83,7 +83,7 @@
 
                 <NuxtImg
                   :src="testimonial.img"
-                  :alt="`${testimonial.name} - DKN Digital`"
+                  :alt="`${testimonial.title} - DKN Digital`"
                   class="w-full h-fit object-contain rounded-2xl select-none"
                   draggable="false"
                   loading="lazy"
@@ -118,15 +118,15 @@ import "vue3-carousel/dist/carousel.css";
 const testimonials = [
   {
     img: "/img/testimoni/testimoni1.jpeg",
-    name: "Testimoni 1",
+    title: "Testimoni 1",
   },
   {
     img: "/img/testimoni/testimoni1.jpeg",
-    name: "Testimoni 2",
+    title: "Testimoni 2",
   },
   {
     img: "/img/testimoni/testimoni1.jpeg",
-    name: "Testimoni 3",
+    title: "Testimoni 3",
   },
 ];
 

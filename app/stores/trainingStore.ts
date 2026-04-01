@@ -15,7 +15,6 @@ export const useTrainingStore = defineStore("training", () => {
   const activeTab = ref("Core Banking");
 
   const courses = ref<ICourse[]>([
-    // Core Banking
     {
       id: 1,
       title: "General Banking Level 4",
@@ -56,8 +55,6 @@ export const useTrainingStore = defineStore("training", () => {
       link: "https://dkn.moodle.com",
       category: "Core Banking",
     },
-
-    // Leadership
     {
       id: 5,
       title: "Officer Development Program (ODP)",
@@ -98,8 +95,6 @@ export const useTrainingStore = defineStore("training", () => {
       link: "https://dkn.moodle.com",
       category: "Leadership",
     },
-
-    // Finance
     {
       id: 9,
       title: "Financial Statement Analysis & Investment Evaluation",
@@ -140,8 +135,6 @@ export const useTrainingStore = defineStore("training", () => {
       link: "https://dkn.moodle.com",
       category: "Finance",
     },
-
-    // Business Strategy
     {
       id: 13,
       title: "Strategic Management & Execution Excellence",
@@ -181,8 +174,6 @@ export const useTrainingStore = defineStore("training", () => {
       link: "https://dkn.moodle.com",
       category: "Business Strategy",
     },
-
-    // Marketing & Sales
     {
       id: 17,
       title: "Digital Marketing",
