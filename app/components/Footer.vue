@@ -184,7 +184,8 @@ const contactInfo = [
   },
   {
     label: "Lokasi",
-    value: "Jakarta Pusat, DKI Jakarta",
+    value:
+      "Jl. Sono No. 18 RT 012 RW 002, Bungur, Senen, Jakarta Pusat, DKI Jakarta",
     icon: "lucide:map-pin",
   },
 ];
