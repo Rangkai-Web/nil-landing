@@ -5,7 +5,7 @@
 
     <div class="max-w-7xl mx-auto relative z-10">
       <!-- Section Header -->
-      <div class="text-center mb-20">
+      <div class="text-center mb-16">
         <div class="flex items-center justify-center gap-3 mb-6">
           <div class="w-12 h-[2px] bg-accent"></div>
           <span
@@ -23,7 +23,7 @@
       </div>
 
       <!-- Why Choose Us Grid -->
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
         <div
           v-for="(item, idx) in whyChooseUsItems"
           :key="idx"

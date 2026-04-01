@@ -10,6 +10,7 @@
     <WhyUs />
     <Cta />
     <Product />
+    <Testimoni />
     <Contact />
     <Footer />
   </div>
