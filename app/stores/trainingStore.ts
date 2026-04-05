@@ -40,7 +40,7 @@ export const useTrainingStore = defineStore("training", () => {
 
     try {
       const config = useRuntimeConfig();
-      const baseUrl = config.public.apiBaseUrl || "http://127.0.0.1:8000/api/";
+      const baseUrl = config.public.apiBaseUrl;
 
       const data = await $fetch<any>(`${baseUrl}trainings`);
 
