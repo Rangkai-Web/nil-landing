@@ -64,7 +64,7 @@
                     <Icon name="lucide:chevron-right" size="24" class="ml-2" />
                   </a>
                   <a
-                    href="https://lms.dkn.digital/login/index.php"
+                    href="https://elearning.dkn.digital/login/index.php"
                     target="_blank"
                     rel="noreferrer"
                     class="flex items-center justify-center bg-secondary backdrop-blur-md text-white px-10 py-5 rounded-full font-black text-lg hover:bg-primary border border-white/20 hover:scale-110 transition-all duration-300 shadow-2xl uppercase tracking-wider"
