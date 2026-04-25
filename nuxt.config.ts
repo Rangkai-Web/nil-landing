@@ -33,38 +33,38 @@ export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
   app: {
     head: {
+      title: "NIL Entertain — Photobooth & Videobooth360 Bali",
       htmlAttrs: {
-        lang: "en",
+        lang: "id",
       },
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=5' },
+        { name: 'description', content: 'NIL Entertain — Photobooth & Videobooth360 premium untuk event spesial di Bali. Wedding, corporate, birthday, dan private event.' },
+      ],
       link: [
-        {
-          rel: "preconnect",
-          href: "https://images.unsplash.com",
-          crossorigin: "anonymous",
-        },
-        { rel: "dns-prefetch", href: "https://images.unsplash.com" },
-        { rel: "dns-prefetch", href: "https://images.unsplash.com" },
-        {
-          rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200",
-        },
+        { rel: "preconnect", href: "https://fonts.googleapis.com" },
+        { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "anonymous" },
+        { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" },
       ],
     },
   },
   site: {
-    url: "https://dkn.digital",
-    name: "DKN Digital",
-    description: "DKN Digital",
-    defaultLocale: "en",
+    url: "https://nilentertain.com",
+    name: "NIL Entertain",
+    description: "Photobooth & Videobooth360 Bali",
+    defaultLocale: "id",
     indexable: true,
   },
   fonts: {
-    families: [],
+    families: [
+      { name: 'Cormorant Garamond', provider: 'google' },
+      { name: 'Manrope', provider: 'google' }
+    ],
   },
   image: {
     quality: 80,
     format: ["webp", "avif"],
-    domains: ["127.0.0.1:8000", "panel.dkn.digital"],
+    domains: ["127.0.0.1:8000"],
     screens: {
       xs: 320,
       sm: 640,
@@ -76,46 +76,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      // nuxt automatically maps NUXT_PUBLIC_API_BASE_URL from env to config.public.apiBaseUrl
-      apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || process.env.API_BASE_URL || "/",
+      apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || "/",
     },
-  },
-  routeRules: {
-    "/": {
-      headers: {
-        "Cache-Control": "public, max-age=3600, must-revalidate",
-      },
-    },
-    "/**": {
-      headers: {
-        "Cache-Control": "public, max-age=31536000, immutable",
-      },
-    },
-  },
-  nitro: {
-    compressPublicAssets: true,
-    routeRules: {
-      "/**": {
-        headers: {
-          "X-Content-Type-Options": "nosniff",
-          "X-Frame-Options": "DENY",
-          "X-XSS-Protection": "1; mode=block",
-          "Referrer-Policy": "strict-origin-when-cross-origin",
-          "Permissions-Policy":
-            "camera=(), microphone=(), geolocation=(), interest-cohort=()",
-          "Cross-Origin-Opener-Policy": "same-origin",
-          "Cross-Origin-Resource-Policy": "cross-origin",
-          "Strict-Transport-Security":
-            "max-age=31536000; includeSubDomains; preload",
-          "Content-Security-Policy":
-            "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob: http://127.0.0.1:8000 https://panel.dkn.digital; connect-src 'self' https://wa.me http://127.0.0.1:8000 https://panel.dkn.digital https://api.iconify.design; frame-src 'self' https://www.google.com https://maps.google.com https://calendar.google.com; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;",
-          "X-DNS-Prefetch-Control": "on",
-          "X-Permitted-Cross-Domain-Policies": "none",
-        },
-      },
-    },
-  },
-  experimental: {
-    payloadExtraction: false,
   },
 });

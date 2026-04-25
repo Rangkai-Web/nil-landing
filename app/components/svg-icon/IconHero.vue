@@ -1,0 +1,7 @@
+<template>
+  <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="14" width="48" height="36" rx="2" stroke="currentColor" stroke-width="1.5"></rect>
+    <circle cx="32" cy="32" r="10" stroke="#7d0516" stroke-width="1.5"></circle>
+    <circle cx="50" cy="20" r="3" fill="#7d0516" opacity="0.6"></circle>
+  </svg>
+</template>
