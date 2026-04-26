@@ -22,7 +22,7 @@ const steps = [
     <!-- Decorative Background -->
     <div class="decor-wrapper">
       <TextureLines class="opacity-40 text-[#890015]" />
-      <DoubleCircle :size="600" position-class="absolute -top-50 -left-40 opacity-40 text-[#890015]" />
+      <DoubleCircle :size="600" position-class="absolute -top-50 -left-50 opacity-40 text-[#890015]" />
     </div>
 
     <div class="container">

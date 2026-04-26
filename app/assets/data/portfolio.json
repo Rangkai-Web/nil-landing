@@ -1,0 +1,100 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "title": "Elegant Wedding Session",
+      "category": "Wedding",
+      "image": "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": 2,
+      "title": "Modern Photobooth Setup",
+      "category": "Photobooth",
+      "image": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": 3,
+      "title": "360 Videobooth Experience",
+      "category": "Videobooth",
+      "image": "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": 4,
+      "title": "Graduation Celebration",
+      "category": "Graduation",
+      "image": "https://images.unsplash.com/photo-1523240715639-9988d1eebe5a?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": 5,
+      "title": "Pre Wedding Romantic",
+      "category": "Pre Wedding",
+      "image": "https://images.unsplash.com/photo-1510076857177-7470076d4098?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": 6,
+      "title": "Vintage Photobox",
+      "category": "Photobox",
+      "image": "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": 7,
+      "title": "Corporate Gathering",
+      "category": "Lainnya",
+      "image": "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": 8,
+      "title": "Wedding Reception",
+      "category": "Wedding",
+      "image": "https://images.unsplash.com/photo-1465495910483-0d6745778503?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": 9,
+      "title": "Digital Photobooth",
+      "category": "Photobooth",
+      "image": "https://images.unsplash.com/photo-1519222970733-f746152fe63b?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": 10,
+      "title": "Slow Motion Video",
+      "category": "Videobooth",
+      "image": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": 11,
+      "title": "Graduation Party",
+      "category": "Graduation",
+      "image": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": 12,
+      "title": "Beach Pre Wedding",
+      "category": "Pre Wedding",
+      "image": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": 13,
+      "title": "Retro Photobox",
+      "category": "Photobox",
+      "image": "https://images.unsplash.com/photo-1514525253344-f81bad393922?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": 14,
+      "title": "Product Launch",
+      "category": "Lainnya",
+      "image": "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": 15,
+      "title": "Luxury Wedding",
+      "category": "Wedding",
+      "image": "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": 16,
+      "title": "Interactive Booth",
+      "category": "Photobooth",
+      "image": "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=800&auto=format&fit=crop"
+    }
+  ]
+}

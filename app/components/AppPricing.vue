@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import IconCheck from './svg-icon/IconCheck.vue'
-import DashedCircle from './svg-icon/DashedCircle.vue'
+import DoubleCircle from './svg-icon/DoubleCircle.vue'
 import TextureLines from './svg-icon/TextureLines.vue'
 
 const packages = [
@@ -8,6 +8,7 @@ const packages = [
     tier: 'Basic',
     name: 'Photobooth',
     tagline: 'Ideal untuk event intimate & gathering',
+    price: 'Sangat Terjangkau',
     features: [
       'Photobooth setup premium',
       'Durasi 4 jam event',
@@ -24,6 +25,7 @@ const packages = [
     tier: 'Premium',
     name: 'Photo + 360',
     tagline: 'Sempurna untuk wedding & birthday party',
+    price: 'Paling Diminati',
     badge: 'Most Popular',
     features: [
       'Photobooth + Videobooth360',
@@ -42,6 +44,7 @@ const packages = [
     tier: 'Corporate',
     name: 'Full Activation',
     tagline: 'Solusi lengkap untuk corporate & brand event',
+    price: 'Custom Project',
     features: [
       'Full event activation',
       'Branding booth eksklusif',
@@ -61,16 +64,23 @@ const packages = [
 <template>
   <section id="paket">
     <!-- Background Image with Overlay -->
-    <div class="paket-bg">
-      <img src="/img/others/photography.jpg" alt="Photography Background" class="bg-img" />
+    <div class="paket-bg-container">
+      <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=2000" alt="Luxury Event" class="bg-img" />
       <div class="bg-overlay"></div>
+      
+      <!-- Decorative Elements -->
+      <div class="decor-layer">
+        <TextureLines class="opacity-30 text-white" />
+        <DoubleCircle :size="1000" position-class="absolute -top-100 -right-100 opacity-20 text-[#890015]" />
+        <DoubleCircle :size="600" position-class="absolute -bottom-50 -left-50 opacity-20 text-[#890015]" />
+      </div>
     </div>
 
     <div class="container">
       <div class="paket-header">
-        <!-- <div class="section-label reveal">Pricing Plans</div> -->
-        <h2 class="paket-h2 reveal d1">Paket <em>Eksklusif</em></h2>
-        <p class="paket-sub reveal d2">Temukan paket yang paling sesuai untuk mengabadikan momen berharga di event spesial Anda.</p>
+        <div class="section-label reveal text-white!">Investment</div>
+        <h2 class="paket-h2 reveal d1">Pilih Paket <em>Terbaik</em> Anda</h2>
+        <p class="paket-sub reveal d2">Setiap paket dirancang untuk memberikan pengalaman dokumentasi event yang tak terlupakan dengan sentuhan kemewahan.</p>
       </div>
 
       <div class="paket-grid">
@@ -80,36 +90,39 @@ const packages = [
           class="paket-card reveal" 
           :class="[{ 'featured': pkg.featured }, 'd' + (i+1)]"
         >
-          <!-- Background Decorations -->
-          <div class="card-decor">
-            <TextureLines v-if="pkg.featured" class="opacity-[0.05] text-white" />
-            <DashedCircle :size="300" position-class="absolute -bottom-20 -right-20 opacity-[0.1] text-[var(--burg)]" />
-          </div>
-
           <div v-if="pkg.badge" class="paket-badge">{{ pkg.badge }}</div>
           
-          <div class="card-content">
+          <div class="card-head">
             <div class="paket-tier">{{ pkg.tier }}</div>
-            <div class="paket-name">{{ pkg.name }}</div>
-            <div class="paket-tagline">{{ pkg.tagline }}</div>
-            
-            <div class="paket-divider"></div>
-            
+            <h3 class="paket-name">{{ pkg.name }}</h3>
+            <p class="paket-tagline">{{ pkg.tagline }}</p>
+          </div>
+
+          <div class="paket-divider"></div>
+
+          <div class="card-body">
             <ul class="paket-features">
               <li v-for="feat in pkg.features" :key="feat">
-                <IconCheck class="feature-icon" />
+                <div class="feat-dot"></div>
                 <span>{{ feat }}</span>
               </li>
             </ul>
           </div>
 
           <div class="card-footer">
-            <a :href="pkg.link" target="_blank" class="paket-cta">
+            <div class="paket-price">{{ pkg.price }}</div>
+            <a :href="pkg.link" target="_blank" class="paket-cta-btn">
               <span>{{ pkg.cta }}</span>
-              <div class="cta-arrow">→</div>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
             </a>
           </div>
         </div>
+      </div>
+      
+      <div class="paket-note reveal d3">
+        *Harga dapat menyesuaikan tergantung lokasi dan durasi tambahan. <a href="https://wa.me/6281234567890">Hubungi kami</a> untuk penawaran khusus.
       </div>
     </div>
   </section>
@@ -120,41 +133,46 @@ const packages = [
   padding: 160px 0;
   position: relative;
   overflow: hidden;
+  background-color: #0c0a09;
 }
 
-.paket-bg {
+.paket-bg-container {
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
 }
 
 .bg-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0.6;
+  filter: brightness(0.4) saturate(1.2);
 }
 
 .bg-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(12, 9, 7, 0.7); /* Deep dark primary */
-  background: linear-gradient(
-    to bottom,
-    rgba(12, 9, 7, 0.8) 0%,
-    rgba(125, 5, 22, 0.5) 50%,
-    rgba(12, 9, 7, 0.9) 100%
-  );
+  background: linear-gradient(to bottom, #0c0a09, rgba(125, 5, 22, 0.4), #0c0a09);
+  z-index: 2;
+}
+
+.decor-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
 }
 
 .container {
   position: relative;
-  z-index: 2;
+  z-index: 4;
 }
 
 .paket-header {
   text-align: center;
-  margin-bottom: 80px;
-  max-width: 600px;
+  margin-bottom: 100px;
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -163,8 +181,9 @@ const packages = [
   font-family: var(--ff-head);
   font-size: clamp(42px, 5vw, 68px);
   font-weight: 300;
-  color: var(--cream);
+  color: var(--white);
   line-height: 1.1;
+  margin-top: 12px;
 }
 
 .paket-h2 em {
@@ -175,192 +194,181 @@ const packages = [
 
 .paket-sub {
   font-size: 16px;
-  color: #fff;
-  margin-top: 20px;
-  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 24px;
+  line-height: 1.8;
 }
 
 .paket-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 32px;
   align-items: stretch;
 }
 
 .paket-card {
-  background: rgba(20, 18, 16, 0.6);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(233, 231, 221, 0.1);
-  padding: 60px 40px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 60px 48px;
   position: relative;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  transition: all 0.5s var(--ease);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   border-radius: 4px;
 }
 
 .paket-card:hover {
-  transform: translateY(-12px);
+  transform: translateY(-20px);
+  background: rgba(255, 255, 255, 0.06);
   border-color: var(--burg);
-  background: rgba(20, 18, 16, 0.85);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
 }
 
 .paket-card.featured {
-  background: rgba(20, 18, 16, 0.8);
+  background: rgba(125, 5, 22, 0.15);
   border: 1px solid var(--burg);
-  box-shadow: 0 20px 50px rgba(125, 5, 22, 0.2);
-  transform: scale(1.05);
+  box-shadow: 0 20px 60px rgba(125, 5, 22, 0.2);
 }
 
 .paket-card.featured:hover {
-  transform: scale(1.05) translateY(-12px);
-  box-shadow: 0 40px 80px rgba(125, 5, 22, 0.3);
-}
-
-.card-decor {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
+  background: rgba(125, 5, 22, 0.2);
 }
 
 .paket-badge {
   position: absolute;
-  top: 24px;
-  right: -32px;
+  top: 30px;
+  right: -35px;
   background: var(--burg);
   color: var(--white);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  padding: 8px 40px;
+  padding: 10px 45px;
   transform: rotate(45deg);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.card-content {
-  position: relative;
-  z-index: 2;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 5;
 }
 
 .paket-tier {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--burg-light);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .paket-name {
   font-family: var(--ff-head);
-  font-size: 40px;
-  font-weight: 400;
+  font-size: 44px;
+  font-weight: 300;
   color: var(--white);
-  margin-bottom: 10px;
+  margin-bottom: 16px;
+  line-height: 1;
 }
 
 .paket-tagline {
   font-size: 14px;
-  color: #fff;
-  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
 }
 
 .paket-divider {
   height: 1px;
-  background: linear-gradient(to right, var(--white), transparent);
-  margin-bottom: 40px;
-  width: 60px;
+  background: linear-gradient(to right, var(--cream), transparent);
+  margin: 40px 0;
+  width: 80px;
+}
+
+.card-body {
+  flex-grow: 1;
 }
 
 .paket-features {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  margin-bottom: 60px;
+  gap: 20px;
+  margin-bottom: 50px;
 }
 
 .paket-features li {
-  font-size: 14px;
-  color: #fff;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
   display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  line-height: 1.4;
+  align-items: center;
+  gap: 16px;
 }
 
-.feature-icon {
-  background-color: var(--white);
-  padding: 2px;
-  border-radius: 100%;
-  width: 18px;
-  height: 18px;
-  margin-top: 1px;
+.feat-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--burg-light);
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
-.card-footer {
-  position: relative;
-  z-index: 2;
+.paket-price {
+  font-family: var(--ff-head);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: 24px;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
 }
 
-.paket-cta {
+.paket-cta-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 16px;
   width: 100%;
-  padding: 18px;
-  text-align: center;
+  padding: 20px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--white);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  background: transparent;
-  border: 1px solid rgba(233, 231, 221, 0.2);
-  color: var(--cream);
   transition: all 0.4s var(--ease);
 }
 
-.cta-arrow {
-  transition: transform 0.4s var(--ease);
-}
-
-.paket-cta:hover {
+.paket-cta-btn:hover {
   background: var(--burg);
   border-color: var(--burg);
-  color: var(--white);
-}
-
-.paket-cta:hover .cta-arrow {
-  transform: translateX(6px);
-}
-
-.paket-card.featured .paket-cta {
-  background: var(--burg);
-  border-color: var(--burg);
-  color: var(--white);
-}
-
-.paket-card.featured .paket-cta:hover {
-  background: var(--burg-light);
   transform: scale(1.02);
 }
 
-@media (max-width: 1100px) {
+.paket-card.featured .paket-cta-btn {
+  background: var(--burg);
+  border-color: var(--burg);
+}
+
+.paket-card.featured .paket-cta-btn:hover {
+  background: var(--burg-light);
+  border-color: var(--burg-light);
+}
+
+.paket-note {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.paket-note a {
+  color: var(--burg-light);
+  text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
   .paket-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
-  }
-  .paket-card.featured {
-    transform: none;
-  }
-  .paket-card.featured:hover {
-    transform: translateY(-12px);
   }
 }
 
@@ -370,11 +378,13 @@ const packages = [
   }
   .paket-grid {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 32px;
   }
   .paket-card {
-    padding: 48px 30px;
+    padding: 48px 32px;
+  }
+  .paket-name {
+    font-size: 36px;
   }
 }
 </style>
-
