@@ -11,7 +11,7 @@ import IconCameraElegant from './svg-icon/IconCameraElegant.vue'
         <div class="about-visual reveal-left">
           <div class="image-stack">
             <div class="main-img-frame">
-              <img src="/img/about/story.png" alt="NIL Entertain Photography" class="main-img">
+              <img src="https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="NIL Entertain Photography" class="main-img">
               <div class="img-overlay"></div>
             </div>
             <div class="accent-frame"></div>

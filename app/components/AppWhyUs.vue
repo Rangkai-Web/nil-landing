@@ -128,7 +128,7 @@ const advantages = [
 
 .kenapa-item {
   position: relative;
-  background: var(--white);
+  background: var(--cream2);
   padding: 48px;
   border: 1px solid rgba(0, 0, 0, 0.05);
   transition: all 0.5s var(--ease);
@@ -162,6 +162,8 @@ const advantages = [
   position: absolute;
   width: 100%;
   height: 100%;
+  left: -8px;
+  top: -8px;
   background: rgba(125, 5, 22, 0.05);
   border-radius: 50%;
   transform: scale(0);

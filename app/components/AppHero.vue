@@ -58,12 +58,12 @@ onUnmounted(() => {
 
                 <div class="container">
                   <div class="hero-main-info">
-                    <div class="hero-tag" :class="{ 'active': currentSlide === index }">{{ slide.tag }}</div>
+                    <!-- <div class="hero-tag" :class="{ 'active': currentSlide === index }">{{ slide.tag }}</div> -->
                     <h1 class="hero-h1" :class="{ 'active': currentSlide === index }" v-html="slide.title"></h1>
                     <p class="hero-sub" :class="{ 'active': currentSlide === index }">{{ slide.sub }}</p>
                     <div class="hero-ctas" :class="{ 'active': currentSlide === index }">
                       <a href="#gallery" class="btn-primary">Lihat Portfolio</a>
-                      <a href="#paket" class="btn-ghost">Reservasi Sekarang</a>
+                      <a href="/reservation" class="btn-ghost">Reservasi Sekarang</a>
                     </div>
                   </div>
                 </div>

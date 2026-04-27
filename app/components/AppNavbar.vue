@@ -28,16 +28,16 @@ onUnmounted(() => {
         </NuxtLink>
         
         <ul class="nav-links">
-          <li><a href="#tentang">Tentang</a></li>
-          <li><a href="#spesialisasi">Layanan</a></li>
-          <li><a href="#paket">Paket</a></li>
-          <li><a href="#gallery">Portfolio</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact">Kontak</a></li>
+          <li><a href="/#tentang">Tentang</a></li>
+          <li><a href="/#spesialisasi">Layanan</a></li>
+          <li><a href="/#paket">Paket</a></li>
+          <li><a href="/#gallery">Portfolio</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+          <li><a href="/#contact">Kontak</a></li>
         </ul>
 
         <div class="nav-ctas">
-          <a href="#paket" class="btn-burg">Book Now</a>
+          <a href="/reservation" class="btn-burg">Book Now</a>
         </div>
 
         <button class="nav-hamburger" @click="toggleMenu" :class="{ 'active': isMenuOpen }">
@@ -49,15 +49,15 @@ onUnmounted(() => {
       <transition name="fade">
         <div v-if="isMenuOpen" class="mobile-menu">
           <ul class="mobile-nav-links">
-            <li><a href="#tentang" @click="isMenuOpen = false">Tentang</a></li>
-            <li><a href="#spesialisasi" @click="isMenuOpen = false">Layanan</a></li>
-            <li><a href="#paket" @click="isMenuOpen = false">Paket</a></li>
-            <li><a href="#gallery" @click="isMenuOpen = false">Portfolio</a></li>
-            <li><a href="#faq" @click="isMenuOpen = false">FAQ</a></li>
-            <li><a href="#contact" @click="isMenuOpen = false">Kontak</a></li>
+            <li><a href="/#tentang" @click="isMenuOpen = false">Tentang</a></li>
+            <li><a href="/#spesialisasi" @click="isMenuOpen = false">Layanan</a></li>
+            <li><a href="/#paket" @click="isMenuOpen = false">Paket</a></li>
+            <li><a href="/#gallery" @click="isMenuOpen = false">Portfolio</a></li>
+            <li><a href="/#faq" @click="isMenuOpen = false">FAQ</a></li>
+            <li><a href="/#contact" @click="isMenuOpen = false">Kontak</a></li>
           </ul>
           <div class="mobile-ctas">
-            <a href="#paket" @click="isMenuOpen = false" class="btn-burg">Book Now</a>
+            <a href="/reservation" @click="isMenuOpen = false" class="btn-burg">Book Now</a>
           </div>
         </div>
       </transition>
@@ -98,9 +98,9 @@ onUnmounted(() => {
   backdrop-filter: blur(12px);
   border: 1px solid rgba(233, 231, 221, 0.6);
   /* border-radius: 100px; */
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  padding: 8px 12px;
+  /* border-bottom-left-radius: 20px; */
+  /* border-bottom-right-radius: 20px; */
+  padding: 6px 10px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 

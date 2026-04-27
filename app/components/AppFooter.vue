@@ -24,7 +24,7 @@ const socialLinks = [
       <div class="footer-top">
         <div class="footer-brand">
           <div class="footer-logo">NIL <span>Entertain</span></div>
-          <div class="footer-logo-sub">Premiere Event Documentation · Bali</div>
+          <!-- <div class="footer-logo-sub">Premiere Event Documentation · Bali</div> -->
           <p class="footer-brand-desc">
             Abadikan setiap tawa dan momen berharga Anda dengan teknologi Photobooth dan Videobooth360 terbaik di Bali. Estetika, kemewahan, dan kenangan abadi.
           </p>
@@ -50,19 +50,19 @@ const socialLinks = [
           <div class="footer-col">
             <div class="footer-col-title">Services</div>
             <ul class="footer-links">
-              <li><a href="#spesialisasi">Photobooth Bali</a></li>
-              <li><a href="#spesialisasi">Videobooth 360</a></li>
-              <li><a href="#spesialisasi">Spinbox Experience</a></li>
-              <li><a href="#paket">Corporate Activation</a></li>
+              <li><a href="/#spesialisasi">Photobooth Bali</a></li>
+              <li><a href="/#spesialisasi">Videobooth 360</a></li>
+              <li><a href="/#spesialisasi">Spinbox Experience</a></li>
+              <li><a href="/#paket">Corporate Activation</a></li>
             </ul>
           </div>
           <div class="footer-col">
             <div class="footer-col-title">Navigation</div>
             <ul class="footer-links">
-              <li><a href="#tentang">Tentang Kami</a></li>
-              <li><a href="#gallery">Portfolio Gallery</a></li>
-              <li><a href="#testimoni">Client Stories</a></li>
-              <li><a href="#faq">Pertanyaan Umum</a></li>
+              <li><a href="/#tentang">Tentang Kami</a></li>
+              <li><a href="/#gallery">Portfolio Gallery</a></li>
+              <li><a href="/#testimoni">Client Stories</a></li>
+              <li><a href="/#faq">Pertanyaan Umum</a></li>
             </ul>
           </div>
           <div class="footer-col">
@@ -70,8 +70,8 @@ const socialLinks = [
             <ul class="footer-links">
               <li><a href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a></li>
               <li><a href="mailto:hello@nilentertain.com">hello@nilentertain.com</a></li>
-              <li><a href="#">Seminyak, Bali</a></li>
-              <li><a href="#" class="footer-book-btn">Book Your Event</a></li>
+              <li><a href="">Seminyak, Bali</a></li>
+              <li><a href="/reservation" class="footer-book-btn">Book Your Event</a></li>
             </ul>
           </div>
         </div>

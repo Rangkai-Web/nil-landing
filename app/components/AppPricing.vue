@@ -18,7 +18,7 @@ const packages = [
       'Custom frame design'
     ],
     cta: 'Konsultasi Paket',
-    link: 'https://wa.me/6281234567890',
+    link: '/reservation',
     featured: false
   },
   {
@@ -37,7 +37,7 @@ const packages = [
       'Digital delivery'
     ],
     cta: 'Booking Sekarang',
-    link: 'https://wa.me/6281234567890',
+    link: '/reservation',
     featured: true
   },
   {
@@ -55,7 +55,7 @@ const packages = [
       'Custom deliverables'
     ],
     cta: 'Request Proposal',
-    link: 'https://wa.me/6281234567890',
+    link: '/reservation',
     featured: false
   }
 ]
@@ -111,7 +111,7 @@ const packages = [
 
           <div class="card-footer">
             <div class="paket-price">{{ pkg.price }}</div>
-            <a :href="pkg.link" target="_blank" class="paket-cta-btn">
+            <a :href="pkg.link" class="paket-cta-btn">
               <span>{{ pkg.cta }}</span>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -122,7 +122,7 @@ const packages = [
       </div>
       
       <div class="paket-note reveal d3">
-        *Harga dapat menyesuaikan tergantung lokasi dan durasi tambahan. <a href="https://wa.me/6281234567890">Hubungi kami</a> untuk penawaran khusus.
+        *Harga dapat menyesuaikan tergantung lokasi dan durasi tambahan.
       </div>
     </div>
   </section>
