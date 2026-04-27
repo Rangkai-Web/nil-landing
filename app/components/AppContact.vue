@@ -8,7 +8,7 @@ import DoubleCircle from './svg-icon/DoubleCircle.vue'
     <!-- Decorative Background -->
     <div class="decor-wrapper">
       <TextureLines class="opacity-40 text-[#890015]" />
-      <DoubleCircle :size="500" position-class="absolute top-0 right-0 opacity-40 text-[#890015]" />
+      <DoubleCircle :size="500" position-class="absolute top-0 right-0 opacity-40 text-[#890015] hidden xl:block" />
     </div>
 
     <div class="container">
@@ -223,8 +223,9 @@ import DoubleCircle from './svg-icon/DoubleCircle.vue'
 }
 
 .map-wrapper {
-  height: 550px;
-  border-radius: 30px;
+  height: 650px;
+  width: 100%;
+  /* border-radius: 30px; */
   overflow: hidden;
   position: relative;
   box-shadow: 0 40px 80px rgba(0, 0, 0, 0.1);

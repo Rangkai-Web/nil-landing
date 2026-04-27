@@ -46,7 +46,7 @@ const closeLightbox = () => {
     <!-- Decorative Background -->
     <div class="decor-wrapper">
       <TextureLines class="opacity-40 text-[#890015]" />
-      <DoubleCircle :size="600" position-class="absolute -top-70 -right-70 opacity-40 text-[#890015]" />
+      <DoubleCircle :size="600" position-class="absolute -top-70 -right-70 opacity-40 text-[#890015] hidden xl:block" />
     </div>
 
     <div class="container">

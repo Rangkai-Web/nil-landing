@@ -46,7 +46,7 @@ const services = [
 
 <template>
   <section id="spesialisasi">
-    <DashedCircle class="service-dashed-circle" />
+    <DashedCircle class="service-dashed-circle hidden xl:block" />
     
     <div class="container">
       <div class="spec-header">
