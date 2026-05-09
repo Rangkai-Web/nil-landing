@@ -1,26 +1,51 @@
 <script setup lang="ts">
-import IconCameraElegant from './svg-icon/IconCameraElegant.vue'
+import IconCameraElegant from "./svg-icon/IconCameraElegant.vue";
 </script>
 
 <template>
-  <section id="tentang">
-    <div class="container">
-
-      <div class="about-grid">
+  <section
+    id="tentang"
+    class="bg-cream py-24! lg:py-40! relative overflow-hidden z-1"
+  >
+    <div class="container relative z-2">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-16 lg:gap-24 items-center"
+      >
         <!-- Left: Visual Stack -->
-        <div class="about-visual reveal-left">
-          <div class="image-stack">
-            <div class="main-img-frame">
-              <img src="https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="NIL Entertain Photography" class="main-img">
-              <div class="img-overlay"></div>
+        <div class="relative reveal-left">
+          <div class="relative p-6! lg:p-10! group">
+            <div
+              class="relative h-[400px] lg:h-[600px] w-full overflow-hidden shadow-2xl z-2"
+            >
+              <NuxtImg
+                src="https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?q=80&w=987&auto=format&fit=crop"
+                alt="NIL Entertain Photography"
+                class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                width="600"
+                height="800"
+                loading="lazy"
+              />
+              <div
+                class="absolute inset-0 bg-linear-to-t from-black/20 to-transparent"
+              ></div>
             </div>
-            <div class="accent-frame"></div>
-            <div class="badge-seal">
-              <div class="badge-inner">
-                <IconCameraElegant class="badge-icon" />
-                <div class="badge-text">
-                  <span>SINCE</span>
-                  <strong>2021</strong>
+            <div
+              class="absolute top-0 left-0 w-4/5 h-4/5 border border-burg/50 z-1"
+            ></div>
+            <div
+              class="absolute bottom-0 right-0 w-24 h-24 md:w-32 md:h-32 lg:w-36 lg:h-36 bg-burg text-white rounded-full flex items-center justify-center z-3 shadow-2xl translate-x-1/4 translate-y-1/4"
+            >
+              <div class="text-center">
+                <IconCameraElegant class="w-8 h-8 mb-1! mx-auto!" />
+                <div class="flex flex-col leading-none">
+                  <span
+                    class="text-[8px] tracking-[0.3em] font-bold opacity-80 uppercase"
+                    >Since</span
+                  >
+                  <strong
+                    class="font-[Cormorant_Garamond] text-lg lg:text-xl tracking-widest"
+                    >2021</strong
+                  >
                 </div>
               </div>
             </div>
@@ -28,32 +53,86 @@ import IconCameraElegant from './svg-icon/IconCameraElegant.vue'
         </div>
 
         <!-- Right: Content -->
-        <div class="about-content reveal-right">
-          <div class="section-label">Tentang Kami</div>
-          <h2 class="about-h2">Bali's Premier<br><em>Event Experience</em><br>Studio</h2>
-          
-          <div class="about-description">
-            <p class="lead-p">NIL Entertain adalah layanan Photobooth &amp; Videobooth 360 premium yang menghadirkan standar estetika baru dalam dokumentasi event di Bali.</p>
-            <p>Kami percaya bahwa setiap perayaan layak mendapatkan dokumentasi yang bukan sekadar gambar, melainkan sebuah karya seni. Dengan perpaduan teknologi terkini dan sentuhan kreatif profesional, kami memastikan setiap senyuman dan tawa tertangkap dalam kualitas terbaik.</p>
+        <div class="reveal-right text-center lg:text-left">
+          <div class="inline-flex items-center gap-3 mb-6!">
+            <div class="h-px w-8 bg-burg hidden md:block"></div>
+            <span class="text-sm font-bold tracking-[0.3em] uppercase text-burg"
+              >Tentang Kami</span
+            >
           </div>
 
-          <div class="about-facts">
-            <div class="fact-card">
-              <div class="fact-num">200<sup>+</sup></div>
-              <div class="fact-label">Event Selesai</div>
+          <h2
+            class="font-[Cormorant_Garamond] text-4xl lg:text-6xl font-light leading-tight text-black mb-10!"
+          >
+            Quality & Service<br />
+            is <em class="italic text-burg font-normal">Our Priority</em>
+          </h2>
+
+          <div class="mb-14! space-y-6">
+            <p
+              class="text-lg lg:text-xl font-medium text-black leading-relaxed"
+            >
+              NIL Entertain berkomitmen menghadirkan standar estetika premium
+              dalam dokumentasi event di Bali dengan jaminan kualitas tanpa
+              kompromi.
+            </p>
+            <p class="text-base text-black/70 leading-relaxed">
+              Kami memberikan ketenangan pikiran melalui
+              <strong class="text-black">Garansi 100% uang kembali</strong>
+              jika tim tidak hadir, serta jaminan
+              <strong class="text-black">Kertas Foto original</strong> yang
+              mampu bertahan hingga 100 tahun. Setiap momen berharga Anda
+              didokumentasikan menggunakan teknologi kamera DSLR 24MP dan
+              pencahayaan studio 300W untuk hasil yang jernih, tajam, dan
+              bercahaya rata.
+            </p>
+          </div>
+
+          <div
+            class="grid grid-cols-3 md:grid-cols-3 gap-8 mb-14! pb-14! border-b border-black/20"
+          >
+            <div class="text-left">
+              <div
+                class="font-[Cormorant_Garamond] text-4xl lg:text-5xl font-bold text-burg leading-none"
+              >
+                200<sup>+</sup>
+              </div>
+              <div
+                class="text-xs font-bold tracking-[0.15em] uppercase text-[#888] mt-3!"
+              >
+                Event Selesai
+              </div>
             </div>
-            <div class="fact-card">
-              <div class="fact-num">5.0</div>
-              <div class="fact-label">Rating Client</div>
+            <div class="text-left">
+              <div
+                class="font-[Cormorant_Garamond] text-4xl lg:text-5xl font-bold text-burg leading-none"
+              >
+                5.0
+              </div>
+              <div
+                class="text-xs font-bold tracking-[0.15em] uppercase text-[#888] mt-3!"
+              >
+                Rating Client
+              </div>
             </div>
-            <div class="fact-card">
-              <div class="fact-num">3<sup>+</sup></div>
-              <div class="fact-label">Tahun Pengalaman</div>
+            <div class="text-left">
+              <div
+                class="font-[Cormorant_Garamond] text-4xl lg:text-5xl font-bold text-burg leading-none"
+              >
+                5<sup>+</sup>
+              </div>
+              <div
+                class="text-xs font-bold tracking-[0.15em] uppercase text-[#888] mt-3!"
+              >
+                Tahun Pengalaman
+              </div>
             </div>
           </div>
 
-          <div class="about-quote">
-            <p>"Capture the soul of the celebration, not just the scene."</p>
+          <div
+            class="font-[Cormorant_Garamond] text-xl lg:text-2xl italic text-[#888] text-left pl-6! border-l-4 border-burg"
+          >
+            "Capture the soul of the celebration, not just the scene."
           </div>
         </div>
       </div>
@@ -62,223 +141,22 @@ import IconCameraElegant from './svg-icon/IconCameraElegant.vue'
 </template>
 
 <style scoped>
-#tentang {
-  background: var(--cream);
-  padding: 160px 0;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: reveal-x 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
-.container {
-  position: relative;
-  z-index: 2;
+.reveal-right {
+  opacity: 0;
+  transform: translateX(30px);
+  animation: reveal-x 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 100px;
-  align-items: center;
-}
-
-/* Visual Stack */
-.about-visual {
-  position: relative;
-}
-
-.image-stack {
-  position: relative;
-  padding: 40px;
-}
-
-.main-img-frame {
-  position: relative;
-  height: 600px;
-  width: 100%;
-  overflow: hidden;
-  box-shadow: 20px 40px 80px rgba(0, 0, 0, 0.15);
-  z-index: 2;
-}
-
-.main-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.8s var(--ease);
-}
-
-.image-stack:hover .main-img {
-  transform: scale(1.05);
-}
-
-.img-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.2), transparent);
-}
-
-.accent-frame {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 80%;
-  height: 80%;
-  border: 1px solid var(--burg);
-  opacity: 0.3;
-  z-index: 1;
-}
-
-.badge-seal {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 140px;
-  height: 140px;
-  background: var(--burg);
-  color: var(--white);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 3;
-  box-shadow: 0 10px 30px rgba(125, 5, 22, 0.3);
-  transform: translate(20%, 20%);
-}
-
-.badge-inner {
-  text-align: center;
-}
-
-.badge-icon {
-  width: 32px;
-  height: 32px;
-  margin-bottom: 4px;
-}
-
-.badge-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
-
-.badge-text span {
-  font-size: 8px;
-  letter-spacing: 0.3em;
-  font-weight: 600;
-  opacity: 0.8;
-}
-
-.badge-text strong {
-  font-family: var(--ff-head);
-  font-size: 18px;
-  letter-spacing: 0.1em;
-}
-
-/* Content */
-.about-h2 {
-  font-family: var(--ff-head);
-  font-size: clamp(40px, 5vw, 64px);
-  font-weight: 300;
-  line-height: 1.1;
-  color: var(--black);
-  margin-bottom: 40px;
-}
-
-.about-h2 em {
-  font-style: italic;
-  color: var(--burg);
-  font-weight: 400;
-}
-
-.about-description {
-  margin-bottom: 56px;
-}
-
-.lead-p {
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--black);
-  line-height: 1.6;
-  margin-bottom: 24px;
-}
-
-.about-description p:not(.lead-p) {
-  font-size: 15px;
-  color: #555;
-  line-height: 1.8;
-}
-
-.about-facts {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-bottom: 56px;
-  padding-bottom: 56px;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-}
-
-.fact-card {
-  text-align: left;
-}
-
-.fact-num {
-  font-family: var(--ff-head);
-  font-size: 40px;
-  font-weight: 600;
-  color: var(--burg);
-  line-height: 1;
-}
-
-.fact-num sup {
-  font-size: 18px;
-  color: var(--burg);
-}
-
-.fact-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #888;
-  margin-top: 8px;
-  display: block;
-}
-
-.about-quote {
-  font-family: var(--ff-head);
-  font-size: 20px;
-  font-style: italic;
-  color: #888;
-  padding-left: 24px;
-  border-left: 2px solid var(--burg);
-}
-
-@media (max-width: 1024px) {
-  .about-grid {
-    gap: 60px;
-  }
-}
-
-@media (max-width: 768px) {
-  #tentang {
-    padding: 100px 0;
-  }
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 80px;
-  }
-  .main-img-frame {
-    height: 400px;
-  }
-  .about-visual {
-    max-width: 500px;
-    margin: 0 auto;
-  }
-  .about-facts {
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+@keyframes reveal-x {
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 </style>
-

@@ -1,7 +1,31 @@
 @import "tailwindcss";
 
-/* ─── TOKENS ─────────────────────────────────── */
+/* ─── TAILWIND 4 CORE THEME ──────────────────── */
+@theme {
+  --spacing: 0.25rem;
+  
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* Re-mapping core colors for Tailwind v4 */
+  --color-burg: #7d0516;
+  --color-burg-light: #a0162a;
+  --color-cream: #e9e7dd;
+  --color-cream2: #f2f0e8;
+  --color-black: #0c0907;
+  --color-black2: #141210;
+}
+
+/* ─── RUNTIME CSS VARIABLES (FORCE RECOVERY) ─── */
+/* Tailwind 4 uses calc(var(--spacing) * N). 
+   If the build tool doesn't output --spacing to :root, padding fails. 
+   We force it here to be 100% sure. */
 :root {
+  --spacing: 0.25rem;
+  
   --black: #0c0907;
   --black2: #141210;
   --cream: #e9e7dd;
@@ -13,12 +37,20 @@
   --border: rgba(233,231,221,0.12);
   --ff-head: 'Cormorant Garamond', Georgia, serif;
   --ff-body: 'Manrope', sans-serif;
-  --ease: cubic-bezier(0.25,0.46,0.45,0.94);
+  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* ─── RESET ──────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+/* ─── RESET & BASE ───────────────────────────── */
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+html { 
+  scroll-behavior: smooth; 
+}
+
 body { 
   background: var(--black); 
   color: var(--cream); 
@@ -27,11 +59,33 @@ body {
   line-height: 1.7; 
   overflow-x: hidden; 
 }
-img { display: block; width: 100%; }
-a { color: inherit; text-decoration: none; }
-button { cursor: pointer; font-family: var(--ff-body); border: none; background: none; }
 
-/* ─── NOISE TEXTURE ──────────────────────────── */
+/* ─── BUTTON REPAIR ──────────────────────────── */
+/* Ensuring buttons have actual padding values */
+.btn-primary, .btn-burg-solid, .btn-burg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem !important; /* Force real values for buttons */
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: all 0.3s var(--ease);
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.btn-burg, .btn-burg-solid {
+  background-color: var(--burg);
+  color: var(--white);
+}
+
+.btn-burg:hover, .btn-burg-solid:hover {
+  background-color: var(--burg-light);
+}
+
+/* ─── NOISE ──────────────────────────────────── */
 body::before {
   content: '';
   position: fixed; inset: 0;
@@ -41,94 +95,24 @@ body::before {
   background-size: 200px 200px;
 }
 
-/* ─── UTILITY ────────────────────────────────── */
-.container { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
-.section-label {
-  font-family: var(--ff-body);
-  font-size: 11px; font-weight: 600;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--burg); margin-bottom: 20px;
+/* ─── CONTAINER ──────────────────────────────── */
+.app-container, .container {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
 }
-.reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+
+@media (min-width: 640px) {
+  .app-container, .container {
+    padding-left: 2.5rem !important;
+    padding-right: 2.5rem !important;
+  }
+}
+
+/* ─── REVEAL ANIMATIONS ──────────────────────── */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
 .reveal.visible { opacity: 1; transform: none; }
-.reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
-.reveal-left.visible { opacity: 1; transform: none; }
-.reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
-.reveal-right.visible { opacity: 1; transform: none; }
-
-/* stagger delay helpers */
 .d1{transition-delay:0.1s} .d2{transition-delay:0.2s} .d3{transition-delay:0.3s}
-.d4{transition-delay:0.4s} .d5{transition-delay:0.5s} .d6{transition-delay:0.6s}
-
-/* placeholder image */
-.img-ph {
-  background: #1e1a17;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 12px; color: var(--gray); font-size: 11px; font-family: var(--ff-body);
-  letter-spacing: 0.15em; text-transform: uppercase;
-  border: 1px solid var(--border);
-  position: relative; overflow: hidden;
-}
-.img-ph::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: repeating-linear-gradient(
-    -45deg,
-    transparent, transparent 10px,
-    rgba(255,255,255,0.02) 10px, rgba(255,255,255,0.02) 11px
-  );
-}
-.img-ph svg { opacity: 0.25; }
-
-/* Buttons */
-.btn-outline {
-  border: 1px solid rgba(233,231,221,0.3);
-  color: var(--cream); padding: 9px 22px;
-  font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
-  transition: all 0.3s;
-}
-.btn-outline:hover { border-color: var(--cream); background: var(--cream); color: var(--black); }
-
-.btn-burg {
-  background: var(--burg); color: var(--white);
-  padding: 9px 22px; font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
-  transition: background 0.3s;
-}
-.btn-burg:hover { background: var(--burg-light); }
-
-.btn-primary {
-  background: var(--burg); color: var(--white);
-  padding: 15px 36px; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
-  transition: background 0.3s, transform 0.3s;
-}
-.btn-primary:hover { background: var(--burg-light); transform: translateY(-2px); }
-
-.btn-ghost {
-  border: 1px solid rgba(233,231,221,0.3);
-  color: var(--cream); padding: 15px 36px;
-  font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
-  transition: all 0.3s;
-}
-.btn-ghost:hover { border-color: var(--cream); }
-
-.btn-burg-solid {
-  background: var(--burg); color: var(--white);
-  padding: 14px 32px; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
-  transition: background 0.3s;
-}
-.btn-burg-solid:hover { background: var(--burg-light); }
-
-.btn-black-outline {
-  border: 1.5px solid var(--black); color: var(--black);
-  padding: 14px 32px; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
-  transition: all 0.3s;
-}
-.btn-black-outline:hover { background: var(--black); color: var(--cream); }
-
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-  .container { padding: 0 24px; }
-}
-@media (max-width: 768px) {
-  .container { padding: 0 20px; }
-}

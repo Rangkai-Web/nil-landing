@@ -1,5 +1,4 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
   ssr: true,
@@ -18,7 +17,6 @@ export default defineNuxtConfig({
     "vue3-carousel-nuxt",
   ],
   vite: {
-    plugins: [tailwindcss()],
     build: {
       cssCodeSplit: true,
       minify: "terser",
@@ -42,9 +40,7 @@ export default defineNuxtConfig({
         { name: 'description', content: 'NIL Entertain — Photobooth & Videobooth360 premium untuk event spesial di Bali. Wedding, corporate, birthday, dan private event.' },
       ],
       link: [
-        { rel: "preconnect", href: "https://fonts.googleapis.com" },
-        { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "anonymous" },
-        { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" },
+        { rel: "icon", type: "image/png", href: "/favicon.png" }
       ],
     },
   },
@@ -64,7 +60,7 @@ export default defineNuxtConfig({
   image: {
     quality: 80,
     format: ["webp", "avif"],
-    domains: ["127.0.0.1:8000"],
+    domains: ["127.0.0.1:8000", "images.unsplash.com"],
     screens: {
       xs: 320,
       sm: 640,

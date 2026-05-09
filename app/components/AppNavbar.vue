@@ -11,7 +11,7 @@ const toggleMenu = () => {
 }
 
 onMounted(() => {
-  window.addEventListener('scroll', onScroll)
+  window.addEventListener('scroll', onScroll, { passive: true })
 })
 
 onUnmounted(() => {
@@ -20,44 +20,91 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="navbar-wrapper" :class="{ 'is-floating': isScrolled }">
-    <nav id="navbar" :class="{ 'scrolled': isScrolled }">
-      <div class="nav-inner">
-        <NuxtLink to="/" class="nav-logo">
-          NIL Entertain
+  <div 
+    class="fixed top-0 left-0 right-0 z-1000 flex justify-center pointer-events-none transition-all duration-500"
+    :class="isScrolled ? 'p-6!' : 'p-6! lg:px-10! lg:py-8!'"
+  >
+    <nav 
+      class="w-full max-w-7xl relative pointer-events-auto transition-all duration-500"
+      :class="isScrolled ? 'bg-black/70 backdrop-blur-xl border border-cream/60 py-3! px-6! shadow-2xl' : 'py-3! px-6! bg-transparent'"
+    >
+      <div class="flex items-center justify-between px-4 h-[60px]">
+        <!-- Logo -->
+        <NuxtLink to="/" class="flex items-center gap-3 w-14" aria-label="NIL Entertain Home">
+          <NuxtImg
+            src="/logo/logo.webp"
+            alt="Nil Entertain Logo"
+            class="rounded-full hover:scale-110 transition-all duration-500"
+            loading="eager"
+            fetchpriority="high"
+            :width="100"
+            :height="100"
+          />
         </NuxtLink>
         
-        <ul class="nav-links">
-          <li><a href="/#tentang">Tentang</a></li>
-          <li><a href="/#spesialisasi">Layanan</a></li>
-          <li><a href="/#paket">Paket</a></li>
-          <li><a href="/#gallery">Portfolio</a></li>
-          <li><a href="/#faq">FAQ</a></li>
-          <li><a href="/#contact">Kontak</a></li>
+        <!-- Desktop Nav -->
+        <ul class="hidden lg:flex gap-8 list-none m-0! p-0!">
+          <li v-for="link in ['Tentang', 'Layanan', 'Paket', 'Portfolio', 'FAQ', 'Kontak']" :key="link">
+            <a 
+              :href="'/#' + link.toLowerCase()" 
+              class="text-base font-bold tracking-[0.15em] uppercase text-white hover:text-white/80 transition-all relative group"
+            >
+              {{ link }}
+              <span class="absolute bottom-[-4px] left-1/2 w-0 h-px bg-burg transition-all duration-300 -translate-x-1/2 group-hover:w-8"></span>
+            </a>
+          </li>
         </ul>
 
-        <div class="nav-ctas">
-          <a href="/reservation" class="btn-burg">Book Now</a>
+        <!-- CTA -->
+        <div class="hidden lg:flex items-center">
+          <NuxtLink to="/reservation" class="px-7! py-3! bg-burg text-white text-sm font-bold tracking-[0.2em] uppercase transition-all hover:bg-burg-light hover:-translate-y-0.5">Book Now</NuxtLink>
         </div>
 
-        <button class="nav-hamburger" @click="toggleMenu" :class="{ 'active': isMenuOpen }">
-          <span></span><span></span><span></span>
+        <!-- Hamburger -->
+        <button
+          class="lg:hidden flex flex-col gap-1.5 cursor-pointer bg-none border-none p-2.5! z-1001"
+          @click="toggleMenu"
+          :aria-label="isMenuOpen ? 'Close menu' : 'Open menu'"
+          :aria-expanded="isMenuOpen"
+        >
+          <span
+            class="w-6 h-px bg-cream transition-all duration-300"
+            :class="{ 'translate-y-2 rotate-45': isMenuOpen }"
+          ></span>
+          <span
+            class="w-6 h-px bg-cream transition-all duration-300"
+            :class="{ 'opacity-0': isMenuOpen }"
+          ></span>
+          <span
+            class="w-6 h-px bg-cream transition-all duration-300"
+            :class="{ ' -translate-y-1.5 -rotate-45': isMenuOpen }"
+          ></span>
         </button>
       </div>
 
       <!-- Mobile Menu -->
-      <transition name="fade">
-        <div v-if="isMenuOpen" class="mobile-menu">
-          <ul class="mobile-nav-links">
-            <li><a href="/#tentang" @click="isMenuOpen = false">Tentang</a></li>
-            <li><a href="/#spesialisasi" @click="isMenuOpen = false">Layanan</a></li>
-            <li><a href="/#paket" @click="isMenuOpen = false">Paket</a></li>
-            <li><a href="/#gallery" @click="isMenuOpen = false">Portfolio</a></li>
-            <li><a href="/#faq" @click="isMenuOpen = false">FAQ</a></li>
-            <li><a href="/#contact" @click="isMenuOpen = false">Kontak</a></li>
+      <transition 
+        enter-active-class="transition duration-300 ease-out"
+        enter-from-class="opacity-0 -translate-y-4"
+        enter-to-class="opacity-100 translate-y-0"
+        leave-active-class="transition duration-200 ease-in"
+        leave-from-class="opacity-100 translate-y-0"
+        leave-to-class="opacity-0 -translate-y-4"
+      >
+        <div v-if="isMenuOpen" class="absolute top-full left-0 right-0 mt-3 bg-black/95 backdrop-blur-2xl border border-white/10 rounded-3xl p-8! flex flex-col gap-8 shadow-2xl lg:hidden">
+          <ul class="list-none flex flex-col gap-6 m-0! p-0!">
+            <li v-for="link in ['Tentang', 'Layanan', 'Paket', 'Portfolio', 'FAQ', 'Kontak']" :key="link">
+              <a 
+                :href="'/#' + link.toLowerCase()" 
+                @click="isMenuOpen = false"
+                class="text-xs font-bold tracking-widest uppercase text-cream block py-2 hover:text-burg transition-colors"
+              >
+                {{ link }}
+              </a>
+            </li>
           </ul>
-          <div class="mobile-ctas">
-            <a href="/reservation" @click="isMenuOpen = false" class="btn-burg">Book Now</a>
+          <div class="mt-4">
+            <NuxtLink to="/reservation" @click="isMenuOpen = false" class="block w-full text-center py-4! bg-burg text-white text-sm font-bold tracking-[0.2em] uppercase hover:bg-burg-light">Book Now</NuxtLink>
           </div>
         </div>
       </transition>
@@ -66,204 +113,5 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-.navbar-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  padding: 24px 40px;
-  transition: padding 0.5s var(--ease), transform 0.5s var(--ease);
-  pointer-events: none;
-}
-
-.navbar-wrapper.is-floating {
-  padding: 10px;
-}
-
-#navbar {
-  width: 100%;
-  max-width: 1240px;
-  background: transparent;
-  border-radius: 0;
-  transition: all 0.5s var(--ease);
-  pointer-events: auto;
-  position: relative;
-}
-
-#navbar.scrolled {
-  background: rgba(12, 9, 7, 0.7);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(233, 231, 221, 0.6);
-  /* border-radius: 100px; */
-  /* border-bottom-left-radius: 20px; */
-  /* border-bottom-right-radius: 20px; */
-  padding: 6px 10px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-}
-
-.nav-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 16px;
-  height: 60px;
-}
-
-.nav-logo {
-  font-family: var(--ff-head);
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  color: var(--cream);
-  line-height: 1;
-}
-
-.nav-links {
-  display: flex;
-  gap: 32px;
-  list-style: none;
-}
-
-.nav-links a {
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #fff;
-  /* color: rgba(233, 231, 221, 0.6); */
-  transition: all 0.3s;
-  position: relative;
-}
-
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 50%;
-  width: 0;
-  height: 1px;
-  background: var(--burg);
-  transition: all 0.3s var(--ease);
-  transform: translateX(-50%);
-}
-
-.nav-links a:hover {
-  color: var(--cream2);
-}
-
-.nav-links a:hover::after {
-  width: 40px;
-}
-
-.nav-ctas {
-  display: flex;
-  align-items: center;
-}
-
-.nav-hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 6px;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 10px;
-  z-index: 1001;
-}
-
-.nav-hamburger span {
-  display: block;
-  width: 24px;
-  height: 1px;
-  background: var(--cream);
-  transition: all 0.3s var(--ease);
-}
-
-.nav-hamburger.active span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-
-.nav-hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.nav-hamburger.active span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-/* Mobile Menu */
-.mobile-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  margin-top: 12px;
-  background: rgba(12, 9, 7, 0.95);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(233, 231, 221, 0.1);
-  border-radius: 24px;
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-}
-
-.mobile-nav-links {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.mobile-nav-links a {
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--cream);
-  display: block;
-  padding: 10px 0;
-}
-
-.mobile-ctas .btn-burg {
-  display: block;
-  text-align: center;
-  width: 100%;
-}
-
-/* Transitions */
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
-}
-
-.fade-enter-from, .fade-leave-to {
-  opacity: 0;
-  transform: translateY(-10px);
-}
-
-@media (max-width: 1024px) {
-  .nav-links {
-    display: none;
-  }
-  .nav-ctas {
-    display: none;
-  }
-  .nav-hamburger {
-    display: flex;
-  }
-}
-
-@media (max-width: 768px) {
-  .navbar-wrapper {
-    padding: 16px 20px;
-  }
-  .navbar-wrapper.is-floating {
-    padding: 10px;
-  }
-}
+/* No custom CSS needed, all migrated to Tailwind 4 */
 </style>
-

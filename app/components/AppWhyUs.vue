@@ -1,78 +1,120 @@
 <script setup lang="ts">
-import IconStar from './svg-icon/IconStar.vue'
-import IconCase from './svg-icon/IconCase.vue'
-import IconCheck from './svg-icon/IconCheck.vue'
-import IconClock from './svg-icon/IconClock.vue'
-import IconHistory from './svg-icon/IconHistory.vue'
-import IconList from './svg-icon/IconList.vue'
-import TextureLines from './svg-icon/TextureLines.vue'
-import DoubleCircle from './svg-icon/DoubleCircle.vue'
+import IconStar from "./svg-icon/IconStar.vue";
+import IconCase from "./svg-icon/IconCase.vue";
+import IconCheck from "./svg-icon/IconCheck.vue";
+import IconClock from "./svg-icon/IconClock.vue";
+import IconHistory from "./svg-icon/IconHistory.vue";
+import IconList from "./svg-icon/IconList.vue";
+import TextureLines from "./svg-icon/TextureLines.vue";
+import DoubleCircle from "./svg-icon/DoubleCircle.vue";
 
 const advantages = [
   {
-    title: 'Professional Team',
-    desc: 'Tim berpengalaman yang terlatih menangani berbagai jenis event — dari intimate hingga skala besar.',
-    icon: IconStar
+    title: "Garansi 100% Uang Kembali",
+    desc: "Kami memberikan garansi 100% uang kembali tanpa potongan apabila tim kami tidak hadir di lokasi acara.",
+    icon: IconCheck,
   },
   {
-    title: 'Equipment Premium',
-    desc: 'Menggunakan peralatan foto dan video kelas atas untuk menghasilkan output berkualitas tinggi.',
-    icon: IconCase
+    title: "Softcopy Seumur Hidup",
+    desc: "Kehilangan file? Jangan khawatir, kami memberikan garansi penyimpanan softcopy foto Anda seumur hidup.",
+    icon: IconHistory,
   },
   {
-    title: 'High Quality Output',
-    desc: 'Hasil foto dan video dengan resolusi tinggi, siap cetak dan siap share di sosial media.',
-    icon: IconCheck
+    title: "Kualitas Foto Jernih & Tajam",
+    desc: "Hasil foto dengan pencahayaan yang rata, jernih, dan sangat tajam untuk kualitas dokumentasi terbaik.",
+    icon: IconStar,
   },
   {
-    title: 'Fast Response',
-    desc: 'Respon cepat untuk setiap inquiry — kami memahami bahwa waktu perencanaan event sangat berharga.',
-    icon: IconClock
+    title: "Foto Ulang Sepuasnya",
+    desc: "Kepuasan Anda adalah prioritas. Kami memberikan garansi foto ulang sepuasnya hingga hasil terlihat sempurna.",
+    icon: IconCase,
   },
   {
-    title: 'Berpengalaman',
-    desc: 'Lebih dari 200 event sukses diselenggarakan bersama brand-brand ternama di Bali dan nasional.',
-    icon: IconHistory
+    title: "Kertas Foto 100 Tahun",
+    desc: "Menggunakan kertas foto original berkualitas yang dijamin awet dan tidak pudar hingga 100 tahun.",
+    icon: IconList,
   },
   {
-    title: 'Corporate Branding',
-    desc: 'Solusi lengkap untuk corporate branding — dari booth design hingga branded content yang on-point.',
-    icon: IconList
-  }
-]
+    title: "Alat Canggih & Cepat",
+    desc: "Didukung perangkat photobooth paling canggih yang praktis dan sangat cepat untuk menghindari antrean panjang.",
+    icon: IconList,
+  },
+  {
+    title: "Pelayanan Mudah & Ramah",
+    desc: "Sistem reservasi yang sangat mudah serta kru di lapangan yang ramah, sigap, dan profesional.",
+    icon: IconClock,
+  },
+  {
+    title: "Original Kertas Berkualitas",
+    desc: "Hanya menggunakan material cetak original berkualitas tinggi untuk memastikan tekstur dan warna yang mewah.",
+    icon: IconCase,
+  },
+];
 </script>
 
 <template>
-  <section id="kenapa">
+  <section
+    id="kenapa"
+    class="bg-cream text-black py-24! lg:py-40! relative overflow-hidden"
+  >
     <!-- Decorative Background -->
-    <div class="decor-wrapper">
-      <TextureLines class="opacity-40 text-[#890015]" />
+    <div class="absolute inset-0 pointer-events-none z-0">
+      <TextureLines class="opacity-30 text-burg" />
+      <DoubleCircle
+        :size="800"
+        position-class="absolute -top-100 -right-100 opacity-20 text-burg hidden xl:block"
+      />
+      <DoubleCircle
+        :size="600"
+        position-class="absolute -bottom-60 -left-60 opacity-20 text-burg hidden xl:block"
+      />
     </div>
 
-    <div class="container">
-      <div class="kenapa-header">
-        <div class="section-label reveal">Why Choose Us</div>
-        <h2 class="kenapa-h2 reveal d1">Dedikasi Kami untuk<br><em>Momen Spesial</em> Anda</h2>
-      </div>
-      
-      <div class="kenapa-grid">
-        <div 
-          v-for="(adv, i) in advantages" 
-          :key="adv.title" 
-          class="kenapa-item reveal" 
-          :class="'d' + (i % 3 + 1)"
+    <div class="app-container relative z-10">
+      <div class="text-center mb-16! lg:mb-20!">
+        <div class="inline-flex items-center gap-4 mb-8! reveal">
+          <div class="h-px w-12 bg-burg/30"></div>
+          <span class="text-sm font-black tracking-[0.5em] text-burg uppercase"
+            >Why Choose Us</span
+          >
+          <div class="h-px w-12 bg-burg/30"></div>
+        </div>
+        <h2
+          class="font-[Cormorant_Garamond] text-5xl lg:text-8xl font-light leading-tight text-black reveal d1"
         >
-          <div class="item-inner">
-            <div class="kenapa-icon-wrapper">
-              <div class="kenapa-icon">
-                <component :is="adv.icon" />
-              </div>
-              <div class="icon-accent"></div>
+          Our <em class="italic text-burg font-normal">Commitment</em>
+        </h2>
+        <div
+          class="mt-10! mx-auto! h-px w-24 bg-linear-to-r from-transparent via-burg/40 to-transparent reveal d2"
+        ></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div
+          v-for="(adv, i) in advantages"
+          :key="adv.title"
+          class="relative bg-cream2 p-10! border border-black/5 rounded-sm transition-all duration-500 hover:-translate-y-2.5 hover:shadow-[0_30px_60px_rgba(125,5,22,0.08)] hover:border-burg/10 group reveal"
+          :class="'d' + ((i % 3) + 1)"
+        >
+          <div
+            class="relative w-15 h-15 mb-8! flex items-center justify-center"
+          >
+            <div class="w-11 h-11 text-burg z-10">
+              <component :is="adv.icon" />
             </div>
-            <div class="kenapa-content">
-              <h3 class="kenapa-item-title">{{ adv.title }}</h3>
-              <p class="kenapa-item-desc">{{ adv.desc }}</p>
-            </div>
+            <div
+              class="absolute inset-0 bg-burg/5 rounded-full scale-0 transition-transform duration-500 group-hover:scale-125 -translate-x-2 -translate-y-2"
+            ></div>
+          </div>
+          <div class="text-left">
+            <h3
+              class="font-[Cormorant_Garamond] text-2xl font-medium text-black mb-4! transition-colors group-hover:text-burg"
+            >
+              {{ adv.title }}
+            </h3>
+            <p class="text-base text-[#6a6662] leading-loose">
+              {{ adv.desc }}
+            </p>
           </div>
         </div>
       </div>
@@ -80,136 +122,4 @@ const advantages = [
   </section>
 </template>
 
-<style scoped>
-#kenapa {
-  background: var(--cream);
-  color: var(--black);
-  padding: 160px 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.decor-wrapper {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.container {
-  position: relative;
-  z-index: 2;
-}
-
-.kenapa-header {
-  margin-bottom: 80px;
-  text-align: center;
-}
-
-.kenapa-h2 {
-  font-family: var(--ff-head);
-  font-size: clamp(42px, 5vw, 68px);
-  font-weight: 300;
-  line-height: 1.1;
-  color: var(--black);
-}
-
-.kenapa-h2 em {
-  font-style: italic;
-  color: var(--burg);
-  font-weight: 400;
-}
-
-.kenapa-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-}
-
-.kenapa-item {
-  position: relative;
-  background: var(--cream2);
-  padding: 48px;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  transition: all 0.5s var(--ease);
-  border-radius: 4px;
-}
-
-.kenapa-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 30px 60px rgba(125, 5, 22, 0.08);
-  border-color: rgba(125, 5, 22, 0.1);
-}
-
-.kenapa-icon-wrapper {
-  position: relative;
-  width: 60px;
-  height: 60px;
-  margin-bottom: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.kenapa-icon {
-  width: 44px;
-  height: 44px;
-  color: var(--burg);
-  z-index: 2;
-}
-
-.icon-accent {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: -8px;
-  top: -8px;
-  background: rgba(125, 5, 22, 0.05);
-  border-radius: 50%;
-  transform: scale(0);
-  transition: transform 0.5s var(--ease);
-}
-
-.kenapa-item:hover .icon-accent {
-  transform: scale(1.2);
-}
-
-.kenapa-item-title {
-  font-family: var(--ff-head);
-  font-size: 24px;
-  font-weight: 500;
-  color: var(--black);
-  margin-bottom: 16px;
-  transition: color 0.3s ease;
-}
-
-.kenapa-item:hover .kenapa-item-title {
-  color: var(--burg);
-}
-
-.kenapa-item-desc {
-  font-size: 15px;
-  color: #6a6662;
-  line-height: 1.8;
-}
-
-@media (max-width: 1024px) {
-  .kenapa-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-}
-
-@media (max-width: 768px) {
-  #kenapa {
-    padding: 100px 0;
-  }
-  .kenapa-grid {
-    grid-template-columns: 1fr;
-  }
-  .kenapa-item {
-    padding: 40px;
-  }
-}
-</style>
-
+<style scoped></style>

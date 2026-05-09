@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center justify-center py-12">
-    <svg
+    <svg aria-hidden="true"
       class="animate-spin h-12 w-12 text-accent"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"

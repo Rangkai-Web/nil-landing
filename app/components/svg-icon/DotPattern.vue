@@ -10,7 +10,7 @@ const finalId = computed(() => props.patternId || `dot-pattern-${generatedId}`);
 
 <template>
   <div class="absolute inset-0 z-0 opacity-[0.03] pointer-events-none">
-    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+    <svg aria-hidden="true" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <pattern
           :id="finalId"

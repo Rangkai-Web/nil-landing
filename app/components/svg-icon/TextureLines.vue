@@ -1,5 +1,5 @@
 <template>
-  <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" class="pointer-events-none mix-blend-overlay">
+  <svg aria-hidden="true" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" class="pointer-events-none mix-blend-overlay">
     <filter id="noiseFilter">
       <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/>
       <feColorMatrix type="matrix" values="1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 0.1 0" />

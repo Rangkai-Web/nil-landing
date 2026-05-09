@@ -3,7 +3,7 @@ import IconWhatsApp from './svg-icon/IconWhatsApp.vue'
 </script>
 
 <template>
-  <a href="https://wa.me/6281234567890" id="wa-float" target="_blank" rel="noopener" title="Chat WhatsApp">
+  <a href="https://wa.me/6287866861146" id="wa-float" target="_blank" rel="noopener noreferrer" title="Chat WhatsApp">
     <div class="wa-pulse"></div>
     <IconWhatsApp />
   </a>

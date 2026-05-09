@@ -1,5 +1,5 @@
 <template>
-  <svg
+  <svg aria-hidden="true"
     :class="positionClass"
     :width="size"
     :height="size"

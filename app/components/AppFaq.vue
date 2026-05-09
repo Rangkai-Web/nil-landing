@@ -1,84 +1,204 @@
 <script setup lang="ts">
-import TextureLines from './svg-icon/TextureLines.vue'
-import DoubleCircle from './svg-icon/DoubleCircle.vue'
+import TextureLines from "./svg-icon/TextureLines.vue";
+import DoubleCircle from "./svg-icon/DoubleCircle.vue";
 
 const faqs = ref([
   {
-    q: 'Area coverage dimana saja?',
-    a: 'NIL Entertain melayani seluruh area Bali — Seminyak, Ubud, Nusa Dua, Kuta, Canggu, Sanur, dan sekitarnya. Untuk lokasi di luar Bali, silakan hubungi kami terlebih dahulu.',
-    isOpen: true
+    q: "Area coverage dimana saja?",
+    a: "NIL Entertain melayani seluruh area Bali dengan layanan GRATIS TRANSPORTASI ke seluruh lokasi di Bali tanpa terkecuali.",
+    isOpen: true,
   },
   {
-    q: 'Berapa lama durasi booking minimal?',
-    a: 'Durasi minimal booking adalah 3 jam untuk paket Basic dan 5 jam untuk paket Premium dan Corporate. Untuk acara khusus, durasi dapat disesuaikan sesuai kebutuhan.',
-    isOpen: false
+    q: "Bagaimana kualitas cetak fotonya?",
+    a: "Kami menggunakan kertas foto original berkualitas tinggi dengan Garansi Ketahanan hingga 100 tahun. Hasil foto dijamin jernih dan tajam berkat dukungan lighting studio 300W.",
+    isOpen: false,
   },
   {
-    q: 'Apakah bisa custom frame & template?',
-    a: 'Tentu! Kami menyediakan layanan custom frame dan template design yang disesuaikan dengan tema acara, brand guideline, dan preferensi Anda. Revisi desain tersedia hingga final approval.',
-    isOpen: false
+    q: "Apakah ada jaminan uang kembali?",
+    a: "Tentu! Kami memberikan Garansi 100% Uang Kembali apabila tim kami tidak datang ke lokasi acara sesuai jadwal yang telah disepakati.",
+    isOpen: false,
   },
   {
-    q: 'Apakah videobooth bisa indoor & outdoor?',
-    a: 'Ya, layanan Videobooth360 kami tersedia untuk indoor maupun outdoor. Untuk outdoor, kami memastikan setup yang tepat sesuai kondisi pencahayaan dan lokasi event Anda.',
-    isOpen: false
+    q: "Bagaimana cara tamu mendownload file foto/video?",
+    a: "Kami menyediakan Scan QR Code di lokasi acara untuk download instan. Selain itu, kami memberikan jaminan akses softcopy foto seumur hidup dan gratis Flashdisk eksklusif berisi semua file.",
+    isOpen: false,
   },
   {
-    q: 'Berapa minimal waktu booking sebelum acara?',
-    a: 'Disarankan booking minimal 2 minggu sebelum tanggal acara untuk memastikan ketersediaan dan persiapan yang optimal. Untuk event besar, disarankan 1 bulan sebelumnya.',
-    isOpen: false
-  }
-])
+    q: "Apakah sudah termasuk properti pendukung?",
+    a: "Ya, setiap paket sudah termasuk Gratis Funprops atau aksesoris lucu seperti kacamata, bando, topi, hingga bubble gun dan light saber untuk paket Videobooth 360.",
+    isOpen: false,
+  },
+]);
 
 const toggleFaq = (index: number) => {
   faqs.value.forEach((f, i) => {
-    if (i === index) f.isOpen = !f.isOpen
-    else f.isOpen = false
-  })
-}
+    if (i === index) f.isOpen = !f.isOpen;
+    else f.isOpen = false;
+  });
+};
+
+// JSON-LD for FAQ SEO
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.value.map(faq => ({
+          "@type": "Question",
+          "name": faq.q,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.a
+          }
+        }))
+      })
+    }
+  ]
+});
 </script>
 
 <template>
-  <section id="faq">
-    <div class="faq-bg-overlay"></div>
-    
-    <!-- Decorative Background -->
-    <div class="decor-wrapper">
-      <TextureLines class="opacity-30 text-[#890015]" />
-      <DoubleCircle :size="800" position-class="absolute -bottom-100 -left-100 opacity-20 text-[#890015]" />
+  <section id="faq" class="py-24! lg:py-40! relative overflow-hidden bg-black">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0">
+      <NuxtImg
+        src="/img/service-bg.jpg"
+        alt="NIL Entertain Service Background"
+        class="w-full h-full object-cover opacity-20 grayscale"
+        width="1920"
+        height="1080"
+        loading="lazy"
+      />
+      <div
+        class="absolute inset-0 bg-linear-to-b from-black via-burg/20 to-black"
+      ></div>
     </div>
 
-    <div class="container">
-      <div class="faq-grid">
-        <div class="faq-left">
-          <div class="section-label reveal text-white!">FAQ</div>
-          <h2 class="faq-h2 reveal d1">Pertanyaan<br>yang Sering<br><em>Ditanyakan</em></h2>
-          <p class="faq-sub reveal d2">Kami hadir untuk memberikan solusi dokumentasi event terbaik. Jika masih ada keraguan, jangan ragu untuk menghubungi tim kami.</p>
-          
-          <div class="faq-cta reveal d3">
-            <p>Butuh bantuan cepat?</p>
-            <a href="https://wa.me/6281234567890" target="_blank" class="faq-wa-btn">
-              <span>Chat WhatsApp</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
+    <!-- Decorative Background -->
+    <div class="absolute inset-0 pointer-events-none z-1">
+      <TextureLines class="opacity-20 text-burg" />
+      <DoubleCircle
+        :size="800"
+        position-class="absolute -bottom-100 -left-100 opacity-10 text-cream"
+      />
+      <DoubleCircle
+        :size="600"
+        position-class="absolute top-50 -right-110 opacity-10 text-cream"
+      />
+    </div>
+
+    <div class="app-container relative z-10">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-16 lg:gap-32 items-start"
+      >
+        <!-- Left: Content & CTA -->
+        <div class="reveal-left">
+          <div class="inline-flex items-center gap-3 mb-8!">
+            <div class="h-px! w-10 bg-burg"></div>
+            <span class="text-sm font-bold tracking-[0.4em] uppercase text-burg"
+              >Pertanyaan Umum</span
+            >
+          </div>
+
+          <h2
+            class="font-[Cormorant_Garamond] text-5xl lg:text-7xl font-light leading-tight text-white mb-10!"
+          >
+            Punya
+            <em class="italic text-burg font-normal">Pertanyaan?</em><br />
+            Kami Punya Jawaban.
+          </h2>
+
+          <p class="text-white/50 text-lg leading-relaxed mb-12! max-w-md">
+            Kami hadir untuk memastikan setiap detail acara Anda terencana
+            dengan sempurna. Jika pertanyaan Anda tidak terjawab di sini,
+            hubungi tim kami kapan saja.
+          </p>
+
+          <div class="relative group inline-block">
+            <div
+              class="absolute -inset-1 bg-burg/20 blur-lg rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+            ></div>
+            <a
+              href="https://wa.me/6287866861146"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="relative flex items-center gap-4 px-10! py-5! bg-burg text-white rounded-full text-sm font-bold tracking-[0.2em] uppercase transition-all hover:bg-burg-light hover:-translate-y-1 shadow-2xl"
+            >
+              <span>Konsultasi via WhatsApp</span>
+              <svg aria-hidden="true"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                class="transition-transform group-hover:translate-x-1"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </a>
           </div>
         </div>
-        
-        <div class="faq-list reveal d1">
-          <div v-for="(faq, i) in faqs" :key="i" class="faq-item" :class="{ open: faq.isOpen }">
-            <div class="faq-q" @click="toggleFaq(i)">
-              <span class="faq-num">{{ (i + 1).toString().padStart(2, '0') }}</span>
-              <span class="faq-text">{{ faq.q }}</span>
-              <div class="faq-toggle">
-                <div class="toggle-line"></div>
-                <div class="toggle-line"></div>
+
+        <!-- Right: Accordion List -->
+        <div class="flex flex-col gap-5 reveal-right d1">
+          <div
+            v-for="(faq, i) in faqs"
+            :key="i"
+            class="group border border-white/5 rounded-2xl overflow-hidden transition-all duration-500"
+            :class="
+              faq.isOpen
+                ? 'bg-white/3 border-burg/30 shadow-2xl shadow-burg/5'
+                : 'bg-white/1 hover:bg-white/3 hover:border-white/10'
+            "
+          >
+            <!-- Question -->
+            <button
+              @click="toggleFaq(i)"
+              class="w-full text-left p-8! lg:px-10! lg:py-9! flex items-center justify-between gap-8 focus:outline-none"
+            >
+              <div class="flex items-center gap-6 lg:gap-10">
+                <span
+                  class="font-[Cormorant_Garamond] text-xl text-burg/40 font-bold tracking-widest group-hover:text-burg transition-colors"
+                  :class="{ 'text-burg!': faq.isOpen }"
+                >
+                  {{ (i + 1).toString().padStart(2, "0") }}
+                </span>
+                <span
+                  class="text-lg lg:text-xl font-medium text-white group-hover:text-burg-light transition-colors"
+                  :class="{ 'text-burg-light!': faq.isOpen }"
+                >
+                  {{ faq.q }}
+                </span>
               </div>
-            </div>
-            <div class="faq-a-container" :style="{ maxHeight: faq.isOpen ? '300px' : '0' }">
-              <div class="faq-a">
-                <div class="faq-a-inner">
+
+              <!-- Icon -->
+              <div
+                class="relative w-6 h-6 flex items-center justify-center shrink-0"
+              >
+                <div
+                  class="absolute w-full h-0.5 bg-white/20 transition-all duration-500"
+                  :class="{ 'rotate-180 bg-burg!': faq.isOpen }"
+                ></div>
+                <div
+                  class="absolute w-0.5 h-full bg-white/20 transition-all duration-500"
+                  :class="{ 'rotate-90 opacity-0 bg-burg!': faq.isOpen }"
+                ></div>
+              </div>
+            </button>
+
+            <!-- Answer (Smooth Transition using Grid) -->
+            <div
+              class="grid transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]"
+              :style="{ gridTemplateRows: faq.isOpen ? '1fr' : '0fr' }"
+              :class="faq.isOpen ? 'opacity-100' : 'opacity-0'"
+            >
+              <div class="overflow-hidden">
+                <div
+                  class="p-10! text-white/50 text-base lg:text-lg leading-relaxed border-t border-white/5 mt-4 ml-16 lg:ml-20"
+                >
                   {{ faq.a }}
                 </div>
               </div>
@@ -91,203 +211,26 @@ const toggleFaq = (index: number) => {
 </template>
 
 <style scoped>
-#faq {
-  padding: 160px 0;
-  position: relative;
-  background-image: url('/img/service-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  overflow: hidden;
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: reveal-x 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
-.faq-bg-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(12, 10, 9, 0.98), rgba(125, 5, 22, 0.5), rgba(12, 10, 9, 0.98));
-  z-index: 1;
+.reveal-right {
+  opacity: 0;
+  transform: translateX(30px);
+  animation: reveal-x 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
-.decor-wrapper {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 2;
+.d1 {
+  animation-delay: 0.2s;
 }
 
-.container {
-  position: relative;
-  z-index: 3;
-}
-
-.faq-grid {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 100px;
-  align-items: start;
-}
-
-.faq-h2 {
-  font-family: var(--ff-head);
-  font-size: clamp(42px, 5vw, 68px);
-  font-weight: 300;
-  line-height: 1.1;
-  color: var(--white);
-  margin-bottom: 32px;
-}
-
-.faq-h2 em {
-  font-style: italic;
-  color: var(--burg-light);
-  font-weight: 400;
-}
-
-.faq-sub {
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.6);
-  line-height: 1.8;
-  max-width: 450px;
-}
-
-.faq-cta {
-  margin-top: 52px;
-}
-
-.faq-cta p {
-  font-size: 13px;
-  color: var(--burg-light);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 16px;
-}
-
-.faq-wa-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 16px;
-  padding: 18px 36px;
-  background: var(--burg);
-  color: var(--white);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  border-radius: 100px;
-  transition: all 0.4s var(--ease);
-  box-shadow: 0 10px 30px rgba(125, 5, 22, 0.3);
-}
-
-.faq-wa-btn:hover {
-  background: var(--burg-light);
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(125, 5, 22, 0.4);
-}
-
-.faq-list {
-  display: flex;
-  flex-direction: column;
-}
-
-.faq-item {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.faq-q {
-  display: flex;
-  align-items: center;
-  padding: 32px 0;
-  cursor: pointer;
-  gap: 30px;
-}
-
-.faq-num {
-  font-family: var(--ff-head);
-  font-size: 14px;
-  color: var(--cream);
-  font-weight: 600;
-  opacity: 0.6;
-}
-
-.faq-text {
-  flex-grow: 1;
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--white);
-  transition: color 0.3s ease;
-}
-
-.faq-item:hover .faq-text {
-  color: var(--burg-light);
-}
-
-.faq-toggle {
-  width: 24px;
-  height: 24px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.toggle-line {
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background: var(--white);
-  transition: all 0.4s var(--ease);
-}
-
-.toggle-line:last-child {
-  transform: rotate(90deg);
-}
-
-.faq-item.open .toggle-line {
-  background: var(--burg-light);
-}
-
-.faq-item.open .toggle-line:last-child {
-  transform: rotate(0deg);
-}
-
-.faq-a-container {
-  overflow: hidden;
-  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.faq-a-inner {
-  padding-bottom: 32px;
-  padding-left: 44px;
-  font-size: 15px;
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.5);
-  max-width: 600px;
-}
-
-@media (max-width: 1024px) {
-  .faq-grid {
-    grid-template-columns: 1fr;
-    gap: 60px;
-  }
-  .faq-left {
-    text-align: center;
-  }
-  .faq-sub {
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-@media (max-width: 768px) {
-  #faq {
-    padding: 100px 0;
-  }
-  .faq-text {
-    font-size: 16px;
-  }
-  .faq-q {
-    gap: 20px;
+@keyframes reveal-x {
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 </style>
-

@@ -6,52 +6,66 @@ import IconFlash from './svg-icon/IconFlash.vue'
 import IconDownload from './svg-icon/IconDownload.vue'
 import TextureLines from './svg-icon/TextureLines.vue'
 import DoubleCircle from './svg-icon/DoubleCircle.vue'
-import DotPattern from './svg-icon/DotPattern.vue'
 
 const steps = [
-  { num: '01', title: 'Konsultasi', desc: 'Diskusikan kebutuhan event dan konsep yang Anda inginkan bersama tim ahli kami.', icon: IconChat },
-  { num: '02', title: 'Pilih Paket', desc: 'Pilih paket layanan yang paling sesuai dengan kebutuhan, durasi, dan budget Anda.', icon: IconSelect },
-  { num: '03', title: 'Reservasi', desc: 'Konfirmasi tanggal event Anda dan lakukan pembayaran untuk mengamankan slot.', icon: IconCalendar },
-  { num: '04', title: 'Event Day', desc: 'Tim profesional kami hadir tepat waktu dan memastikan segalanya berjalan sempurna.', icon: IconFlash },
-  { num: '05', title: 'Delivery', desc: 'Hasil foto & video berkualitas tinggi dikirimkan secara digital segera setelah event.', icon: IconDownload }
+  { num: '01', title: 'Perkenalan', desc: 'Perkenalkan nama dan tanggal acara Anda kepada tim kami.', icon: IconChat },
+  { num: '02', title: 'Booking', desc: 'Booking melalui WhatsApp atau jadwalkan meeting secara langsung.', icon: IconSelect },
+  { num: '03', title: 'Formulir', desc: 'Pengisian formulir booking dengan detail lengkap acara Anda.', icon: IconCalendar },
+  { num: '04', title: 'Invoice', desc: 'Anda akan mendapatkan invoice yang berisikan total harga layanan.', icon: IconFlash },
+  { num: '05', title: 'DP (Down Payment)', desc: 'Lakukan pembayaran DP sebesar Rp 500.000,- untuk mengamankan jadwal.', icon: IconDownload },
+  { num: '06', title: 'Teknis Acara', desc: 'Mendapatkan informasi lebih lanjut mengenai teknis persiapan di hari H.', icon: IconChat }
 ]
 </script>
 
 <template>
-  <section id="alur">
+  <section id="alur" class="bg-cream2 py-24! lg:py-40! relative overflow-hidden z-1">
     <!-- Decorative Background -->
-    <div class="decor-wrapper">
-      <TextureLines class="opacity-40 text-[#890015]" />
-      <DoubleCircle :size="600" position-class="absolute -top-50 -left-50 opacity-40 text-[#890015] hidden xl:block" />
+    <div class="absolute inset-0 pointer-events-none z-0">
+      <TextureLines class="opacity-40 text-burg" />
+      <DoubleCircle :size="600" position-class="absolute -top-50 -left-50 opacity-40 text-burg hidden xl:block" />
     </div>
 
-    <div class="container">
-      <div class="alur-header">
-        <div class="section-label reveal">Proses Kerja</div>
-        <h2 class="alur-h2 reveal d1">Alur Booking<br><em>yang Mudah & Cepat</em></h2>
-        <p class="alur-intro reveal d2">Kami memastikan setiap langkah perjalanan Anda bersama NIL Entertain terasa seamless dan profesional.</p>
+    <div class="app-container relative z-10">
+      <div class="text-center mb-20! max-w-2xl mx-auto!">
+        <div class="inline-flex items-center gap-3 mb-6! reveal justify-center">
+          <div class="h-px w-8 bg-burg/30"></div>
+          <span class="text-sm font-black tracking-[0.4em] uppercase text-burg">How To Order</span>
+          <div class="h-px w-8 bg-burg/30"></div>
+        </div>
+        <h2 class="font-[Cormorant_Garamond] text-5xl lg:text-7xl font-light leading-tight text-black mb-8! reveal d1">
+          Alur Booking<br /><em class="italic text-burg font-normal">yang Mudah & Cepat</em>
+        </h2>
+        <p class="text-lg text-black/60 leading-relaxed reveal d2">
+          Kami memastikan setiap langkah perjalanan Anda bersama NIL Entertain terasa seamless dan profesional.
+        </p>
       </div>
 
-      <div class="alur-grid">
-        <div v-for="(step, i) in steps" :key="step.num" class="alur-step reveal" :class="'d' + (i+1)">
-          <div class="step-card">
-            <div class="step-bg-num">{{ step.num }}</div>
-            
-            <div class="step-icon-box">
-              <component :is="step.icon" class="step-icon" />
-              <div class="step-circle-decorator"></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative">
+        <div 
+          v-for="(step, i) in steps" 
+          :key="step.num" 
+          class="reveal group" 
+          :class="'d' + (i+1)"
+        >
+          <div class="bg-white/40 backdrop-blur-md border border-white/60 rounded-[2rem] p-10! lg:p-14! text-center h-full relative overflow-hidden transition-all duration-500 hover:bg-white/90 hover:-translate-y-2 hover:shadow-2xl hover:border-burg flex flex-col items-center">
+            <!-- Step Number Backdrop -->
+            <div class="absolute -top-2 -right-2 font-[Cormorant_Garamond] text-7xl lg:text-8xl font-black text-burg/10 leading-none pointer-events-none transition-all duration-500 group-hover:text-burg group-hover:scale-110">
+              {{ step.num }}
             </div>
             
-            <div class="step-content">
-              <h3 class="step-title">{{ step.title }}</h3>
-              <p class="step-desc">{{ step.desc }}</p>
+            <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mb-8! text-burg relative shadow-lg transition-all duration-500 group-hover:bg-burg group-hover:text-white group-hover:rotate-12 group-hover:scale-110">
+              <component :is="step.icon" class="w-8 h-8" />
+              <div class="absolute -inset-1.5 border border-dashed border-burg/20 rounded-full transition-all duration-500 group-hover:-inset-2.5 group-hover:border-burg group-hover:-rotate-12"></div>
             </div>
-          </div>
-          
-          <!-- Connecting Line (Desktop) -->
-          <div v-if="i < steps.length - 1" class="step-connector">
-            <div class="connector-line"></div>
-            <div class="connector-dot"></div>
+            
+            <div class="relative z-10">
+              <h3 class="font-[Cormorant_Garamond] text-2xl lg:text-3xl font-bold text-black mb-4!">
+                {{ step.title }}
+              </h3>
+              <p class="text-[15px] text-black/60 leading-relaxed group-hover:text-black/80 transition-colors">
+                {{ step.desc }}
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -60,218 +74,23 @@ const steps = [
 </template>
 
 <style scoped>
-#alur {
-  background: var(--cream2);
-  padding: 160px 0;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: reveal-in 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
-.decor-wrapper {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
+.d1 { animation-delay: 0.1s; }
+.d2 { animation-delay: 0.2s; }
+.d3 { animation-delay: 0.3s; }
+.d4 { animation-delay: 0.4s; }
+.d5 { animation-delay: 0.5s; }
+.d6 { animation-delay: 0.6s; }
 
-.container {
-  position: relative;
-  z-index: 2;
-}
-
-.alur-header {
-  text-align: center;
-  margin-bottom: 80px;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.alur-h2 {
-  font-family: var(--ff-head);
-  font-size: clamp(42px, 5vw, 64px);
-  font-weight: 400;
-  line-height: 1.1;
-  color: var(--black);
-  margin-bottom: 24px;
-}
-
-.alur-h2 em {
-  font-style: italic;
-  color: var(--burg);
-}
-
-.alur-intro {
-  font-size: 16px;
-  color: #555;
-  line-height: 1.6;
-}
-
-.alur-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
-  position: relative;
-}
-
-.alur-step {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.step-card {
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  padding: 48px 24px;
-  border-radius: 24px;
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.5s var(--ease);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.step-card:hover {
-  background: rgba(255, 255, 255, 0.9);
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-  border-color: var(--burg);
-}
-
-.step-bg-num {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  font-family: var(--ff-head);
-  font-size: 80px;
-  font-weight: 700;
-  color: rgba(125, 5, 22, 0.5);
-  line-height: 1;
-  pointer-events: none;
-  transition: all 0.5s var(--ease);
-}
-
-.step-card:hover .step-bg-num {
-  color: var(--burg);
-  transform: scale(1.1);
-}
-
-.step-icon-box {
-  width: 80px;
-  height: 80px;
-  background: var(--white);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 24px;
-  color: var(--burg);
-  position: relative;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-  transition: all 0.5s var(--ease);
-}
-
-.step-card:hover .step-icon-box {
-  background: var(--burg);
-  color: var(--white);
-  transform: rotate(10deg);
-}
-
-.step-circle-decorator {
-  position: absolute;
-  inset: -6px;
-  border: 1px dashed rgba(125, 5, 22, 0.2);
-  border-radius: 50%;
-  transition: all 0.5s var(--ease);
-}
-
-.step-card:hover .step-circle-decorator {
-  inset: -10px;
-  border-color: var(--burg);
-  transform: rotate(-20deg);
-}
-
-.step-title {
-  font-family: var(--ff-head);
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--black);
-  margin-bottom: 12px;
-}
-
-.step-desc {
-  font-size: 13px;
-  color: #666;
-  line-height: 1.6;
-}
-
-.step-connector {
-  position: absolute;
-  top: 40%;
-  right: -20px;
-  width: 20px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-}
-
-.connector-line {
-  width: 100%;
-  height: 2px;
-  border-top: 4px solid rgba(125, 5, 22, 0.5);
-}
-
-.connector-dot {
-  position: absolute;
-  right: 5px;
-  width: 8px;
-  height: 8px;
-  background: var(--burg);
-  border-radius: 50%;
-}
-
-@media (max-width: 1100px) {
-  .alur-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-  }
-  .step-connector {
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
-  #alur { padding: 100px 0; }
-  .alur-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  .step-card {
-    flex-direction: row;
-    text-align: left;
-    padding: 32px 24px;
-    align-items: center;
-    gap: 24px;
-  }
-  .step-icon-box {
-    margin-bottom: 0;
-    flex-shrink: 0;
-  }
-  .step-bg-num {
-    font-size: 60px;
-    bottom: -10px;
-    top: auto;
-    right: 20px;
+@keyframes reveal-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>
