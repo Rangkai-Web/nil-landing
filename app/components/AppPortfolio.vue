@@ -4,7 +4,7 @@ import TextureLines from "./svg-icon/TextureLines.vue";
 import DoubleCircle from "./svg-icon/DoubleCircle.vue";
 
 // const categories = ["Semua", "Photobooth", "Videobooth", "Wedding", "Pre Wedding", "Graduation", "Photobox", "Lainnya"];
-const categories = ["Semua"];
+const categories = ["Semua", "Video", "Photobooth"];
 const activeCategory = ref("Semua");
 const visibleCount = ref(8);
 const selectedItem = ref<any>(null);
@@ -137,7 +137,7 @@ const closeLightbox = () => {
             <div
               class="absolute inset-0 bg-linear-to-t from-black via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 p-8! lg:p-10! flex flex-col justify-end"
             >
-              <div
+              <!-- <div
                 class="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]"
               >
                 <span
@@ -153,7 +153,7 @@ const closeLightbox = () => {
                 <div
                   class="h-1 w-0 group-hover:w-16 bg-burg transition-all duration-700 delay-100"
                 ></div>
-              </div>
+              </div> -->
 
               <!-- Zoom / Play Icon -->
               <div

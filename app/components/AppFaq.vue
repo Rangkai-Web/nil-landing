@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import TextureLines from "./svg-icon/TextureLines.vue";
 import DoubleCircle from "./svg-icon/DoubleCircle.vue";
+import { useContactStore } from "~/stores/contactStore";
+
+const contactStore = useContactStore();
 
 const faqs = ref([
   {
@@ -121,7 +124,7 @@ useHead({
               class="absolute -inset-1 bg-burg/20 blur-lg rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
             ></div>
             <NuxtLink
-              to="https://wa.me/6287866861146"
+              :to="contactStore.whatsappLink"
               target="_blank"
               rel="noopener noreferrer"
               class="relative flex items-center gap-4 px-10! py-5! bg-burg text-white rounded-full text-sm font-bold tracking-[0.2em] uppercase transition-all hover:bg-burg-light hover:-translate-y-1 shadow-2xl"

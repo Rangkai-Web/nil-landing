@@ -35,6 +35,7 @@ const testimonials = [
 ];
 
 const currentIdx = ref(0);
+const selectedImage = ref<string | null>(null);
 let timer: any = null;
 
 const goTesti = (n: number) => {
@@ -44,7 +45,20 @@ const goTesti = (n: number) => {
   startTimer();
 };
 
+const openZoom = (image: string) => {
+  selectedImage.value = image;
+  document.body.style.overflow = "hidden";
+  stopTimer();
+};
+
+const closeZoom = () => {
+  selectedImage.value = null;
+  document.body.style.overflow = "auto";
+  startTimer();
+};
+
 const startTimer = () => {
+  if (selectedImage.value) return;
   timer = setInterval(() => {
     currentIdx.value = (currentIdx.value + 1) % testimonials.length;
   }, 3000);
@@ -177,35 +191,12 @@ onUnmounted(() => {
                 </p>
 
                 <div class="flex items-center gap-4 md:gap-6 mt-auto!">
-                  <!-- <div class="relative group/avatar">
-                    <div
-                      class="absolute inset-0 bg-burg/50 rounded-full blur-xl opacity-0 group-hover/avatar:opacity-100 transition-opacity"
-                    ></div>
-                    <NuxtImg
-                      :src="t.avatar"
-                      :alt="t.name"
-                      class="relative w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-2 border-burg/30 p-1 bg-black z-10"
-                      width="80"
-                      height="80"
-                      loading="lazy"
-                    />
-                  </div> -->
                   <div>
                     <div
                       class="font-[Cormorant_Garamond] text-xl md:text-2xl font-bold text-white leading-none mb-2!"
                     >
                       {{ t.name }}
                     </div>
-                    <!-- <div
-                      class="text-xs md:text-sm font-black tracking-[0.2em] uppercase text-burg/70"
-                    >
-                      {{ t.role }}
-                    </div>
-                    <div
-                      class="mt-2! md:mt-3! inline-block px-3! md:px-4! py-1! bg-white/5 rounded-full border border-white/10 text-xs md:text-sm font-bold tracking-widest text-white/50 uppercase"
-                    >
-                      {{ t.eventType }}
-                    </div> -->
                   </div>
                 </div>
               </div>
@@ -230,13 +221,14 @@ onUnmounted(() => {
                 "
               >
                 <div
-                  class="w-full h-full bg-burg flex items-center justify-center p-10!"
+                  class="w-full h-full bg-burg flex items-center justify-center p-4! lg:p-10!"
                 >
                   <NuxtImg
                     :src="t.image"
                     :alt="t.name"
-                    class="max-w-full max-h-full object-contain shadow-2xl rounded-xl"
+                    class="max-w-full max-h-full object-contain shadow-2xl rounded-xl cursor-zoom-in transition-transform duration-500 hover:scale-[1.02] active:scale-95"
                     loading="lazy"
+                    @click="openZoom(t.image)"
                   />
                 </div>
               </div>
@@ -316,6 +308,61 @@ onUnmounted(() => {
         </div>
       </div>
     </div>
+
+    <!-- Premium Lightbox Modal -->
+    <Teleport to="body">
+      <Transition
+        enter-active-class="transition duration-500 ease-out"
+        enter-from-class="opacity-0"
+        enter-to-class="opacity-100"
+        leave-active-class="transition duration-300 ease-in"
+        leave-from-class="opacity-100"
+        leave-to-class="opacity-0"
+      >
+        <div
+          v-if="selectedImage"
+          class="fixed inset-0 z-[2000] flex items-center justify-center p-4 md:p-10 bg-black/90 backdrop-blur-xl"
+          @click="closeZoom"
+        >
+          <div
+            class="absolute top-6 right-6 md:top-10 md:right-10 z-[2010]"
+            @click.stop="closeZoom"
+          >
+            <button
+              class="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all hover:rotate-90 cursor-pointer"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          <Transition
+            enter-active-class="transition duration-500 delay-100 ease-out"
+            enter-from-class="opacity-0 scale-90 translate-y-10"
+            enter-to-class="opacity-100 scale-100 translate-y-0"
+          >
+            <div
+              v-if="selectedImage"
+              class="relative max-w-7xl max-h-[90vh] w-full flex items-center justify-center"
+              @click.stop
+            >
+              <NuxtImg
+                :src="selectedImage"
+                class="max-w-full max-h-[85vh] object-contain shadow-[0_0_100px_rgba(0,0,0,0.8)] rounded-lg"
+              />
+            </div>
+          </Transition>
+        </div>
+      </Transition>
+    </Teleport>
   </section>
 </template>
 

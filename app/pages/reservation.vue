@@ -124,13 +124,13 @@
                 >Need Assistance?</span
               >
               <NuxtLink
-                to="https://wa.me/6287866861146"
+                :to="contactStore.whatsappLink"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="flex items-center justify-center lg:justify-start gap-3 text-xl font-bold hover:opacity-80 transition-opacity"
               >
                 <Icon name="mdi:whatsapp" class="size-6" />
-                <span>+62 878-6686-1146</span>
+                <span>{{ contactStore.whatsapp.label }}</span>
               </NuxtLink>
             </div>
           </div>
@@ -259,6 +259,9 @@
 
 <script setup lang="ts">
 import { id as idLocale } from "date-fns/locale";
+import { useContactStore } from "~/stores/contactStore";
+
+const contactStore = useContactStore();
 
 useSeoMeta({
   title: "Reservasi Photobooth & Videobooth 360 Bali - NIL Entertain",
@@ -293,7 +296,7 @@ useHead({
             postalCode: "80225",
             addressCountry: "ID",
           },
-          telephone: "+6287866861146",
+          telephone: `+${contactStore.whatsapp.number}`,
         },
         areaServed: {
           "@type": "State",
@@ -358,7 +361,7 @@ Saya ingin melakukan konfirmasi booking yang telah saya buat di Google Calendar.
 
 Mohon bantuannya untuk proses selanjutnya. Terima kasih! 🙏`;
 
-  const whatsappUrl = `https://wa.me/6287866861146?text=${encodeURIComponent(message)}`;
+  const whatsappUrl = `https://wa.me/${contactStore.whatsapp.number}?text=${encodeURIComponent(message)}`;
   window.open(whatsappUrl, "_blank");
 
   // Reset form

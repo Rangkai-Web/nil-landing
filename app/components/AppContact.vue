@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import TextureLines from "./svg-icon/TextureLines.vue";
 import DoubleCircle from "./svg-icon/DoubleCircle.vue";
+import { useContactStore } from "~/stores/contactStore";
+
+const contactStore = useContactStore();
 </script>
 
 <template>
@@ -76,9 +79,9 @@ import DoubleCircle from "./svg-icon/DoubleCircle.vue";
                 </div>
                 <div class="text-lg text-black font-medium">
                   <NuxtLink
-                    to="mailto:nilentertainment@gmail.com"
+                    :to="'mailto:' + contactStore.email"
                     class="hover:text-burg transition-colors"
-                    >nilentertainment@gmail.com</NuxtLink
+                    >{{ contactStore.email }}</NuxtLink
                   >
                 </div>
               </div>
@@ -110,15 +113,15 @@ import DoubleCircle from "./svg-icon/DoubleCircle.vue";
                 <div
                   class="text-xs font-bold tracking-[0.2em] uppercase text-[#666] mb-1.5!"
                 >
-                  WhatsApp (Fendi)
+                  WhatsApp ({{ contactStore.whatsapp.name }})
                 </div>
                 <div class="text-lg text-black font-medium">
                   <NuxtLink
-                    to="https://wa.me/6287866861146"
+                    :to="contactStore.whatsappLink"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="hover:text-burg transition-colors"
-                    >+62 878-6686-1146</NuxtLink
+                    >{{ contactStore.whatsapp.label }}</NuxtLink
                   >
                 </div>
               </div>
@@ -171,10 +174,10 @@ import DoubleCircle from "./svg-icon/DoubleCircle.vue";
             class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start reveal d3 mt-10!"
           >
             <NuxtLink
-              to="https://wa.me/6287866861146"
+              :to="contactStore.whatsappLink"
               target="_blank"
               rel="noopener noreferrer"
-              class="px-9! py-4.5! bg-burg text-white text-xs font-bold tracking-[0.2em] uppercase transition-all duration-400 hover:bg-burg-light hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(125,5,22,0.2)] text-center"
+              class="px-9! py-4.5! bg-burg text-white text-xs font-bold tracking-[0.2em] uppercase transition-all duration-400 hover:bg-burg-light hover:-translate-y-1 hover:shadow-[0_15px_30_rgba(125,5,22,0.2)] text-center"
               >Konsultasi Gratis</NuxtLink
             >
             <NuxtLink

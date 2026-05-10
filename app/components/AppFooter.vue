@@ -239,7 +239,7 @@
             <ul class="flex flex-col gap-4 list-none p-0">
               <li>
                 <NuxtLink
-                  to="https://wa.me/6287866861146"
+                  :to="contactStore.whatsappLink"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="text-sm text-white/60 hover:text-white transition-colors flex items-center justify-center sm:justify-start gap-3 group"
@@ -247,12 +247,12 @@
                   <span
                     class="w-4 h-px bg-white/20 group-hover:w-2 group-hover:bg-burg transition-all"
                   ></span>
-                  +62 878-6686-1146
+                  {{ contactStore.whatsapp.label }}
                 </NuxtLink>
               </li>
               <li>
                 <NuxtLink
-                  to="mailto:nilentertainment@gmail.com"
+                  :to="'mailto:' + contactStore.email"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="text-sm text-white/60 hover:text-white transition-colors flex items-center justify-center sm:justify-start gap-3 group"
@@ -260,7 +260,7 @@
                   <span
                     class="w-4 h-px bg-white/20 group-hover:w-2 group-hover:bg-burg transition-all"
                   ></span>
-                  nilentertainment@gmail.com
+                  {{ contactStore.email }}
                 </NuxtLink>
               </li>
               <li>
@@ -273,7 +273,7 @@
                   <span
                     class="w-4 h-px bg-white/20 group-hover:w-2 group-hover:bg-burg transition-all"
                   ></span>
-                  Denpasar, Bali
+                  {{ contactStore.location }}
                 </NuxtLink>
               </li>
               <li class="mt-4!">
@@ -304,23 +304,23 @@
 </template>
 
 <script setup lang="ts">
-import TextureLines from "./svg-icon/TextureLines.vue";
 import DoubleCircle from "./svg-icon/DoubleCircle.vue";
+import { useContactStore } from "~/stores/contactStore";
 
+const contactStore = useContactStore();
 const currentYear = new Date().getFullYear();
 
 const socialLinks = [
   {
     name: "Instagram",
     icon: "ig",
-    url: "https://www.instagram.com/nil_entertain/",
+    url: `https://www.instagram.com/${contactStore.instagram}/`,
   },
   { name: "TikTok", icon: "tt", url: "https://www.tiktok.com/@nil_entertaint" },
-  // { name: "YouTube", icon: "yt", url: "#" },
   {
     name: "WhatsApp",
     icon: "wa",
-    url: "https://wa.me/6287866861146?text=Halo%20NIL%20Entertain,%20saya%20tertarik%20dengan%20layanan%20Anda.%20",
+    url: contactStore.whatsappLink,
   },
 ];
 </script>

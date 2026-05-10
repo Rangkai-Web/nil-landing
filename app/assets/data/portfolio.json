@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "Elegant Wedding Session",
-      "category": "Wedding",
+      "category": "Photobooth",
       "image": "/img/portfolio/img1.webp",
       "type": "image"
     },
@@ -17,42 +17,42 @@
     {
       "id": 3,
       "title": "360 Videobooth Experience",
-      "category": "Videobooth",
+      "category": "Photobooth",
       "image": "/img/portfolio/img3.webp",
       "type": "image"
     },
     {
       "id": 4,
       "title": "Graduation Celebration",
-      "category": "Graduation",
+      "category": "Photobooth",
       "image": "/img/portfolio/img4.webp",
       "type": "image"
     },
     {
       "id": 5,
       "title": "Pre Wedding Romantic",
-      "category": "Pre Wedding",
+      "category": "Photobooth",
       "image": "/img/portfolio/img5.webp",
       "type": "image"
     },
     {
       "id": 6,
       "title": "Vintage Photobox",
-      "category": "Photobox",
+      "category": "Photobooth",
       "image": "/img/portfolio/img6.webp",
       "type": "image"
     },
     {
       "id": 7,
       "title": "Corporate Gathering",
-      "category": "Lainnya",
+      "category": "Photobooth",
       "image": "/img/portfolio/img7.webp",
       "type": "image"
     },
     {
       "id": 8,
       "title": "Photobooth Highlights",
-      "category": "Photobooth",
+      "category": "Video",
       "image": "/img/portfolio/img2.webp",
       "video": "/img/portfolio/video1.mp4",
       "type": "video"
@@ -60,7 +60,7 @@
     {
       "id": 9,
       "title": "Videobooth 360 Action",
-      "category": "Videobooth",
+      "category": "Video",
       "image": "/img/portfolio/img3.webp",
       "video": "/img/portfolio/video2.mp4",
       "type": "video"
@@ -68,7 +68,7 @@
     {
       "id": 10,
       "title": "Event Fun Moments",
-      "category": "Photobooth",
+      "category": "Video",
       "image": "/img/portfolio/img1.webp",
       "video": "/img/portfolio/video3.MP4",
       "type": "video"

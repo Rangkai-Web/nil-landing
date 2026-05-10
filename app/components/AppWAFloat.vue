@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import IconWhatsApp from "./svg-icon/IconWhatsApp.vue";
+import { useContactStore } from "~/stores/contactStore";
+
+const contactStore = useContactStore();
 </script>
 
 <template>
   <NuxtLink
-    to="https://wa.me/6287866861146"
+    :to="contactStore.whatsappLink"
     id="wa-float"
     target="_blank"
     rel="noopener noreferrer"
