@@ -70,15 +70,15 @@ import DoubleCircle from "./svg-icon/DoubleCircle.vue";
               </div>
               <div class="text-left">
                 <div
-                  class="text-[11px] font-bold tracking-[0.2em] uppercase text-[#999] mb-1.5!"
+                  class="text-xs font-bold tracking-[0.2em] uppercase text-[#666] mb-1.5!"
                 >
                   Email Kami
                 </div>
                 <div class="text-lg text-black font-medium">
-                  <a
-                    href="mailto:nilentertainment@gmail.com"
+                  <NuxtLink
+                    to="mailto:nilentertainment@gmail.com"
                     class="hover:text-burg transition-colors"
-                    >nilentertainment@gmail.com</a
+                    >nilentertainment@gmail.com</NuxtLink
                   >
                 </div>
               </div>
@@ -108,17 +108,17 @@ import DoubleCircle from "./svg-icon/DoubleCircle.vue";
               </div>
               <div class="text-left">
                 <div
-                  class="text-[11px] font-bold tracking-[0.2em] uppercase text-[#999] mb-1.5!"
+                  class="text-xs font-bold tracking-[0.2em] uppercase text-[#666] mb-1.5!"
                 >
                   WhatsApp (Fendi)
                 </div>
                 <div class="text-lg text-black font-medium">
-                  <a
-                    href="https://wa.me/6287866861146"
+                  <NuxtLink
+                    to="https://wa.me/6287866861146"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="hover:text-burg transition-colors"
-                    >+62 878-6686-1146</a
+                    >+62 878-6686-1146</NuxtLink
                   >
                 </div>
               </div>
@@ -156,7 +156,7 @@ import DoubleCircle from "./svg-icon/DoubleCircle.vue";
               </div>
               <div class="text-left">
                 <div
-                  class="text-[11px] font-bold tracking-[0.2em] uppercase text-[#999] mb-1.5!"
+                  class="text-xs font-bold tracking-[0.2em] uppercase text-[#666] mb-1.5!"
                 >
                   Lokasi Studio
                 </div>
@@ -170,19 +170,19 @@ import DoubleCircle from "./svg-icon/DoubleCircle.vue";
           <div
             class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start reveal d3 mt-10!"
           >
-            <a
-              href="https://wa.me/6287866861146"
+            <NuxtLink
+              to="https://wa.me/6287866861146"
               target="_blank"
               rel="noopener noreferrer"
               class="px-9! py-4.5! bg-burg text-white text-xs font-bold tracking-[0.2em] uppercase transition-all duration-400 hover:bg-burg-light hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(125,5,22,0.2)] text-center"
-              >Konsultasi Gratis</a
+              >Konsultasi Gratis</NuxtLink
             >
-            <a
-              href="https://maps.app.goo.gl/J3yJmJ8w8H9X9Z9X9"
+            <NuxtLink
+              to="https://maps.app.goo.gl/J3yJmJ8w8H9X9Z9X9"
               target="_blank"
               rel="noopener noreferrer"
               class="px-9! py-4.5! border border-black text-black text-xs font-bold tracking-[0.2em] uppercase transition-all duration-400 hover:bg-black hover:text-white hover:-translate-y-1 text-center"
-              >Get Direction</a
+              >Get Direction</NuxtLink
             >
           </div>
         </div>

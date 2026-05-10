@@ -39,7 +39,7 @@ import IconCameraElegant from "./svg-icon/IconCameraElegant.vue";
                 <IconCameraElegant class="w-8 h-8 mb-1! mx-auto!" />
                 <div class="flex flex-col leading-none">
                   <span
-                    class="text-[8px] tracking-[0.3em] font-bold opacity-80 uppercase"
+                    class="text-xs tracking-[0.3em] font-bold opacity-80 uppercase"
                     >Since</span
                   >
                   <strong
@@ -91,7 +91,7 @@ import IconCameraElegant from "./svg-icon/IconCameraElegant.vue";
           <div
             class="grid grid-cols-3 md:grid-cols-3 gap-8 mb-14! pb-14! border-b border-black/20"
           >
-            <div class="text-left">
+            <div class="text-center">
               <div
                 class="font-[Cormorant_Garamond] text-4xl lg:text-5xl font-bold text-burg leading-none"
               >
@@ -103,7 +103,7 @@ import IconCameraElegant from "./svg-icon/IconCameraElegant.vue";
                 Event Selesai
               </div>
             </div>
-            <div class="text-left">
+            <div class="text-center">
               <div
                 class="font-[Cormorant_Garamond] text-4xl lg:text-5xl font-bold text-burg leading-none"
               >
@@ -115,7 +115,7 @@ import IconCameraElegant from "./svg-icon/IconCameraElegant.vue";
                 Rating Client
               </div>
             </div>
-            <div class="text-left">
+            <div class="text-center">
               <div
                 class="font-[Cormorant_Garamond] text-4xl lg:text-5xl font-bold text-burg leading-none"
               >

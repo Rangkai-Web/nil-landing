@@ -19,13 +19,7 @@ export default defineNuxtConfig({
   vite: {
     build: {
       cssCodeSplit: true,
-      minify: "terser",
-      terserOptions: {
-        compress: {
-          drop_console: true,
-          drop_debugger: true,
-        },
-      },
+      minify: "esbuild",
     },
   },
   css: ["~/assets/css/main.css"],
@@ -40,7 +34,7 @@ export default defineNuxtConfig({
         { name: 'description', content: 'NIL Entertain — Photobooth & Videobooth360 premium untuk event spesial di Bali. Wedding, corporate, birthday, dan private event.' },
       ],
       link: [
-        { rel: "icon", type: "image/png", href: "/favicon.png" }
+        { rel: "icon", type: "image/png", href: "/favicon/favicon-32x32.png" }
       ],
     },
   },
@@ -58,7 +52,7 @@ export default defineNuxtConfig({
     ],
   },
   image: {
-    quality: 80,
+    quality: 75,
     format: ["webp", "avif"],
     domains: ["127.0.0.1:8000", "images.unsplash.com"],
     screens: {
@@ -74,5 +68,8 @@ export default defineNuxtConfig({
     public: {
       apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || "/",
     },
+  },
+  nitro: {
+    compressPublicAssets: true,
   },
 });

@@ -72,7 +72,7 @@
                 class="flex flex-col lg:flex-row gap-5 items-center lg:items-start text-center lg:text-left"
               >
                 <div
-                  class="font-[Cormorant_Garamond] text-[14px] font-bold text-burg-light bg-white w-8 h-8 flex items-center justify-center rounded-full shrink-0"
+                  class="font-[Cormorant_Garamond] text-sm font-bold text-burg-light bg-white w-8 h-8 flex items-center justify-center rounded-full shrink-0"
                 >
                   01
                 </div>
@@ -87,7 +87,7 @@
                 class="flex flex-col lg:flex-row gap-5 items-center lg:items-start text-center lg:text-left"
               >
                 <div
-                  class="font-[Cormorant_Garamond] text-[14px] font-bold text-burg-light bg-white w-8 h-8 flex items-center justify-center rounded-full shrink-0"
+                  class="font-[Cormorant_Garamond] text-sm font-bold text-burg-light bg-white w-8 h-8 flex items-center justify-center rounded-full shrink-0"
                 >
                   02
                 </div>
@@ -102,7 +102,7 @@
                 class="flex flex-col lg:flex-row gap-5 items-center lg:items-start text-center lg:text-left"
               >
                 <div
-                  class="font-[Cormorant_Garamond] text-[14px] font-bold text-burg-light bg-white w-8 h-8 flex items-center justify-center rounded-full shrink-0"
+                  class="font-[Cormorant_Garamond] text-sm font-bold text-burg-light bg-white w-8 h-8 flex items-center justify-center rounded-full shrink-0"
                 >
                   03
                 </div>
@@ -123,15 +123,15 @@
                 class="block text-xs uppercase tracking-[0.2em] text-white/50 mb-3!"
                 >Need Assistance?</span
               >
-              <a
-                href="https://wa.me/6287866861146"
+              <NuxtLink
+                to="https://wa.me/6287866861146"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="flex items-center justify-center lg:justify-start gap-3 text-xl font-bold hover:opacity-80 transition-opacity"
               >
                 <Icon name="mdi:whatsapp" class="size-6" />
                 <span>+62 878-6686-1146</span>
-              </a>
+              </NuxtLink>
             </div>
           </div>
         </div>

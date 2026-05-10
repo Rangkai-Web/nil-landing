@@ -45,13 +45,13 @@ onUnmounted(() => {
         <!-- Desktop Nav -->
         <ul class="hidden lg:flex gap-8 list-none m-0! p-0!">
           <li v-for="link in ['Tentang', 'Layanan', 'Paket', 'Portfolio', 'FAQ', 'Kontak']" :key="link">
-            <a 
-              :href="'/#' + link.toLowerCase()" 
+            <NuxtLink 
+              :to="'/#' + link.toLowerCase()" 
               class="text-base font-bold tracking-[0.15em] uppercase text-white hover:text-white/80 transition-all relative group"
             >
               {{ link }}
               <span class="absolute bottom-[-4px] left-1/2 w-0 h-px bg-burg transition-all duration-300 -translate-x-1/2 group-hover:w-8"></span>
-            </a>
+            </NuxtLink>
           </li>
         </ul>
 
@@ -94,13 +94,13 @@ onUnmounted(() => {
         <div v-if="isMenuOpen" class="absolute top-full left-0 right-0 mt-3 bg-black/95 backdrop-blur-2xl border border-white/10 rounded-3xl p-8! flex flex-col gap-8 shadow-2xl lg:hidden">
           <ul class="list-none flex flex-col gap-6 m-0! p-0!">
             <li v-for="link in ['Tentang', 'Layanan', 'Paket', 'Portfolio', 'FAQ', 'Kontak']" :key="link">
-              <a 
-                :href="'/#' + link.toLowerCase()" 
+              <NuxtLink 
+                :to="'/#' + link.toLowerCase()" 
                 @click="isMenuOpen = false"
                 class="text-xs font-bold tracking-widest uppercase text-cream block py-2 hover:text-burg transition-colors"
               >
                 {{ link }}
-              </a>
+              </NuxtLink>
             </li>
           </ul>
           <div class="mt-4">

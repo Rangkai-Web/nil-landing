@@ -89,7 +89,7 @@ useHead({
     <!-- Background System -->
     <div class="absolute inset-0 z-0">
       <NuxtImg
-        src="/img/service-bg.jpg"
+        src="/img/service-bg.webp"
         alt="NIL Entertain Service Background"
         class="w-full h-full object-cover opacity-20 grayscale"
         width="1920"

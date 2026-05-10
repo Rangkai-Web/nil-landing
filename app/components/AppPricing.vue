@@ -193,46 +193,50 @@ watch(activeTab, (tab) => {
 useHead({
   script: [
     {
-      type: 'application/ld+json',
+      type: "application/ld+json",
       innerHTML: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "OfferCatalog",
-        "name": "NIL Entertain Pricing Packages",
-        "itemListElement": [
+        name: "NIL Entertain Pricing Packages",
+        itemListElement: [
           ...photoboothPackages.map((pkg, i) => ({
             "@type": "ListItem",
-            "position": i + 1,
-            "item": {
+            position: i + 1,
+            item: {
               "@type": "Product",
-              "name": pkg.name,
-              "description": pkg.desc,
-              "offers": {
+              name: pkg.name,
+              description: pkg.desc,
+              offers: {
                 "@type": "AggregateOffer",
-                "priceCurrency": "IDR",
-                "lowPrice": pkg.prices?.[0]?.price?.replace(/\./g, "") || "0",
-                "highPrice": pkg.prices?.[pkg.prices.length - 1]?.price?.replace(/\./g, "") || "0",
-                "offerCount": pkg.prices?.length || 0
-              }
-            }
+                priceCurrency: "IDR",
+                lowPrice: pkg.prices?.[0]?.price?.replace(/\./g, "") || "0",
+                highPrice:
+                  pkg.prices?.[pkg.prices.length - 1]?.price?.replace(
+                    /\./g,
+                    "",
+                  ) || "0",
+                offerCount: pkg.prices?.length || 0,
+              },
+            },
           })),
           ...videoPackages.map((pkg, i) => ({
             "@type": "ListItem",
-            "position": photoboothPackages.length + i + 1,
-            "item": {
+            position: photoboothPackages.length + i + 1,
+            item: {
               "@type": "Product",
-              "name": pkg.name,
-              "description": pkg.desc,
-              "offers": {
+              name: pkg.name,
+              description: pkg.desc,
+              offers: {
                 "@type": "Offer",
-                "price": pkg.price?.replace(/\./g, "") || "0",
-                "priceCurrency": "IDR"
-              }
-            }
-          }))
-        ]
-      })
-    }
-  ]
+                price: pkg.price?.replace(/\./g, "") || "0",
+                priceCurrency: "IDR",
+              },
+            },
+          })),
+        ],
+      }),
+    },
+  ],
 });
 </script>
 
@@ -384,9 +388,7 @@ useHead({
                     {{ pkg.name }}
                   </h3>
                   <div class="w-10 h-0.5 bg-[#890015] mb-6!"></div>
-                  <p
-                    class="text-[13px] text-white/65 leading-relaxed font-light"
-                  >
+                  <p class="text-sm text-white/65 leading-relaxed font-light">
                     {{ pkg.desc }}
                   </p>
                 </div>
@@ -418,10 +420,10 @@ useHead({
                       * {{ note }}
                     </p>
                   </div>
-                  <a
-                    href="/reservation"
-                    class="block w-full text-center py-5! rounded-xl text-[12px] font-black tracking-[0.3em] uppercase transition-all duration-300 bg-[#890015] text-white hover:bg-[#a01020] shadow-[0_10px_30px_rgba(137,0,21,0.2)] hover:shadow-[0_15px_40px_rgba(137,0,21,0.4)] hover:-translate-y-1"
-                    >Book Package</a
+                  <NuxtLink
+                    to="/reservation"
+                    class="block w-full text-center py-5! rounded-xl text-sm font-black tracking-[0.3em] uppercase transition-all duration-300 bg-[#890015] text-white hover:bg-[#a01020] shadow-[0_10px_30px_rgba(137,0,21,0.2)] hover:shadow-[0_15px_40px_rgba(137,0,21,0.4)] hover:-translate-y-1"
+                    >Book Package</NuxtLink
                   >
                 </div>
               </div>
@@ -467,10 +469,10 @@ useHead({
                 class="flex items-center gap-4 p-5! rounded-2xl bg-white/2 border border-white/3 hover:bg-white/5 hover:border-[#890015]/30 hover:translate-x-1 transition-all duration-300 group/item"
               >
                 <div
-                  class="shrink-0 w-10 h-10 rounded-xl bg-[#890015]/10 border border-[#890015]/20 flex items-center justify-center group-hover/item:bg-[#890015]/40 group-hover/item:scale-110 transition-all duration-500"
+                  class="shrink-0 w-10 h-10 rounded-xl bg-cream2 border border-burg-light flex items-center justify-center group-hover/item:bg-cream group-hover/item:scale-110 transition-all duration-500 shadow-[0_0_15px_rgba(137,0,21,0.45)] group-hover/item:shadow-[0_0_20px_rgba(137,0,21,0.45)]"
                 >
                   <IconCheck
-                    class="w-4 h-4 text-[#890015] group-hover/item:text-white"
+                    class="w-4 h-4 text-cream group-hover/item:text-white transition-colors"
                   />
                 </div>
                 <span
@@ -506,7 +508,7 @@ useHead({
                 >
                   {{ pkg.name }}
                 </h3>
-                <p class="text-sm text-white/50 leading-relaxed font-light">
+                <p class="text-sm text-white/70 leading-relaxed font-light">
                   {{ pkg.desc }}
                 </p>
               </div>
@@ -527,17 +529,17 @@ useHead({
                 </div>
                 <div v-if="pkg.additionalTime" class="mt-4!">
                   <span
-                    class="text-xs text-white/30 tracking-widest uppercase italic"
+                    class="text-xs text-white/60 tracking-widest uppercase italic"
                   >
                     Additional Time: {{ pkg.additionalTime }}
                   </span>
                 </div>
               </div>
               <div class="mt-auto border-t border-white/5 pt-10">
-                <a
-                  href="/reservation"
+                <NuxtLink
+                  to="/reservation"
                   class="block w-full py-5! bg-[#890015] text-white rounded-xl text-sm font-black tracking-[0.3em] uppercase hover:bg-[#a01020] transition-all shadow-[0_10px_30px_rgba(137,0,21,0.25)] hover:shadow-[0_15px_40px_rgba(137,0,21,0.45)] hover:-translate-y-1"
-                  >Book Now</a
+                  >Book Now</NuxtLink
                 >
               </div>
             </div>
@@ -573,10 +575,10 @@ useHead({
                 class="flex items-center gap-4 p-5! rounded-2xl bg-white/2 border border-white/3 hover:bg-white/5 hover:border-[#890015]/30 hover:translate-x-1 transition-all duration-300 group/item"
               >
                 <div
-                  class="shrink-0 w-10 h-10 rounded-xl bg-burg/10 border border-[#890015]/20 flex items-center justify-center group-hover/item:bg-burg/40 transition-all duration-500"
+                  class="shrink-0 w-10 h-10 rounded-xl bg-cream2 border border-burg-light flex items-center justify-center group-hover/item:bg-cream group-hover/item:scale-110 transition-all duration-500 shadow-[0_0_15px_rgba(137,0,21,0.45)] group-hover/item:shadow-[0_0_20px_rgba(137,0,21,0.45)]"
                 >
                   <IconCheck
-                    class="w-4 h-4 text-burg group-hover/item:text-white"
+                    class="w-4 h-4 text-cream group-hover/item:text-white transition-colors"
                   />
                 </div>
                 <span

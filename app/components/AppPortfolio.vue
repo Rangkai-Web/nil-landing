@@ -3,11 +3,11 @@ import portfolioData from "~/assets/data/portfolio.json";
 import TextureLines from "./svg-icon/TextureLines.vue";
 import DoubleCircle from "./svg-icon/DoubleCircle.vue";
 
-// const categories = ['Semua', 'Photobooth', 'Videobooth', 'Wedding', 'Pre Wedding', 'Graduation', 'Photobox', 'Lainnya']
+// const categories = ["Semua", "Photobooth", "Videobooth", "Wedding", "Pre Wedding", "Graduation", "Photobox", "Lainnya"];
 const categories = ["Semua"];
 const activeCategory = ref("Semua");
 const visibleCount = ref(8);
-const selectedImage = ref<string | null>(null);
+const selectedItem = ref<any>(null);
 
 const filteredItems = computed(() => {
   if (activeCategory.value === "Semua") return portfolioData.items;
@@ -33,13 +33,13 @@ const filterCategory = (cat: string) => {
   visibleCount.value = 8;
 };
 
-const openLightbox = (img: string) => {
-  selectedImage.value = img;
+const openLightbox = (item: any) => {
+  selectedItem.value = item;
   document.body.style.overflow = "hidden";
 };
 
 const closeLightbox = () => {
-  selectedImage.value = null;
+  selectedItem.value = null;
   document.body.style.overflow = "auto";
 };
 </script>
@@ -54,11 +54,11 @@ const closeLightbox = () => {
       <TextureLines class="opacity-30 text-burg" />
       <DoubleCircle
         :size="800"
-        position-class="absolute -top-100 -right-100 opacity-20 text-burg blur-3xl hidden xl:block"
+        position-class="absolute -top-100 -right-100 opacity-20 text-burg hidden lg:block"
       />
       <DoubleCircle
         :size="600"
-        position-class="absolute -bottom-60 -left-60 opacity-20 text-burg blur-2xl hidden xl:block"
+        position-class="absolute -bottom-60 -left-60 opacity-20 text-burg hidden lg:block"
       />
     </div>
 
@@ -121,7 +121,7 @@ const closeLightbox = () => {
             v-for="(item, idx) in visibleItems"
             :key="item.id"
             class="group relative aspect-4/5 cursor-pointer overflow-hidden bg-white shadow-xl shadow-black/5"
-            @click="openLightbox(item.image)"
+            @click="openLightbox(item)"
           >
             <!-- Image with Parallax-like effect on hover -->
             <NuxtImg
@@ -155,11 +155,25 @@ const closeLightbox = () => {
                 ></div>
               </div>
 
-              <!-- Zoom Icon -->
+              <!-- Zoom / Play Icon -->
               <div
                 class="absolute top-8 right-8 w-14 h-14 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full flex items-center justify-center opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-700 delay-200"
               >
-                <svg aria-hidden="true"
+                <svg
+                  v-if="item.type === 'video'"
+                  aria-hidden="true"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="text-white ml-1!"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+                <svg
+                  v-else
+                  aria-hidden="true"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -212,19 +226,20 @@ const closeLightbox = () => {
       leave-to-class="opacity-0 backdrop-blur-0"
     >
       <div
-        v-if="selectedImage"
+        v-if="selectedItem"
         class="fixed inset-0 bg-black/90 z-9999 flex items-center justify-center p-6! lg:p-20! cursor-pointer"
         @click="closeLightbox"
         role="dialog"
         aria-modal="true"
-        aria-label="Image gallery lightbox"
+        aria-label="Media gallery lightbox"
       >
         <button
           class="absolute top-10 right-10 w-16 h-16 flex items-center justify-center text-white/50 hover:text-white transition-colors cursor-pointer"
           @click="closeLightbox"
           aria-label="Close gallery"
         >
-          <svg aria-hidden="true"
+          <svg
+            aria-hidden="true"
             width="40"
             height="40"
             viewBox="0 0 24 24"
@@ -239,8 +254,16 @@ const closeLightbox = () => {
           class="max-w-full max-h-full relative flex items-center justify-center"
           @click.stop
         >
+          <video
+            v-if="selectedItem.type === 'video'"
+            :src="selectedItem.video"
+            controls
+            autoplay
+            class="max-w-full max-h-[85vh] shadow-[0_40px_100px_rgba(0,0,0,0.8)] rounded-xl"
+          ></video>
           <NuxtImg
-            :src="selectedImage"
+            v-else
+            :src="selectedItem.image"
             alt="Zoomed portfolio image"
             class="max-w-full max-h-[85vh] object-contain shadow-[0_40px_100px_rgba(0,0,0,0.8)] rounded-xl"
             width="1200"

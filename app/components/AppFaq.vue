@@ -41,21 +41,21 @@ const toggleFaq = (index: number) => {
 useHead({
   script: [
     {
-      type: 'application/ld+json',
+      type: "application/ld+json",
       innerHTML: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "mainEntity": faqs.value.map(faq => ({
+        mainEntity: faqs.value.map((faq) => ({
           "@type": "Question",
-          "name": faq.q,
-          "acceptedAnswer": {
+          name: faq.q,
+          acceptedAnswer: {
             "@type": "Answer",
-            "text": faq.a
-          }
-        }))
-      })
-    }
-  ]
+            text: faq.a,
+          },
+        })),
+      }),
+    },
+  ],
 });
 </script>
 
@@ -64,7 +64,7 @@ useHead({
     <!-- Background Image with Overlay -->
     <div class="absolute inset-0 z-0">
       <NuxtImg
-        src="/img/service-bg.jpg"
+        src="/img/service-bg.webp"
         alt="NIL Entertain Service Background"
         class="w-full h-full object-cover opacity-20 grayscale"
         width="1920"
@@ -81,11 +81,11 @@ useHead({
       <TextureLines class="opacity-20 text-burg" />
       <DoubleCircle
         :size="800"
-        position-class="absolute -bottom-100 -left-100 opacity-10 text-cream"
+        position-class="absolute -bottom-100 -left-100 opacity-10 text-cream hidden lg:block"
       />
       <DoubleCircle
         :size="600"
-        position-class="absolute top-50 -right-110 opacity-10 text-cream"
+        position-class="absolute top-50 -right-110 opacity-10 text-cream hidden lg:block"
       />
     </div>
 
@@ -110,7 +110,7 @@ useHead({
             Kami Punya Jawaban.
           </h2>
 
-          <p class="text-white/50 text-lg leading-relaxed mb-12! max-w-md">
+          <p class="text-white/75 text-lg leading-relaxed mb-12! max-w-md">
             Kami hadir untuk memastikan setiap detail acara Anda terencana
             dengan sempurna. Jika pertanyaan Anda tidak terjawab di sini,
             hubungi tim kami kapan saja.
@@ -120,14 +120,15 @@ useHead({
             <div
               class="absolute -inset-1 bg-burg/20 blur-lg rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
             ></div>
-            <a
-              href="https://wa.me/6287866861146"
+            <NuxtLink
+              to="https://wa.me/6287866861146"
               target="_blank"
               rel="noopener noreferrer"
               class="relative flex items-center gap-4 px-10! py-5! bg-burg text-white rounded-full text-sm font-bold tracking-[0.2em] uppercase transition-all hover:bg-burg-light hover:-translate-y-1 shadow-2xl"
             >
               <span>Konsultasi via WhatsApp</span>
-              <svg aria-hidden="true"
+              <svg
+                aria-hidden="true"
                 width="18"
                 height="18"
                 viewBox="0 0 24 24"
@@ -138,7 +139,7 @@ useHead({
               >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
-            </a>
+            </NuxtLink>
           </div>
         </div>
 
@@ -157,7 +158,7 @@ useHead({
             <!-- Question -->
             <button
               @click="toggleFaq(i)"
-              class="w-full text-left p-8! lg:px-10! lg:py-9! flex items-center justify-between gap-8 focus:outline-none"
+              class="w-full text-left p-8! lg:px-10! lg:py-9! flex items-center justify-between gap-8 focus:ring-2 focus:ring-burg/50 focus:outline-none"
             >
               <div class="flex items-center gap-6 lg:gap-10">
                 <span
@@ -197,7 +198,7 @@ useHead({
             >
               <div class="overflow-hidden">
                 <div
-                  class="p-10! text-white/50 text-base lg:text-lg leading-relaxed border-t border-white/5 mt-4 ml-16 lg:ml-20"
+                  class="p-10! text-white/70 text-base lg:text-lg leading-relaxed border-t border-white/5 mt-4 ml-16 lg:ml-20"
                 >
                   {{ faq.a }}
                 </div>

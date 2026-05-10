@@ -3,34 +3,34 @@ import { ref, onMounted, onUnmounted } from "vue";
 
 const testimonials = [
   {
-    text: '"NIL Entertain benar-benar mengangkat keseluruhan pengalaman resepsi kami. Tamu-tamu sangat menikmati Videobooth360 — hasilnya cinematic dan viral di semua sosial media!"',
-    name: "Ayu & Rama",
-    role: "Pasangan Pengantin",
-    eventType: "Wedding Event",
-    avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop",
-    image:
-      "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop",
+    text: '"holaa kakkk, kita sangat berterimakasih juga yaaa buat service nya yang sangat luar biasa semoga next bisa bekerjasama lagi, terimakasih banyak kakkkk 😇🙏🏼"',
+    name: "Nadia Raghda - Azarine",
+    image: "img/testimoni/testi1.webp",
   },
   {
-    text: '"Setup photobooth NIL Entertain di annual conference kami sangat profesional. Brand activation kami jadi jauh lebih berkesan dan engagement tamu meningkat signifikan."',
-    name: "Budi Santoso",
-    role: "Marketing Director",
-    eventType: "Corporate Event",
-    avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
-    image:
-      "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=800&auto=format&fit=crop",
+    text: '"Terima kasih banyak Mas Fendi. Siappp nanti kita bantu suggest ke rekan rekan kerja kita yaa"',
+    name: "Om Erwin IDP",
+    image: "img/testimoni/testi2.webp",
   },
   {
-    text: '"Ulang tahun ke-30 saya terasa sangat memorable berkat NIL Entertain. Semua tamu antusias dan foto-foto hasilnya sangat premium. Highly recommended!"',
-    name: "Nadya Putri",
-    role: "Client Private Event",
-    eventType: "Birthday Party",
-    avatar:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop",
-    image:
-      "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?q=80&w=800&auto=format&fit=crop",
+    text: '"Thank you kakk 🥰"',
+    name: "Sanctoo",
+    image: "img/testimoni/testi3.webp",
+  },
+  {
+    text: '"Kak Fendi Suksma nggh 🥳🥳🥳. Aman, mantappp 🥳🥳"',
+    name: "Arinanti",
+    image: "img/testimoni/testi4.webp",
+  },
+  {
+    text: '"Ihh cakepp bgt editannyaaa. Thankyouuu kakakkk"',
+    name: "Shinta",
+    image: "img/testimoni/testi5.webp",
+  },
+  {
+    text: '"Thank you doanya ya kakkk Next klo ada project lagi, pasti bakal langganan sma kakak 🥰👍🏼👍🏼. thank you bgt udh di support eventnya kmrin yaa Sangat sangat bersyukur photobooth nya pakai Nil 😊🙏🏼🙏🏼"',
+    name: "Devi Wantera",
+    image: "img/testimoni/testi6.webp",
   },
 ];
 
@@ -39,10 +39,15 @@ let timer: any = null;
 
 const goTesti = (n: number) => {
   currentIdx.value = (n + testimonials.length) % testimonials.length;
+  // Reset timer on manual navigation to prevent immediate auto-slide
+  stopTimer();
+  startTimer();
 };
 
 const startTimer = () => {
-  timer = setInterval(() => goTesti(currentIdx.value + 1), 7000);
+  timer = setInterval(() => {
+    currentIdx.value = (currentIdx.value + 1) % testimonials.length;
+  }, 3000);
 };
 
 const stopTimer = () => {
@@ -147,7 +152,8 @@ onUnmounted(() => {
                 "
               >
                 <div class="flex gap-1 mb-6! md:mb-8!">
-                  <svg aria-hidden="true"
+                  <svg
+                    aria-hidden="true"
                     v-for="s in 5"
                     :key="s"
                     width="14"
@@ -157,7 +163,6 @@ onUnmounted(() => {
                     stroke="currentColor"
                     stroke-width="2"
                     class="text-burg fill-burg"
-                    
                   >
                     <path
                       d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
@@ -172,7 +177,7 @@ onUnmounted(() => {
                 </p>
 
                 <div class="flex items-center gap-4 md:gap-6 mt-auto!">
-                  <div class="relative group/avatar">
+                  <!-- <div class="relative group/avatar">
                     <div
                       class="absolute inset-0 bg-burg/50 rounded-full blur-xl opacity-0 group-hover/avatar:opacity-100 transition-opacity"
                     ></div>
@@ -184,23 +189,23 @@ onUnmounted(() => {
                       height="80"
                       loading="lazy"
                     />
-                  </div>
+                  </div> -->
                   <div>
                     <div
                       class="font-[Cormorant_Garamond] text-xl md:text-2xl font-bold text-white leading-none mb-2!"
                     >
                       {{ t.name }}
                     </div>
-                    <div
+                    <!-- <div
                       class="text-xs md:text-sm font-black tracking-[0.2em] uppercase text-burg/70"
                     >
                       {{ t.role }}
                     </div>
                     <div
-                      class="mt-2! md:mt-3! inline-block px-3! md:px-4! py-1! bg-white/5 rounded-full border border-white/10 text-[10px] md:text-sm font-bold tracking-widest text-white/50 uppercase"
+                      class="mt-2! md:mt-3! inline-block px-3! md:px-4! py-1! bg-white/5 rounded-full border border-white/10 text-xs md:text-sm font-bold tracking-widest text-white/50 uppercase"
                     >
                       {{ t.eventType }}
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
@@ -213,7 +218,6 @@ onUnmounted(() => {
           >
             <div
               class="absolute inset-0 transition-transform duration-1000 ease-out"
-              :style="{ transform: `scale(${1 + currentIdx * 0.05})` }"
             >
               <div
                 v-for="(t, i) in testimonials"
@@ -225,20 +229,16 @@ onUnmounted(() => {
                     : 'opacity-0 translate-x-20'
                 "
               >
-                <NuxtImg
-                  :src="t.image"
-                  :alt="t.name"
-                  class="w-full h-full object-cover"
-                  width="600"
-                  height="800"
-                  loading="lazy"
-                />
                 <div
-                  class="absolute inset-0 bg-linear-to-r from-black/40 to-transparent lg:hidden"
-                ></div>
-                <div
-                  class="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent"
-                ></div>
+                  class="w-full h-full bg-burg flex items-center justify-center p-10!"
+                >
+                  <NuxtImg
+                    :src="t.image"
+                    :alt="t.name"
+                    class="max-w-full max-h-full object-contain shadow-2xl rounded-xl"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -261,7 +261,7 @@ onUnmounted(() => {
             :aria-label="'Go to testimonial ' + (i + 1)"
           >
             <span
-              class="absolute bottom-full mb-4 lg:mb-0 lg:bottom-auto lg:top-1/2 lg:right-full lg:mr-6! lg:-translate-y-1/2 text-[10px] lg:text-sm font-black tracking-[0.4em] text-white/20 group-hover:text-white transition-all whitespace-nowrap"
+              class="absolute bottom-full mb-4 lg:mb-0 lg:bottom-auto lg:top-1/2 lg:right-full lg:mr-6! lg:-translate-y-1/2 text-xs lg:text-sm font-black tracking-[0.4em] text-white/20 group-hover:text-white transition-all whitespace-nowrap"
               :class="
                 currentIdx === i
                   ? 'opacity-100 text-burg!'
@@ -282,7 +282,8 @@ onUnmounted(() => {
             class="w-12 h-12 xl:w-16 xl:h-16 rounded-full border border-white/5 bg-white/2 backdrop-blur-md flex items-center justify-center text-white transition-all hover:bg-burg hover:border-burg hover:-translate-x-2 group cursor-pointer"
             aria-label="Previous testimonial"
           >
-            <svg aria-hidden="true"
+            <svg
+              aria-hidden="true"
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -290,7 +291,6 @@ onUnmounted(() => {
               stroke="currentColor"
               stroke-width="2"
               class="group-hover:scale-110"
-              
             >
               <path d="M15 18L9 12L15 6" />
             </svg>
@@ -300,7 +300,8 @@ onUnmounted(() => {
             class="w-12 h-12 xl:w-16 xl:h-16 rounded-full border border-white/5 bg-white/2 backdrop-blur-md flex items-center justify-center text-white transition-all hover:bg-burg hover:border-burg hover:translate-x-2 group cursor-pointer"
             aria-label="Next testimonial"
           >
-            <svg aria-hidden="true"
+            <svg
+              aria-hidden="true"
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -308,7 +309,6 @@ onUnmounted(() => {
               stroke="currentColor"
               stroke-width="2"
               class="group-hover:scale-110"
-              
             >
               <path d="M9 18L15 12L9 6" />
             </svg>

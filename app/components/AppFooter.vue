@@ -4,21 +4,14 @@
   >
     <!-- Decorative Background -->
     <div class="absolute inset-0 pointer-events-none z-0">
-      <TextureLines class="opacity-15 text-burg" />
       <DoubleCircle
         :size="600"
-        position-class="absolute -top-1/4 -left-1/4 opacity-10 text-burg blur-3xl"
-      />
-      <DoubleCircle
-        :size="400"
-        position-class="absolute -bottom-1/4 -right-1/4 opacity-10 text-burg blur-2xl"
+        position-class="absolute -top-2/4 -right-100 opacity-20 text-cream hidden lg:block"
       />
     </div>
 
     <div class="app-container relative z-10">
-      <div
-        class="grid grid-cols-1 lg:grid-cols-[1.2fr_2fr] gap-16 lg:gap-24 mb-20!"
-      >
+      <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_2fr] gap-16 mb-20!">
         <!-- Brand Section -->
         <div
           class="flex flex-col items-center lg:items-start text-center lg:text-left"
@@ -40,17 +33,17 @@
           </NuxtLink>
 
           <p
-            class="text-lg text-white/50 leading-relaxed max-w-sm mb-10! font-light italic"
+            class="text-lg text-white/70 leading-relaxed max-w-sm mb-10! font-light italic"
           >
             "Abadikan setiap tawa dan momen berharga Anda dengan teknologi
             Photobooth dan Videobooth 360 terbaik di Bali."
           </p>
 
           <div class="flex gap-4">
-            <a
+            <NuxtLink
               v-for="social in socialLinks"
               :key="social.name"
-              :href="social.url"
+              :to="social.url"
               class="relative w-12 h-12 bg-white/5 border border-white/10 flex items-center justify-center text-white rounded-full transition-all duration-500 hover:bg-burg hover:border-burg hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(125,5,22,0.3)] group/social"
               target="_blank"
               rel="noopener noreferrer"
@@ -170,13 +163,13 @@
                   </svg>
                 </span>
               </span>
-            </a>
+            </NuxtLink>
           </div>
         </div>
 
         <!-- Links Grid -->
         <div
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 text-center sm:text-left"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center sm:text-left"
         >
           <div class="footer-col">
             <h4
@@ -187,15 +180,14 @@
             <ul class="flex flex-col gap-4 list-none p-0">
               <li
                 v-for="link in [
-                  'Photobooth Bali',
+                  'Photobooth',
                   'Videobooth 360',
-                  'Spinbox Experience',
-                  'Corporate Activation',
+                  'Event Activation',
                 ]"
                 :key="link"
               >
                 <NuxtLink
-                  to="/#spesialisasi"
+                  to="/#layanan"
                   class="text-sm text-white/60 hover:text-white transition-all duration-300 hover:translate-x-2 inline-block group"
                 >
                   <span
@@ -246,41 +238,43 @@
             </h4>
             <ul class="flex flex-col gap-4 list-none p-0">
               <li>
-                <a
-                  href="https://wa.me/6287866861146"
+                <NuxtLink
+                  to="https://wa.me/6287866861146"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="text-sm text-white/60 hover:text-white transition-colors flex items-center justify-center sm:justify-start gap-3 group"
                 >
                   <span
-                    class="w-8 h-px bg-white/20 group-hover:w-4 group-hover:bg-burg transition-all"
+                    class="w-4 h-px bg-white/20 group-hover:w-2 group-hover:bg-burg transition-all"
                   ></span>
                   +62 878-6686-1146
-                </a>
+                </NuxtLink>
               </li>
               <li>
-                <a
-                  href="mailto:nilentertainment@gmail.com"
-                  class="text-sm text-white/60 hover:text-white transition-colors flex items-center justify-center sm:justify-start gap-3 group"
-                >
-                  <span
-                    class="w-8 h-px bg-white/20 group-hover:w-4 group-hover:bg-burg transition-all"
-                  ></span>
-                  nilentertainment@gmail.com
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://maps.app.goo.gl/J3yJmJ8w8H9X9Z9X9"
+                <NuxtLink
+                  to="mailto:nilentertainment@gmail.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="text-sm text-white/60 hover:text-white transition-colors flex items-center justify-center sm:justify-start gap-3 group"
                 >
                   <span
-                    class="w-8 h-px bg-white/20 group-hover:w-4 group-hover:bg-burg transition-all"
+                    class="w-4 h-px bg-white/20 group-hover:w-2 group-hover:bg-burg transition-all"
+                  ></span>
+                  nilentertainment@gmail.com
+                </NuxtLink>
+              </li>
+              <li>
+                <NuxtLink
+                  to="https://maps.app.goo.gl/J3yJmJ8w8H9X9Z9X9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-sm text-white/60 hover:text-white transition-colors flex items-center justify-center sm:justify-start gap-3 group"
+                >
+                  <span
+                    class="w-4 h-px bg-white/20 group-hover:w-2 group-hover:bg-burg transition-all"
                   ></span>
                   Denpasar, Bali
-                </a>
+                </NuxtLink>
               </li>
               <li class="mt-4!">
                 <NuxtLink
@@ -299,7 +293,7 @@
       <div
         class="pt-12! border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left"
       >
-        <div class="text-sm text-white/30 tracking-widest uppercase">
+        <div class="text-sm text-white/60 tracking-widest uppercase">
           &copy; {{ currentYear }}
           <span class="text-white font-bold mx-1!">NIL Entertain</span> &mdash;
           Premiere Event Services in Bali
