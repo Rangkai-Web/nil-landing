@@ -422,6 +422,7 @@ useHead({
                   </div>
                   <NuxtLink
                     to="/reservation"
+                    aria-label="Book our Photobooth package"
                     class="block w-full text-center py-5! rounded-xl text-sm font-black tracking-[0.3em] uppercase transition-all duration-300 bg-[#890015] text-white hover:bg-[#a01020] shadow-[0_10px_30px_rgba(137,0,21,0.2)] hover:shadow-[0_15px_40px_rgba(137,0,21,0.4)] hover:-translate-y-1"
                     >Book Package</NuxtLink
                   >
@@ -469,11 +470,9 @@ useHead({
                 class="flex items-center gap-4 p-5! rounded-2xl bg-white/2 border border-white/3 hover:bg-white/5 hover:border-[#890015]/30 hover:translate-x-1 transition-all duration-300 group/item"
               >
                 <div
-                  class="shrink-0 w-10 h-10 rounded-xl bg-cream2 border border-burg-light flex items-center justify-center group-hover/item:bg-cream group-hover/item:scale-110 transition-all duration-500 shadow-[0_0_15px_rgba(137,0,21,0.45)] group-hover/item:shadow-[0_0_20px_rgba(137,0,21,0.45)]"
+                  class="shrink-0 w-10 h-10 rounded-xl bg-burg-light/10 border border-burg-light flex items-center justify-center group-hover/item:bg-burg-light/30 group-hover/item:scale-110 transition-all duration-500 shadow-[0_0_15px_rgba(137,0,21,0.45)] group-hover/item:shadow-[0_0_20px_rgba(137,0,21,0.45)]"
                 >
-                  <IconCheck
-                    class="w-4 h-4 text-cream group-hover/item:text-white transition-colors"
-                  />
+                  <IconCheck class="w-4 h-4" />
                 </div>
                 <span
                   class="text-sm text-white/80 leading-snug font-medium group-hover/item:text-white transition-colors"
@@ -538,6 +537,7 @@ useHead({
               <div class="mt-auto border-t border-white/5 pt-10">
                 <NuxtLink
                   to="/reservation"
+                  aria-label="Book our Video 360 package"
                   class="block w-full py-5! bg-[#890015] text-white rounded-xl text-sm font-black tracking-[0.3em] uppercase hover:bg-[#a01020] transition-all shadow-[0_10px_30px_rgba(137,0,21,0.25)] hover:shadow-[0_15px_40px_rgba(137,0,21,0.45)] hover:-translate-y-1"
                   >Book Now</NuxtLink
                 >
@@ -575,11 +575,9 @@ useHead({
                 class="flex items-center gap-4 p-5! rounded-2xl bg-white/2 border border-white/3 hover:bg-white/5 hover:border-[#890015]/30 hover:translate-x-1 transition-all duration-300 group/item"
               >
                 <div
-                  class="shrink-0 w-10 h-10 rounded-xl bg-cream2 border border-burg-light flex items-center justify-center group-hover/item:bg-cream group-hover/item:scale-110 transition-all duration-500 shadow-[0_0_15px_rgba(137,0,21,0.45)] group-hover/item:shadow-[0_0_20px_rgba(137,0,21,0.45)]"
+                  class="shrink-0 w-10 h-10 rounded-xl bg-burg-light/10 border border-burg-light flex items-center justify-center group-hover/item:bg-burg-light/30 group-hover/item:scale-110 transition-all duration-500 shadow-[0_0_15px_rgba(137,0,21,0.45)] group-hover/item:shadow-[0_0_20px_rgba(137,0,21,0.45)]"
                 >
-                  <IconCheck
-                    class="w-4 h-4 text-cream group-hover/item:text-white transition-colors"
-                  />
+                  <IconCheck class="w-4 h-4" />
                 </div>
                 <span
                   class="text-sm text-white/80 leading-snug font-medium group-hover/item:text-white transition-colors"

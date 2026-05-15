@@ -9,6 +9,7 @@
   <AppWhyUs />
   <AppFaq />
   <AppContact />
+  <AppBrand />
   <!-- <AppWAFloat /> -->
 </template>
 
@@ -35,61 +36,61 @@ useHead({
       innerHTML: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "name": "NIL Entertain",
-        "image": "https://nil-entertain.com/logo/logo.webp",
+        name: "NIL Entertain",
+        image: "https://nil-entertain.com/logo/logo.webp",
         "@id": "https://nil-entertain.com",
-        "url": "https://nil-entertain.com",
-        "telephone": "+6287866861146",
-        "address": {
+        url: "https://nil-entertain.com",
+        telephone: "+6287866861146",
+        address: {
           "@type": "PostalAddress",
-          "streetAddress": "Jl. Tukad Batanghari VII No.2A",
-          "addressLocality": "Denpasar",
-          "addressRegion": "Bali",
-          "postalCode": "80225",
-          "addressCountry": "ID"
+          streetAddress: "Jl. Tukad Batanghari VII No.2A",
+          addressLocality: "Denpasar",
+          addressRegion: "Bali",
+          postalCode: "80225",
+          addressCountry: "ID",
         },
-        "geo": {
+        geo: {
           "@type": "GeoCoordinates",
-          "latitude": -8.67,
-          "longitude": 115.2285
+          latitude: -8.67,
+          longitude: 115.2285,
         },
-        "openingHoursSpecification": {
+        openingHoursSpecification: {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
+          dayOfWeek: [
             "Monday",
             "Tuesday",
             "Wednesday",
             "Thursday",
             "Friday",
             "Saturday",
-            "Sunday"
+            "Sunday",
           ],
-          "opens": "00:00",
-          "closes": "23:59"
+          opens: "00:00",
+          closes: "23:59",
         },
-        "sameAs": [
+        sameAs: [
           "https://www.instagram.com/nil_entertain",
-          "https://www.tiktok.com/@nil_entertaint"
-        ]
-      })
+          "https://www.tiktok.com/@nil_entertaint",
+        ],
+      }),
     },
     {
       type: "application/ld+json",
       innerHTML: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "NIL Entertain",
-        "url": "https://nil-entertain.com",
-        "logo": "https://nil-entertain.com/logo/logo.webp",
-        "contactPoint": {
+        name: "NIL Entertain",
+        url: "https://nil-entertain.com",
+        logo: "https://nil-entertain.com/logo/logo.webp",
+        contactPoint: {
           "@type": "ContactPoint",
-          "telephone": "+6287866861146",
-          "contactType": "customer service",
-          "areaServed": "ID",
-          "availableLanguage": ["Indonesian", "English"]
-        }
-      })
-    }
-  ]
+          telephone: "+6287866861146",
+          contactType: "customer service",
+          areaServed: "ID",
+          availableLanguage: ["Indonesian", "English"],
+        },
+      }),
+    },
+  ],
 });
 </script>

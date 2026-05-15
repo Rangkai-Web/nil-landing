@@ -18,12 +18,14 @@ import IconCameraElegant from "./svg-icon/IconCameraElegant.vue";
               class="relative h-[400px] lg:h-[600px] w-full overflow-hidden shadow-2xl z-2"
             >
               <NuxtImg
-                src="https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?q=80&w=987&auto=format&fit=crop"
+                src="/img/portfolio/photobooth/img1.webp"
                 alt="NIL Entertain Photography"
                 class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 width="600"
                 height="800"
-                loading="lazy"
+                loading="eager"
+                fetchpriority="high"
+                format="webp"
               />
               <div
                 class="absolute inset-0 bg-linear-to-t from-black/20 to-transparent"

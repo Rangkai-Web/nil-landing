@@ -12,6 +12,7 @@ const contactStore = useContactStore();
     target="_blank"
     rel="noopener noreferrer"
     title="Chat WhatsApp"
+    aria-label="Chat with us on WhatsApp"
   >
     <div class="wa-pulse"></div>
     <IconWhatsApp />

@@ -57,7 +57,11 @@ onUnmounted(() => {
 
         <!-- CTA -->
         <div class="hidden lg:flex items-center">
-          <NuxtLink to="/reservation" class="px-7! py-3! bg-burg text-white text-sm font-bold tracking-[0.2em] uppercase transition-all hover:bg-burg-light hover:-translate-y-0.5">Book Now</NuxtLink>
+          <NuxtLink 
+            to="/reservation" 
+            aria-label="Book a session with NIL Entertain"
+            class="px-7! py-3! bg-burg text-white text-sm font-bold tracking-[0.2em] uppercase transition-all hover:bg-burg-light hover:-translate-y-0.5"
+          >Book Now</NuxtLink>
         </div>
 
         <!-- Hamburger -->

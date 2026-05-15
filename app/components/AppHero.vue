@@ -4,13 +4,13 @@ import { ref, onMounted, onUnmounted } from "vue";
 const currentSlide = ref(0);
 const slides = [
   {
-    image: "/img/hero/photobooth.jpg",
+    image: "/img/portfolio/photobooth/p6.webp",
     tag: "Premium Photobooth Bali",
     title: "Quality & Service<br>is <em>Our Priority</em>",
     sub: "Solusi Photobooth premium dengan kamera DSLR 24MP dan pencahayaan studio. Garansi cetak foto berkualitas yang bertahan hingga 100 tahun.",
   },
   {
-    image: "/img/hero/360booth.png",
+    image: "/img/portfolio/photobooth/img7.webp",
     tag: "Videobooth 360 Experience",
     title: "Cinematic 360°<br><em>Experience</em>",
     sub: "Abadikan momen seru Anda dengan Videobooth 360 berdiameter 100cm. Dilengkapi LED Ring Light dan custom design video instan.",
@@ -49,6 +49,19 @@ onUnmounted(() => {
       :style="{ transform: `translateY(${heroBgY}px)` }"
     >
       <ClientOnly>
+        <template #placeholder>
+          <NuxtImg
+            src="/img/portfolio/photobooth/p6.webp"
+            alt="Premium Photobooth Bali"
+            class="absolute inset-0 w-full h-full object-cover brightness-[0.4] contrast-[1.1] z-0"
+            loading="eager"
+            fetchpriority="high"
+            width="1920"
+            height="1080"
+            sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw"
+            format="webp"
+          />
+        </template>
         <Carousel
           :autoplay="6000"
           :wrap-around="true"
@@ -68,6 +81,7 @@ onUnmounted(() => {
                 :loading="index === 0 ? 'eager' : 'lazy'"
                 width="1920"
                 height="1080"
+                sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw"
               />
 
               <!-- Cinematic Overlays -->
@@ -85,11 +99,7 @@ onUnmounted(() => {
                 class="absolute inset-0 bg-[radial-gradient(circle,transparent_40%,rgba(0,0,0,0.8)_100%)] z-1 pointer-events-none"
               ></div>
               <div
-                class="absolute inset-0 opacity-[0.03] pointer-events-none z-1"
-                style="
-                  background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');
-                  filter: contrast(120%) brightness(120%);
-                "
+                class="absolute inset-0 opacity-[0.03] pointer-events-none z-1 bg-grain"
               ></div>
 
               <!-- Bottom Fog -->
@@ -109,7 +119,7 @@ onUnmounted(() => {
                             : 'translate-y-full opacity-0'
                         "
                       >
-                        <div class="w-10 h-px bg-white"></div>
+                        <div class="w-6 h-px bg-white"></div>
                         <span
                           class="text-xs font-bold tracking-[0.3em] uppercase text-white"
                           >{{ slide.tag }}</span
@@ -249,6 +259,11 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+.bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  filter: contrast(120%) brightness(120%);
+}
+
 :deep(.carousel),
 :deep(.carousel__viewport),
 :deep(.carousel__track) {

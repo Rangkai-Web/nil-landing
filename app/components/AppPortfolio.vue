@@ -4,7 +4,7 @@ import TextureLines from "./svg-icon/TextureLines.vue";
 import DoubleCircle from "./svg-icon/DoubleCircle.vue";
 
 // const categories = ["Semua", "Photobooth", "Videobooth", "Wedding", "Pre Wedding", "Graduation", "Photobox", "Lainnya"];
-const categories = ["Semua", "Video", "Photobooth"];
+const categories = ["Semua", "Photobooth", "Videobooth"];
 const activeCategory = ref("Semua");
 const visibleCount = ref(8);
 const selectedItem = ref<any>(null);
@@ -93,6 +93,8 @@ const closeLightbox = () => {
           v-for="cat in categories"
           :key="cat"
           @click="filterCategory(cat)"
+          :aria-label="'Filter portfolio by ' + cat"
+          :aria-pressed="activeCategory === cat"
           class="relative px-8! py-3! text-sm font-bold tracking-[0.2em] uppercase rounded-full transition-all duration-500 cursor-pointer overflow-hidden group"
           :class="
             activeCategory === cat
@@ -122,16 +124,32 @@ const closeLightbox = () => {
             :key="item.id"
             class="group relative aspect-4/5 cursor-pointer overflow-hidden bg-white shadow-xl shadow-black/5"
             @click="openLightbox(item)"
+            @keydown.enter="openLightbox(item)"
+            role="button"
+            :tabindex="0"
+            :aria-label="'View ' + item.title + ' ' + item.category"
           >
-            <!-- Image with Parallax-like effect on hover -->
+            <!-- Image/Video Preview -->
             <NuxtImg
+              v-if="item.type === 'image'"
               :src="item.image"
               :alt="item.title"
               class="w-full h-full object-cover transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-110"
               width="400"
               height="500"
               loading="lazy"
+              format="webp"
             />
+            <video
+              v-else-if="item.type === 'video'"
+              :src="item.video"
+              class="w-full h-full object-cover transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-110"
+              muted
+              loop
+              playsinline
+              autoplay
+              preload="metadata"
+            ></video>
 
             <!-- Hover Overlay (Premium Design) -->
             <div
@@ -206,6 +224,7 @@ const closeLightbox = () => {
       <div v-if="hasMore" class="mt-32! flex justify-center">
         <button
           @click="loadMore"
+          aria-label="Load more portfolio items"
           class="group relative px-16! py-6! bg-white border border-burg/20 text-burg text-sm font-black tracking-[0.4em] uppercase transition-all duration-500 hover:text-white hover:border-burg overflow-hidden cursor-pointer rounded-full shadow-lg shadow-burg/5"
         >
           <span class="relative z-10">Load More Stories</span>
@@ -213,6 +232,82 @@ const closeLightbox = () => {
             class="absolute inset-0 bg-burg translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 z-0"
           ></div>
         </button>
+      </div>
+
+      <!-- Bagian CTA Galeri Eksternal -->
+      <div class="mt-28! reveal d4 max-w-5xl mx-auto!">
+        <div
+          class="relative bg-white/95 backdrop-blur-xl border border-burg/10 rounded-[2.5rem] p-8! md:p-16! flex flex-col lg:flex-row items-center justify-between gap-12 shadow-2xl shadow-burg/5 overflow-hidden group/cta"
+        >
+          <!-- Decorative Background Elements -->
+          <div
+            class="absolute -top-24 -right-24 w-64 h-64 bg-burg/5 rounded-full blur-3xl group-hover/cta:scale-150 transition-transform duration-1000"
+          ></div>
+          <div
+            class="absolute -bottom-24 -left-24 w-64 h-64 bg-burg/5 rounded-full blur-3xl group-hover/cta:scale-150 transition-transform duration-1000"
+          ></div>
+
+          <div class="relative z-10 text-center lg:text-left max-w-xl">
+            <h3
+              class="font-[Cormorant_Garamond] text-4xl md:text-5xl text-black mb-6! leading-tight"
+            >
+              Belum puas melihat karya kami?
+            </h3>
+            <p class="text-black/60 text-lg md:text-xl leading-relaxed">
+              Jelajahi ribuan momen berharga lainnya di galeri digital kami
+              secara lengkap. Tersedia galeri khusus foto dan video.
+            </p>
+          </div>
+
+          <div class="relative z-10 flex flex-col gap-6 w-full">
+            <NuxtLink
+              to="https://fotoshare.co/e/30obD_YbWeHInwcWn38s0"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit our external photo gallery on Fotoshare"
+              class="flex items-center justify-center gap-4 px-10! py-5! bg-burg text-white text-xs font-black tracking-[0.2em] uppercase rounded-2xl hover:bg-burg-light transition-all hover:-translate-y-1.5 shadow-xl shadow-burg/20 active:scale-95"
+            >
+              <span>Galeri 1</span>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <path
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                />
+                <path d="M15 3h6v6" />
+                <path d="M10 14L21 3" />
+              </svg>
+            </NuxtLink>
+            <NuxtLink
+              to="https://fotoshare.co/e/r16o55tpV57n9tXUdIkj0"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit our external video gallery on Fotoshare"
+              class="flex items-center justify-center gap-4 px-10! py-5! bg-white border-2 border-burg text-burg text-xs font-black tracking-[0.2em] uppercase rounded-2xl hover:bg-burg hover:text-white transition-all hover:-translate-y-1.5 active:scale-95 shadow-lg shadow-burg/5"
+            >
+              <span>Galeri 2</span>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <path
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                />
+                <path d="M15 3h6v6" />
+                <path d="M10 14L21 3" />
+              </svg>
+            </NuxtLink>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -280,4 +375,30 @@ const closeLightbox = () => {
   </section>
 </template>
 
-<style scoped></style>
+<style scoped>
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: reveal-in 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.d1 {
+  animation-delay: 0.1s;
+}
+.d2 {
+  animation-delay: 0.3s;
+}
+.d3 {
+  animation-delay: 0.5s;
+}
+.d4 {
+  animation-delay: 0.7s;
+}
+
+@keyframes reveal-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>

@@ -16,7 +16,7 @@
         <div
           class="flex flex-col items-center lg:items-start text-center lg:text-left"
         >
-          <NuxtLink to="/" class="group mb-10! inline-block">
+          <NuxtLink to="/" class="group mb-10! inline-block" aria-label="NIL Entertain Home">
             <div class="relative">
               <div
                 class="absolute -inset-4 bg-burg/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"
@@ -28,6 +28,7 @@
                 loading="lazy"
                 :width="96"
                 :height="96"
+                format="webp"
               />
             </div>
           </NuxtLink>
@@ -279,6 +280,7 @@
               <li class="mt-4!">
                 <NuxtLink
                   to="/reservation"
+                  aria-label="Book your event reservation now"
                   class="inline-block px-6! py-3! bg-burg/70 border border-burg/20 text-white text-xs font-black tracking-widest uppercase hover:bg-burg hover:text-white transition-all duration-500 translate-y-1! hover:translate-y-0!"
                 >
                   Book Event

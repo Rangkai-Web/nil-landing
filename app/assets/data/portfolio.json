@@ -2,75 +2,156 @@
   "items": [
     {
       "id": 1,
-      "title": "Elegant Wedding Session",
+      "title": "Photobooth",
       "category": "Photobooth",
-      "image": "/img/portfolio/img1.webp",
+      "image": "/img/portfolio/photobooth/img1.webp",
       "type": "image"
     },
     {
       "id": 2,
-      "title": "Modern Photobooth Setup",
+      "title": "Photobooth",
       "category": "Photobooth",
-      "image": "/img/portfolio/img2.webp",
+      "image": "/img/portfolio/photobooth/img2.webp",
       "type": "image"
     },
     {
       "id": 3,
-      "title": "360 Videobooth Experience",
+      "title": "Photobooth",
       "category": "Photobooth",
-      "image": "/img/portfolio/img3.webp",
+      "image": "/img/portfolio/photobooth/img3.webp",
       "type": "image"
     },
     {
       "id": 4,
-      "title": "Graduation Celebration",
+      "title": "Photobooth",
       "category": "Photobooth",
-      "image": "/img/portfolio/img4.webp",
+      "image": "/img/portfolio/photobooth/img4.webp",
       "type": "image"
     },
     {
       "id": 5,
-      "title": "Pre Wedding Romantic",
+      "title": "Photobooth",
       "category": "Photobooth",
-      "image": "/img/portfolio/img5.webp",
+      "image": "/img/portfolio/photobooth/img5.webp",
       "type": "image"
     },
     {
       "id": 6,
-      "title": "Vintage Photobox",
+      "title": "Photobooth",
       "category": "Photobooth",
-      "image": "/img/portfolio/img6.webp",
+      "image": "/img/portfolio/photobooth/img6.webp",
       "type": "image"
     },
     {
       "id": 7,
-      "title": "Corporate Gathering",
+      "title": "Photobooth",
       "category": "Photobooth",
-      "image": "/img/portfolio/img7.webp",
+      "image": "/img/portfolio/photobooth/img7.webp",
       "type": "image"
     },
     {
       "id": 8,
-      "title": "Photobooth Highlights",
-      "category": "Video",
-      "image": "/img/portfolio/img2.webp",
-      "video": "/img/portfolio/video1.mp4",
-      "type": "video"
+      "title": "Photobooth",
+      "category": "Photobooth",
+      "image": "/img/portfolio/photobooth/p1.webp",
+      "type": "image"
     },
     {
       "id": 9,
-      "title": "Videobooth 360 Action",
-      "category": "Video",
-      "image": "/img/portfolio/img3.webp",
-      "video": "/img/portfolio/video2.mp4",
-      "type": "video"
+      "title": "Photobooth",
+      "category": "Photobooth",
+      "image": "/img/portfolio/photobooth/p2.webp",
+      "type": "image"
     },
     {
       "id": 10,
-      "title": "Event Fun Moments",
-      "category": "Video",
-      "image": "/img/portfolio/img1.webp",
-      "video": "/img/portfolio/video3.MP4",
+      "title": "Photobooth",
+      "category": "Photobooth",
+      "image": "/img/portfolio/photobooth/p3.webp",
+      "type": "image"
+    },
+    {
+      "id": 11,
+      "title": "Photobooth",
+      "category": "Photobooth",
+      "image": "/img/portfolio/photobooth/p4.webp",
+      "type": "image"
+    },
+    {
+      "id": 12,
+      "title": "Photobooth",
+      "category": "Photobooth",
+      "image": "/img/portfolio/photobooth/p5.webp",
+      "type": "image"
+    },
+    {
+      "id": 13,
+      "title": "Photobooth",
+      "category": "Photobooth",
+      "image": "/img/portfolio/photobooth/p6.webp",
+      "type": "image"
+    },
+    {
+      "id": 14,
+      "title": "Photobooth",
+      "category": "Photobooth",
+      "image": "/img/portfolio/photobooth/p7.webp",
+      "type": "image"
+    },
+    {
+      "id": 15,
+      "title": "Photobooth",
+      "category": "Photobooth",
+      "image": "/img/portfolio/photobooth/p8.webp",
+      "type": "image"
+    },
+    {
+      "id": 16,
+      "title": "Videobooth",
+      "category": "Videobooth",
+      "video": "/img/portfolio/videobooth/video1.mp4",
+      "type": "video"
+    },
+    {
+      "id": 17,
+      "title": "Videobooth",
+      "category": "Videobooth",
+      "video": "/img/portfolio/videobooth/video2.mp4",
+      "type": "video"
+    },
+    {
+      "id": 18,
+      "title": "Videobooth",
+      "category": "Videobooth",
+      "video": "/img/portfolio/videobooth/video3.MP4",
+      "type": "video"
+    },
+    {
+      "id": 19,
+      "title": "Videobooth",
+      "category": "Videobooth",
+      "video": "/img/portfolio/videobooth/v1.MP4",
+      "type": "video"
+    },
+    {
+      "id": 20,
+      "title": "Videobooth",
+      "category": "Videobooth",
+      "video": "/img/portfolio/videobooth/v2.MP4",
+      "type": "video"
+    },
+    {
+      "id": 21,
+      "title": "Videobooth",
+      "category": "Videobooth",
+      "video": "/img/portfolio/videobooth/v3.MP4",
+      "type": "video"
+    },
+    {
+      "id": 22,
+      "title": "Videobooth",
+      "category": "Videobooth",
+      "video": "/img/portfolio/videobooth/v4.MP4",
       "type": "video"
     }
   ]

@@ -34,7 +34,8 @@ export default defineNuxtConfig({
         { name: 'description', content: 'NIL Entertain — Photobooth & Videobooth360 premium untuk event spesial di Bali. Wedding, corporate, birthday, dan private event.' },
       ],
       link: [
-        { rel: "icon", type: "image/png", href: "/favicon/favicon-32x32.png" }
+        { rel: "icon", type: "image/png", href: "/favicon/favicon-32x32.png" },
+        { rel: "preload", as: "image", href: "/img/portfolio/photobooth/p6.webp" }
       ],
     },
   },
@@ -47,8 +48,8 @@ export default defineNuxtConfig({
   },
   fonts: {
     families: [
-      { name: 'Cormorant Garamond', provider: 'google' },
-      { name: 'Manrope', provider: 'google' }
+      { name: 'Cormorant Garamond', provider: 'google', display: 'swap' },
+      { name: 'Manrope', provider: 'google', display: 'swap' }
     ],
   },
   image: {
