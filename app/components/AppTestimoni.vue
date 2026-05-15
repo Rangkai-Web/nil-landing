@@ -236,42 +236,13 @@ onUnmounted(() => {
           </div>
         </div>
 
-        <!-- Luxury Navigation (Dots) -->
+        <!-- Navigation Buttons (Desktop & Mobile) -->
         <div
-          class="absolute bottom-[-60px] xl:bottom-auto xl:top-1/2 xl:-left-24 left-1/2 -translate-x-1/2 xl:translate-x-0 xl:-translate-y-1/2 flex xl:flex-col items-center justify-center gap-4 xl:gap-6 z-30"
-        >
-          <button
-            v-for="(_, i) in testimonials"
-            :key="'nav-' + i"
-            @click="goTesti(i)"
-            class="relative group transition-all duration-500 flex items-center justify-center cursor-pointer"
-            :class="
-              currentIdx === i
-                ? 'w-12 xl:w-16 h-1 bg-burg'
-                : 'w-6 xl:w-8 h-1 bg-white/10 hover:bg-white/30'
-            "
-            :aria-label="'Go to testimonial ' + (i + 1)"
-          >
-            <span
-              class="absolute bottom-full mb-4 lg:mb-0 lg:bottom-auto lg:top-1/2 lg:right-full lg:mr-6! lg:-translate-y-1/2 text-xs lg:text-sm font-black tracking-[0.4em] text-white/20 group-hover:text-white transition-all whitespace-nowrap"
-              :class="
-                currentIdx === i
-                  ? 'opacity-100 text-burg!'
-                  : 'opacity-0 xl:group-hover:opacity-100'
-              "
-            >
-              {{ (i + 1).toString().padStart(2, "0") }}
-            </span>
-          </button>
-        </div>
-
-        <!-- Desktop Prev/Next Buttons -->
-        <div
-          class="hidden xl:flex absolute top-1/2 -right-24 xl:-right-32 -translate-y-1/2 flex-col gap-6"
+          class="absolute bottom-[-80px] xl:bottom-auto xl:top-1/2 xl:-right-32 left-1/2 xl:left-auto -translate-x-1/2 xl:translate-x-0 xl:-translate-y-1/2 flex flex-row xl:flex-col gap-6 z-30"
         >
           <button
             @click="goTesti(currentIdx - 1)"
-            class="w-12 h-12 xl:w-16 xl:h-16 rounded-full border border-white/5 bg-white/2 backdrop-blur-md flex items-center justify-center text-white transition-all hover:bg-burg hover:border-burg hover:-translate-x-2 group cursor-pointer"
+            class="w-14 h-14 xl:w-16 xl:h-16 rounded-full border border-white/5 bg-white/5 backdrop-blur-md flex items-center justify-center text-white transition-all hover:bg-burg hover:border-burg hover:scale-110 active:scale-95 group cursor-pointer shadow-xl"
             aria-label="Previous testimonial"
           >
             <svg
@@ -282,14 +253,14 @@ onUnmounted(() => {
               fill="none"
               stroke="currentColor"
               stroke-width="2"
-              class="group-hover:scale-110"
+              class="transition-transform group-hover:-translate-x-1"
             >
               <path d="M15 18L9 12L15 6" />
             </svg>
           </button>
           <button
             @click="goTesti(currentIdx + 1)"
-            class="w-12 h-12 xl:w-16 xl:h-16 rounded-full border border-white/5 bg-white/2 backdrop-blur-md flex items-center justify-center text-white transition-all hover:bg-burg hover:border-burg hover:translate-x-2 group cursor-pointer"
+            class="w-14 h-14 xl:w-16 xl:h-16 rounded-full border border-white/5 bg-white/5 backdrop-blur-md flex items-center justify-center text-white transition-all hover:bg-burg hover:border-burg hover:scale-110 active:scale-95 group cursor-pointer shadow-xl"
             aria-label="Next testimonial"
           >
             <svg
@@ -300,7 +271,7 @@ onUnmounted(() => {
               fill="none"
               stroke="currentColor"
               stroke-width="2"
-              class="group-hover:scale-110"
+              class="transition-transform group-hover:translate-x-1"
             >
               <path d="M9 18L15 12L9 6" />
             </svg>

@@ -248,11 +248,16 @@ onUnmounted(() => {
         <button
           v-for="(_, index) in slides"
           :key="index"
-          class="w-1.5 h-1.5 rounded-full transition-all duration-500 cursor-pointer"
-          :class="currentSlide === index ? 'bg-burg scale-150' : 'bg-white/20'"
+          class="w-10 h-10 flex items-center justify-center transition-all duration-500 cursor-pointer group"
           :aria-label="'Go to slide ' + (index + 1)"
+          :aria-current="currentSlide === index ? 'true' : 'false'"
           @click="currentSlide = index"
-        ></button>
+        >
+          <div
+            class="w-1.5 h-1.5 rounded-full transition-all duration-500"
+            :class="currentSlide === index ? 'bg-burg scale-150' : 'bg-white/20 group-hover:bg-white/40'"
+          ></div>
+        </button>
       </div>
     </div>
   </section>

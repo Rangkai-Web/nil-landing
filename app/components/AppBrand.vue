@@ -33,7 +33,7 @@ const marqueeBrands = [...brands, ...brands, ...brands];
         <div class="flex items-center justify-center gap-4 mb-4!">
           <div class="w-8 h-px bg-burg"></div>
           <span
-            class="text-[10px] md:text-xs font-bold tracking-[0.4em] uppercase text-zinc-500"
+            class="text-[10px] md:text-xs font-bold tracking-[0.4em] uppercase text-zinc-700"
             >Our Valued Partners</span
           >
           <div class="w-8 h-px bg-burg"></div>
