@@ -39,9 +39,9 @@ const marqueeBrands = [...brands, ...brands, ...brands];
           <div class="w-8 h-px bg-burg"></div>
         </div>
         <h2
-          class="font-[Cormorant_Garamond] text-4xl md:text-5xl lg:text-6xl text-zinc-700 font-light tracking-tight"
+          class="font-[Cormorant_Garamond] text-4xl md:text-5xl lg:text-6xl text-zinc-900 font-light tracking-tight"
         >
-          Trusted by <em class="text-burg/80 not-italic">Industry Leaders</em>
+          Trusted by <em class="text-burg not-italic">Industry Leaders</em>
         </h2>
       </div>
 

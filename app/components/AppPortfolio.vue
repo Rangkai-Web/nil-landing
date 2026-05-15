@@ -94,7 +94,7 @@ const closeLightbox = () => {
           :key="cat"
           @click="filterCategory(cat)"
           :aria-label="'Filter portfolio by ' + cat"
-          :aria-pressed="activeCategory === cat"
+          :aria-pressed="activeCategory === cat ? 'true' : 'false'"
           class="relative px-8! py-3! text-sm font-bold tracking-[0.2em] uppercase rounded-full transition-all duration-500 cursor-pointer overflow-hidden group"
           :class="
             activeCategory === cat

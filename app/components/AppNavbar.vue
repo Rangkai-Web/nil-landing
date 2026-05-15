@@ -66,10 +66,10 @@ onUnmounted(() => {
 
         <!-- Hamburger -->
         <button
-          class="lg:hidden flex flex-col gap-1.5 cursor-pointer bg-none border-none p-2.5! z-1001"
+          class="lg:hidden flex flex-col items-center justify-center gap-1.5 w-12 h-12 bg-white/5 border border-white/10 rounded-full transition-all duration-300 group cursor-pointer"
           @click="toggleMenu"
           :aria-label="isMenuOpen ? 'Close menu' : 'Open menu'"
-          :aria-expanded="isMenuOpen"
+          :aria-expanded="isMenuOpen ? 'true' : 'false'"
         >
           <span
             class="w-6 h-px bg-cream transition-all duration-300"

@@ -173,11 +173,11 @@
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center sm:text-left"
         >
           <div class="footer-col">
-            <h4
+            <h3
               class="text-xs font-black tracking-[0.4em] uppercase text-burg mb-8!"
             >
               Services
-            </h4>
+            </h3>
             <ul class="flex flex-col gap-4 list-none p-0">
               <li
                 v-for="link in [
@@ -202,11 +202,11 @@
           </div>
 
           <div class="footer-col">
-            <h4
+            <h3
               class="text-xs font-black tracking-[0.4em] uppercase text-burg mb-8!"
             >
               Navigation
-            </h4>
+            </h3>
             <ul class="flex flex-col gap-4 list-none p-0">
               <li
                 v-for="item in [
@@ -232,11 +232,11 @@
           </div>
 
           <div class="footer-col">
-            <h4
+            <h3
               class="text-xs font-black tracking-[0.4em] uppercase text-burg mb-8!"
             >
               Contact Us
-            </h4>
+            </h3>
             <ul class="flex flex-col gap-4 list-none p-0">
               <li>
                 <NuxtLink
