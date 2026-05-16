@@ -1,5 +1,6 @@
 <template>
   <AppHero />
+  <AppBrand />
   <AppAbout />
   <AppService />
   <AppProcess />
@@ -9,7 +10,6 @@
   <AppWhyUs />
   <AppFaq />
   <AppContact />
-  <AppBrand />
   <!-- <AppWAFloat /> -->
 </template>
 

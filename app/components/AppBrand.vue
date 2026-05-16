@@ -13,9 +13,6 @@ const brands = [
   { name: "Secret Garden", logo: "/img/brand/secret-garden.webp" },
   { name: "Wardah", logo: "/img/brand/wardah.webp" },
 ];
-
-// Multiply the array to ensure the marquee covers more than the screen width
-const marqueeBrands = [...brands, ...brands, ...brands];
 </script>
 
 <template>
@@ -34,54 +31,43 @@ const marqueeBrands = [...brands, ...brands, ...brands];
           <div class="w-8 h-px bg-burg"></div>
           <span
             class="text-[10px] md:text-xs font-bold tracking-[0.4em] uppercase text-zinc-700"
-            >Our Valued Partners</span
+            >Klien Terpercaya</span
           >
           <div class="w-8 h-px bg-burg"></div>
         </div>
         <h2
-          class="font-[Cormorant_Garamond] text-4xl md:text-5xl lg:text-6xl text-zinc-900 font-light tracking-tight"
+          class="font-[Cormorant_Garamond] text-4xl md:text-5xl lg:text-7xl text-zinc-900 font-light tracking-tight"
         >
-          Trusted by <em class="text-burg not-italic">Industry Leaders</em>
+          Our <em class="text-burg not-italic font-medium">Customer</em>
         </h2>
       </div>
 
-      <!-- Marquee Container -->
-      <div class="relative overflow-hidden group">
-        <!-- Overlay Fades for Smooth Transition -->
+      <!-- Grid Layout -->
+      <div
+        class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-px bg-zinc-200 border border-zinc-200 rounded-3xl overflow-hidden shadow-2xl shadow-zinc-200/50"
+      >
         <div
-          class="absolute inset-y-0 left-0 w-24 md:w-48 bg-linear-to-r from-zinc-50 via-zinc-50/80 to-transparent z-20 pointer-events-none"
-        ></div>
-        <div
-          class="absolute inset-y-0 right-0 w-24 md:w-48 bg-linear-to-l from-zinc-50 via-zinc-50/80 to-transparent z-20 pointer-events-none"
-        ></div>
-
-        <!-- The actual marquee -->
-        <div class="flex items-center py-12! whitespace-nowrap overflow-hidden">
+          v-for="(brand, index) in brands"
+          :key="index"
+          class="bg-white group/brand relative flex items-center justify-center p-8! transition-all duration-500 hover:bg-zinc-50"
+        >
+          <!-- Subtle hover background effect -->
           <div
-            class="flex animate-marquee-scroll group-hover:[animation-play-state:paused]"
-          >
-            <div
-              v-for="(brand, index) in marqueeBrands"
-              :key="index"
-              class="flex-none px-10! md:px-16! flex items-center justify-center"
-            >
-              <div class="relative group/logo">
-                <!-- Subtle glow effect behind logo on hover -->
-                <div
-                  class="absolute inset-0 bg-burg/70 blur-2xl opacity-0 group-hover/logo:opacity-100 transition-opacity duration-700 rounded-full"
-                ></div>
+            class="absolute inset-0 bg-radial-to-br from-burg/5 to-transparent opacity-0 group-hover/brand:opacity-100 transition-opacity duration-700"
+          ></div>
 
-                <NuxtImg
-                  :src="brand.logo"
-                  :alt="brand.name + ' logo'"
-                  format="webp"
-                  class="max-h-12 md:max-h-16 lg:max-h-20 w-auto object-contain transition-all duration-700 group-hover/logo:scale-110"
-                  loading="lazy"
-                  width="200"
-                />
-              </div>
-            </div>
+          <div class="relative z-10 w-full flex items-center justify-center">
+            <NuxtImg
+              :src="brand.logo"
+              :alt="brand.name + ' logo'"
+              format="webp"
+              class="max-h-12 md:max-h-16 w-auto object-contain group-hover/brand:scale-110 transition-all duration-700 ease-out"
+              loading="lazy"
+              width="200"
+            />
           </div>
+
+          <!-- Tooltip or Name on Hover (Optional, keeping it clean for now) -->
         </div>
       </div>
     </div>
@@ -94,27 +80,16 @@ const marqueeBrands = [...brands, ...brands, ...brands];
 </template>
 
 <style scoped>
-@keyframes marquee-scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-33.3333%);
-  }
-}
-
-.animate-marquee-scroll {
-  animation: marquee-scroll 45s linear infinite;
-  display: flex;
-  width: fit-content;
-}
-
 .bg-grain {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Ensure font is loaded if not already */
 h2 {
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Custom grid gap fix for thin lines */
+.grid {
+  mask-image: linear-gradient(to bottom, black, black);
 }
 </style>
