@@ -162,7 +162,9 @@ onUnmounted(() => {
                         >Lihat Portfolio</NuxtLink
                       >
                       <NuxtLink
-                        to="/reservation"
+                        to="https://tr.ee/awZJxowwW7"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         class="px-8! py-4! border border-white/20 text-white text-xs font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all hover:-translate-y-0.5"
                         >Reservasi Sekarang</NuxtLink
                       >
@@ -229,7 +231,9 @@ onUnmounted(() => {
                       >Lihat Portfolio</NuxtLink
                     >
                     <NuxtLink
-                      to="/reservation"
+                      to="https://tr.ee/awZJxowwW7"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       class="px-8! py-4! border border-white/20 text-white text-xs font-bold tracking-widest uppercase"
                       >Reservasi Sekarang</NuxtLink
                     >
@@ -255,7 +259,11 @@ onUnmounted(() => {
         >
           <div
             class="w-1.5 h-1.5 rounded-full transition-all duration-500"
-            :class="currentSlide === index ? 'bg-burg scale-150' : 'bg-white/20 group-hover:bg-white/40'"
+            :class="
+              currentSlide === index
+                ? 'bg-burg scale-150'
+                : 'bg-white/20 group-hover:bg-white/40'
+            "
           ></div>
         </button>
       </div>

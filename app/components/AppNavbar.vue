@@ -1,36 +1,44 @@
 <script setup lang="ts">
-const isScrolled = ref(false)
-const isMenuOpen = ref(false)
+const isScrolled = ref(false);
+const isMenuOpen = ref(false);
 
 const onScroll = () => {
-  isScrolled.value = window.scrollY > 40
-}
+  isScrolled.value = window.scrollY > 40;
+};
 
 const toggleMenu = () => {
-  isMenuOpen.value = !isMenuOpen.value
-}
+  isMenuOpen.value = !isMenuOpen.value;
+};
 
 onMounted(() => {
-  window.addEventListener('scroll', onScroll, { passive: true })
-})
+  window.addEventListener("scroll", onScroll, { passive: true });
+});
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', onScroll)
-})
+  window.removeEventListener("scroll", onScroll);
+});
 </script>
 
 <template>
-  <div 
+  <div
     class="fixed top-0 left-0 right-0 z-1000 flex justify-center pointer-events-none transition-all duration-500"
     :class="isScrolled ? 'p-6!' : 'p-6! lg:px-10! lg:py-8!'"
   >
-    <nav 
+    <nav
       class="w-full max-w-7xl relative pointer-events-auto transition-all duration-500"
-      :class="isScrolled ? 'bg-black/70 backdrop-blur-xl border border-cream/60 py-3! px-6! shadow-2xl' : 'py-3! px-6! bg-transparent'"
+      :class="
+        isScrolled
+          ? 'bg-black/70 backdrop-blur-xl border border-cream/60 py-3! px-6! shadow-2xl'
+          : 'py-3! px-6! bg-transparent'
+      "
     >
       <div class="flex items-center justify-between px-4 h-[60px]">
         <!-- Logo -->
-        <NuxtLink to="/" class="flex items-center gap-3 w-14" aria-label="NIL Entertain Home">
+        <NuxtLink
+          to="/"
+          class="flex items-center gap-3 w-14"
+          aria-label="NIL Entertain Home"
+        >
           <NuxtImg
             src="/logo/logo.webp"
             alt="Nil Entertain Logo"
@@ -41,27 +49,42 @@ onUnmounted(() => {
             :height="100"
           />
         </NuxtLink>
-        
+
         <!-- Desktop Nav -->
         <ul class="hidden lg:flex gap-8 list-none m-0! p-0!">
-          <li v-for="link in ['Tentang', 'Layanan', 'Paket', 'Portfolio', 'FAQ', 'Kontak']" :key="link">
-            <NuxtLink 
-              :to="'/#' + link.toLowerCase()" 
+          <li
+            v-for="link in [
+              'Tentang',
+              'Layanan',
+              'Paket',
+              'Portfolio',
+              'FAQ',
+              'Kontak',
+            ]"
+            :key="link"
+          >
+            <NuxtLink
+              :to="'/#' + link.toLowerCase()"
               class="text-base font-bold tracking-[0.15em] uppercase text-white hover:text-white/80 transition-all relative group"
             >
               {{ link }}
-              <span class="absolute bottom-[-4px] left-1/2 w-0 h-px bg-burg transition-all duration-300 -translate-x-1/2 group-hover:w-8"></span>
+              <span
+                class="absolute bottom-[-4px] left-1/2 w-0 h-px bg-burg transition-all duration-300 -translate-x-1/2 group-hover:w-8"
+              ></span>
             </NuxtLink>
           </li>
         </ul>
 
         <!-- CTA -->
         <div class="hidden lg:flex items-center">
-          <NuxtLink 
-            to="/reservation" 
+          <NuxtLink
+            to="https://tr.ee/awZJxowwW7"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="Book a session with NIL Entertain"
             class="px-7! py-3! bg-burg text-white text-sm font-bold tracking-[0.2em] uppercase transition-all hover:bg-burg-light hover:-translate-y-0.5"
-          >Book Now</NuxtLink>
+            >Book Now</NuxtLink
+          >
         </div>
 
         <!-- Hamburger -->
@@ -87,7 +110,7 @@ onUnmounted(() => {
       </div>
 
       <!-- Mobile Menu -->
-      <transition 
+      <transition
         enter-active-class="transition duration-300 ease-out"
         enter-from-class="opacity-0 -translate-y-4"
         enter-to-class="opacity-100 translate-y-0"
@@ -95,11 +118,24 @@ onUnmounted(() => {
         leave-from-class="opacity-100 translate-y-0"
         leave-to-class="opacity-0 -translate-y-4"
       >
-        <div v-if="isMenuOpen" class="absolute top-full left-0 right-0 mt-3 bg-black/95 backdrop-blur-2xl border border-white/10 rounded-3xl p-8! flex flex-col gap-8 shadow-2xl lg:hidden">
+        <div
+          v-if="isMenuOpen"
+          class="absolute top-full left-0 right-0 mt-3 bg-black/95 backdrop-blur-2xl border border-white/10 rounded-3xl p-8! flex flex-col gap-8 shadow-2xl lg:hidden"
+        >
           <ul class="list-none flex flex-col gap-6 m-0! p-0!">
-            <li v-for="link in ['Tentang', 'Layanan', 'Paket', 'Portfolio', 'FAQ', 'Kontak']" :key="link">
-              <NuxtLink 
-                :to="'/#' + link.toLowerCase()" 
+            <li
+              v-for="link in [
+                'Tentang',
+                'Layanan',
+                'Paket',
+                'Portfolio',
+                'FAQ',
+                'Kontak',
+              ]"
+              :key="link"
+            >
+              <NuxtLink
+                :to="'/#' + link.toLowerCase()"
                 @click="isMenuOpen = false"
                 class="text-xs font-bold tracking-widest uppercase text-cream block py-2 hover:text-burg transition-colors"
               >
@@ -108,7 +144,14 @@ onUnmounted(() => {
             </li>
           </ul>
           <div class="mt-4">
-            <NuxtLink to="/reservation" @click="isMenuOpen = false" class="block w-full text-center py-4! bg-burg text-white text-sm font-bold tracking-[0.2em] uppercase hover:bg-burg-light">Book Now</NuxtLink>
+            <NuxtLink
+              to="https://tr.ee/awZJxowwW7"
+              target="_blank"
+              rel="noopener noreferrer"
+              @click="isMenuOpen = false"
+              class="block w-full text-center py-4! bg-burg text-white text-sm font-bold tracking-[0.2em] uppercase hover:bg-burg-light"
+              >Book Now</NuxtLink
+            >
           </div>
         </div>
       </transition>
