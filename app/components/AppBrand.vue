@@ -49,7 +49,7 @@ const brands = [
         <div
           v-for="(brand, index) in brands"
           :key="index"
-          class="bg-white group/brand relative flex items-center justify-center p-8! transition-all duration-500 hover:bg-zinc-50"
+          class="bg-white group/brand relative flex items-center justify-center p-6! md:p-8! transition-all duration-500 hover:bg-zinc-50"
         >
           <!-- Subtle hover background effect -->
           <div
