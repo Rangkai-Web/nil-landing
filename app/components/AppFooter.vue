@@ -19,7 +19,7 @@
           <NuxtLink
             to="/"
             class="group mb-10! inline-block"
-            aria-label="NIL Entertain Home"
+            aria-label="NIL Entertainment Home"
           >
             <div class="relative">
               <div
@@ -27,7 +27,7 @@
               ></div>
               <NuxtImg
                 src="/logo/logo.webp"
-                alt="Nil Entertain Logo"
+                alt="Nil Entertainment Logo"
                 class="relative w-24 h-24 rounded-full border border-white/10 shadow-2xl transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
                 :width="96"
@@ -303,8 +303,8 @@
       >
         <div class="text-sm text-white/60 tracking-widest uppercase">
           &copy; {{ currentYear }}
-          <span class="text-white font-bold mx-1!">NIL Entertain</span> &mdash;
-          Premiere Event Services in Bali
+          <span class="text-white font-bold mx-1!">NIL Entertainment</span>
+          &mdash; Premiere Event Services in Bali
         </div>
       </div>
     </div>

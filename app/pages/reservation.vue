@@ -5,7 +5,7 @@
       <NuxtImg
         src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop"
         class="w-full h-full object-cover opacity-20 brightness-[0.3] fixed"
-        alt="Sewa Photobooth & Videobooth 360 Bali - NIL Entertain"
+        alt="Sewa Photobooth & Videobooth 360 Bali - NIL Entertainment"
         width="1920"
         height="1080"
         loading="lazy"
@@ -153,7 +153,7 @@
               :src="calendarUrl"
               class="w-full h-full"
               frameborder="0"
-              title="NIL Entertain Booking Calendar"
+              title="NIL Entertainment Booking Calendar"
               @load="isLoading = false"
             ></iframe>
           </div>
@@ -264,12 +264,12 @@ import { useContactStore } from "~/stores/contactStore";
 const contactStore = useContactStore();
 
 useSeoMeta({
-  title: "Reservasi Photobooth & Videobooth 360 Bali - NIL Entertain",
+  title: "Reservasi Photobooth & Videobooth 360 Bali - NIL Entertainment",
   description:
     "Booking layanan sewa photobooth dan videobooth 360 premium di Bali secara online. Proses reservasi cepat, mudah, dan terpercaya untuk segala jenis event.",
-  ogTitle: "Reservasi Photobooth & Videobooth 360 Bali - NIL Entertain",
+  ogTitle: "Reservasi Photobooth & Videobooth 360 Bali - NIL Entertainment",
   ogDescription:
-    "Amankan jadwal dokumentasi event Anda dengan NIL Entertain. Layanan photobooth premium di Bali.",
+    "Amankan jadwal dokumentasi event Anda dengan NIL Entertainment. Layanan photobooth premium di Bali.",
   ogImage:
     "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1200",
   keywords:
@@ -287,7 +287,7 @@ useHead({
         serviceType: "Photobooth & Videobooth 360 Rental",
         provider: {
           "@type": "LocalBusiness",
-          name: "NIL Entertain",
+          name: "NIL Entertainment",
           address: {
             "@type": "PostalAddress",
             streetAddress: "Jl. Tukad Batanghari VII No.2A",
@@ -350,7 +350,7 @@ const confirmViaWhatsApp = () => {
     });
   };
 
-  const message = `Halo NIL Entertain! 👋
+  const message = `Halo NIL Entertainment! 👋
 
 Saya ingin melakukan konfirmasi booking yang telah saya buat di Google Calendar.
 

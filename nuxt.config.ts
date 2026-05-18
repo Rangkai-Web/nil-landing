@@ -25,31 +25,42 @@ export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
   app: {
     head: {
-      title: "NIL Entertain — Photobooth & Videobooth360 Bali",
+      title: "NIL Entertainment — Photobooth & Videobooth360 Bali",
       htmlAttrs: {
         lang: "id",
       },
       meta: [
-        { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=5' },
-        { name: 'description', content: 'NIL Entertain — Photobooth & Videobooth360 premium untuk event spesial di Bali. Wedding, corporate, birthday, dan private event.' },
+        {
+          name: "viewport",
+          content: "width=device-width, initial-scale=1, maximum-scale=5",
+        },
+        {
+          name: "description",
+          content:
+            "NIL Entertainment — Photobooth & Videobooth360 premium untuk event spesial di Bali. Wedding, corporate, birthday, dan private event.",
+        },
       ],
       link: [
         { rel: "icon", type: "image/png", href: "/favicon/favicon-32x32.png" },
-        { rel: "preload", as: "image", href: "/img/portfolio/photobooth/p6.webp" }
+        {
+          rel: "preload",
+          as: "image",
+          href: "/img/portfolio/photobooth/p6.webp",
+        },
       ],
     },
   },
   site: {
-    url: "https://nilentertain.com",
-    name: "NIL Entertain",
+    url: "https://nilphotoboothbali.com",
+    name: "NIL Entertainment",
     description: "Photobooth & Videobooth360 Bali",
     defaultLocale: "id",
     indexable: true,
   },
   fonts: {
     families: [
-      { name: 'Cormorant Garamond', provider: 'google', display: 'swap' },
-      { name: 'Manrope', provider: 'google', display: 'swap' }
+      { name: "Cormorant Garamond", provider: "google", display: "swap" },
+      { name: "Manrope", provider: "google", display: "swap" },
     ],
   },
   image: {

@@ -107,48 +107,125 @@
     },
     {
       "id": 16,
+      "title": "Photobooth",
+      "category": "Photobooth",
+      "image": "/img/portfolio/photobooth/p9.webp",
+      "type": "image"
+    },
+    {
+      "id": 17,
+      "title": "Photobooth",
+      "category": "Photobooth",
+      "image": "/img/portfolio/photobooth/p10.webp",
+      "type": "image"
+    },
+    {
+      "id": 18,
+      "title": "Photobooth",
+      "category": "Photobooth",
+      "image": "/img/portfolio/photobooth/p11.webp",
+      "type": "image"
+    },
+    {
+      "id": 19,
+      "title": "Photobooth",
+      "category": "Photobooth",
+      "image": "/img/portfolio/photobooth/p12.webp",
+      "type": "image"
+    },
+    {
+      "id": 20,
+      "title": "Photobooth",
+      "category": "Photobooth",
+      "image": "/img/portfolio/photobooth/p13.webp",
+      "type": "image"
+    },
+    {
+      "id": 21,
+      "title": "Photobooth",
+      "category": "Photobooth",
+      "image": "/img/portfolio/photobooth/p14.webp",
+      "type": "image"
+    },
+    {
+      "id": 22,
+      "title": "Photobooth",
+      "category": "Photobooth",
+      "image": "/img/portfolio/photobooth/p15.webp",
+      "type": "image"
+    },
+    {
+      "id": 23,
+      "title": "Photobooth",
+      "category": "Photobooth",
+      "image": "/img/portfolio/photobooth/p16.webp",
+      "type": "image"
+    },
+    {
+      "id": 24,
+      "title": "Photobooth",
+      "category": "Photobooth",
+      "image": "/img/portfolio/photobooth/p17.webp",
+      "type": "image"
+    },
+    {
+      "id": 25,
+      "title": "Photobooth",
+      "category": "Photobooth",
+      "image": "/img/portfolio/photobooth/p18.webp",
+      "type": "image"
+    },
+    {
+      "id": 26,
+      "title": "Photobooth",
+      "category": "Photobooth",
+      "image": "/img/portfolio/photobooth/p19.webp",
+      "type": "image"
+    },
+    {
+      "id": 27,
       "title": "Videobooth",
       "category": "Videobooth",
       "video": "/img/portfolio/videobooth/video1.mp4",
       "type": "video"
     },
     {
-      "id": 17,
+      "id": 28,
       "title": "Videobooth",
       "category": "Videobooth",
       "video": "/img/portfolio/videobooth/video2.mp4",
       "type": "video"
     },
     {
-      "id": 18,
+      "id": 29,
       "title": "Videobooth",
       "category": "Videobooth",
       "video": "/img/portfolio/videobooth/video3.MP4",
       "type": "video"
     },
     {
-      "id": 19,
+      "id": 30,
       "title": "Videobooth",
       "category": "Videobooth",
       "video": "/img/portfolio/videobooth/v1.MP4",
       "type": "video"
     },
     {
-      "id": 20,
+      "id": 31,
       "title": "Videobooth",
       "category": "Videobooth",
       "video": "/img/portfolio/videobooth/v2.MP4",
       "type": "video"
     },
     {
-      "id": 21,
+      "id": 32,
       "title": "Videobooth",
       "category": "Videobooth",
       "video": "/img/portfolio/videobooth/v3.MP4",
       "type": "video"
     },
     {
-      "id": 22,
+      "id": 33,
       "title": "Videobooth",
       "category": "Videobooth",
       "video": "/img/portfolio/videobooth/v4.MP4",

@@ -78,8 +78,8 @@ const steps = [
           >
         </h2>
         <p class="text-lg text-black/60 leading-relaxed reveal d2">
-          Kami memastikan setiap langkah perjalanan Anda bersama NIL Entertain
-          terasa seamless dan profesional.
+          Kami memastikan setiap langkah perjalanan Anda bersama NIL
+          Entertainment terasa seamless dan profesional.
         </p>
       </div>
 

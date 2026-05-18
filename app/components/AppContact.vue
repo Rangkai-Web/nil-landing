@@ -202,7 +202,7 @@ const contactStore = useContactStore();
               allowfullscreen="true"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-              title="NIL Entertain Studio Location"
+              title="NIL Entertainment Studio Location"
             ></iframe>
             <div
               class="absolute inset-0 pointer-events-none shadow-[inset_0_0_100px_rgba(0,0,0,0.05)]"

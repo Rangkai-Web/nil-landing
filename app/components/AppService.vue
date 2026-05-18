@@ -59,7 +59,7 @@ useHead({
             description: svc.desc,
             provider: {
               "@type": "LocalBusiness",
-              name: "NIL Entertain",
+              name: "NIL Entertainment",
             },
             areaServed: "Bali",
             hasOfferCatalog: {
@@ -90,7 +90,7 @@ useHead({
     <div class="absolute inset-0 z-0">
       <NuxtImg
         src="/img/service-bg.webp"
-        alt="NIL Entertain Service Background"
+        alt="NIL Entertainment Service Background"
         class="w-full h-full object-cover opacity-20 grayscale"
         width="1920"
         height="1080"
@@ -122,7 +122,7 @@ useHead({
           class="font-[Cormorant_Garamond] text-5xl lg:text-7xl font-light leading-tight text-white reveal d1"
         >
           Spesialisasi<br />
-          <em class="italic text-white/90 font-normal">NIL Entertain</em>
+          <em class="italic text-white/90 font-normal">NIL Entertainment</em>
         </h2>
       </div>
 

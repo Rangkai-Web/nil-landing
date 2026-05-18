@@ -19,7 +19,7 @@ import IconCameraElegant from "./svg-icon/IconCameraElegant.vue";
             >
               <NuxtImg
                 src="/img/portfolio/photobooth/img1.webp"
-                alt="NIL Entertain Photography"
+                alt="NIL Entertainment Photography"
                 class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 width="600"
                 height="800"
@@ -74,9 +74,9 @@ import IconCameraElegant from "./svg-icon/IconCameraElegant.vue";
             <p
               class="text-lg lg:text-xl font-medium text-black leading-relaxed"
             >
-              NIL Entertain berkomitmen menghadirkan standar estetika premium
-              dalam dokumentasi event di Bali dengan jaminan kualitas tanpa
-              kompromi.
+              NIL Entertainment berkomitmen menghadirkan standar estetika
+              premium dalam dokumentasi event di Bali dengan jaminan kualitas
+              tanpa kompromi.
             </p>
             <p class="text-base text-black/70 leading-relaxed">
               Kami memberikan ketenangan pikiran melalui

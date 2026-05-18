@@ -130,7 +130,7 @@ onUnmounted(() => {
         <h2
           class="font-[Cormorant_Garamond] text-5xl lg:text-8xl font-light leading-tight text-white reveal d1"
         >
-          Voices of <em class="italic text-burg font-normal">Excellence</em>
+          Client <em class="italic text-burg font-normal">Success Stories</em>
         </h2>
       </div>
 

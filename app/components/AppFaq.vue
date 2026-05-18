@@ -8,7 +8,7 @@ const contactStore = useContactStore();
 const faqs = ref([
   {
     q: "Area coverage dimana saja?",
-    a: "NIL Entertain melayani seluruh area Bali dengan layanan GRATIS TRANSPORTASI ke seluruh lokasi di Bali tanpa terkecuali.",
+    a: "NIL Entertainment melayani seluruh area Bali dengan layanan GRATIS TRANSPORTASI ke seluruh lokasi di Bali tanpa terkecuali.",
     isOpen: true,
   },
   {
@@ -68,7 +68,7 @@ useHead({
     <div class="absolute inset-0 z-0">
       <NuxtImg
         src="/img/service-bg.webp"
-        alt="NIL Entertain Service Background"
+        alt="NIL Entertainment Service Background"
         class="w-full h-full object-cover opacity-20 grayscale"
         width="1920"
         height="1080"

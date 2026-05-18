@@ -197,7 +197,7 @@ useHead({
       innerHTML: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "OfferCatalog",
-        name: "NIL Entertain Pricing Packages",
+        name: "NIL Entertainment Pricing Packages",
         itemListElement: [
           ...photoboothPackages.map((pkg, i) => ({
             "@type": "ListItem",

@@ -37,11 +37,11 @@ onUnmounted(() => {
         <NuxtLink
           to="/"
           class="flex items-center gap-3 w-14"
-          aria-label="NIL Entertain Home"
+          aria-label="NIL Entertainment Home"
         >
           <NuxtImg
             src="/logo/logo.webp"
-            alt="Nil Entertain Logo"
+            alt="Nil Entertainment Logo"
             class="rounded-full hover:scale-110 transition-all duration-500"
             loading="eager"
             fetchpriority="high"
@@ -81,7 +81,7 @@ onUnmounted(() => {
             to="https://tr.ee/awZJxowwW7"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Book a session with NIL Entertain"
+            aria-label="Book a session with NIL Entertainment"
             class="px-7! py-3! bg-burg text-white text-sm font-bold tracking-[0.2em] uppercase transition-all hover:bg-burg-light hover:-translate-y-0.5"
             >Book Now</NuxtLink
           >

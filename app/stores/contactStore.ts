@@ -6,11 +6,11 @@ export const useContactStore = defineStore("contact", {
       number: "6287866861146",
       label: "+62 878-6686-1146",
       message:
-        "Halo Nil Entertain, saya tertarik dengan layanan Photobooth/Videobooth. Bisa bantu info lebih lanjut?",
+        "Halo Nil Entertainment, saya tertarik dengan layanan Photobooth/Videobooth. Bisa bantu info lebih lanjut?",
       name: "Fendi",
     },
-    email: "hello@nilentertain.com",
-    instagram: "nil.entertain",
+    email: "nilentertaiment@gmail.com",
+    instagram: "nil_entertain",
     location: "Bali, Indonesia",
   }),
   getters: {
