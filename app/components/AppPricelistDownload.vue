@@ -13,6 +13,22 @@ const handleKeyDown = (e: KeyboardEvent) => {
   }
 };
 
+const isMobileDevice = () => {
+  if (typeof window !== "undefined") {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+      || (navigator.maxTouchPoints > 0);
+  }
+  return false;
+};
+
+const openPreview = () => {
+  if (isMobileDevice()) {
+    window.open(pricelistPdfUrl, "_blank");
+  } else {
+    isPreviewOpen.value = true;
+  }
+};
+
 onMounted(() => {
   window.addEventListener("keydown", handleKeyDown);
 });
@@ -58,7 +74,7 @@ onUnmounted(() => {
             class="lg:col-span-5 flex justify-center lg:justify-start order-2 lg:order-1"
           >
             <div
-              @click="isPreviewOpen = true"
+              @click="openPreview"
               class="relative group/book perspective-1000 w-[240px] sm:w-[280px] aspect-3/4 cursor-pointer"
               title="Klik untuk melihat preview"
             >
@@ -230,7 +246,7 @@ onUnmounted(() => {
 
               <!-- Preview Button -->
               <button
-                @click="isPreviewOpen = true"
+                @click="openPreview"
                 class="group inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8! py-4.5! bg-white/5 hover:bg-white/10 border border-white/15 hover:border-white/30 text-white text-xs font-black tracking-[0.25em] uppercase rounded-xl transition-all duration-300 hover:-translate-y-0.5 active:scale-95 cursor-pointer"
               >
                 <span>Baca Online</span>

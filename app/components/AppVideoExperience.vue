@@ -1,15 +1,53 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import TextureLines from "./svg-icon/TextureLines.vue";
 import DoubleCircle from "./svg-icon/DoubleCircle.vue";
 
-const isDronePlaying = ref(false);
-const isGroundPlaying = ref(false);
+const isVideoModalOpen = ref(false);
+const activeVideoUrl = ref("");
+const activeVideoTitle = ref("");
 
-const droneEmbedUrl =
-  "https://drive.google.com/file/d/1lc0lxptYVemM2pscakEY66QbXHzQlKIu/preview";
-const groundEmbedUrl =
-  "https://drive.google.com/file/d/12MNKfdxdjw0CV2QOdwIswSjNsl0UfAQd/preview";
+const isMobileDevice = () => {
+  if (typeof window !== "undefined") {
+    return (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent,
+      ) || navigator.maxTouchPoints > 0
+    );
+  }
+  return false;
+};
+
+const playVideo = (title: string, fileId: string) => {
+  const url = `https://drive.google.com/file/d/${fileId}/preview`;
+  if (isMobileDevice()) {
+    window.open(url, "_blank");
+  } else {
+    activeVideoTitle.value = title;
+    activeVideoUrl.value = url;
+    isVideoModalOpen.value = true;
+  }
+};
+
+const closeVideo = () => {
+  isVideoModalOpen.value = false;
+  activeVideoUrl.value = "";
+  activeVideoTitle.value = "";
+};
+
+const handleKeyDown = (e: KeyboardEvent) => {
+  if (e.key === "Escape") {
+    closeVideo();
+  }
+};
+
+onMounted(() => {
+  window.addEventListener("keydown", handleKeyDown);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("keydown", handleKeyDown);
+});
 </script>
 
 <template>
@@ -58,8 +96,8 @@ const groundEmbedUrl =
         <p
           class="mt-6! text-base lg:text-lg text-white/65 font-light leading-relaxed max-w-2xl mx-auto!"
         >
-          Bingung memilih paket? Lihat perbandingan hasil rekaman Videobooth
-          kami. Bandingkan versi kamera darat (standar) dengan versi premium
+          Bingung memilih paket? Lihat perbandingan hasil rekaman Video kami.
+          Bandingkan versi kamera darat (standar) dengan versi premium
           menggunakan drone udara.
         </p>
       </div>
@@ -70,36 +108,14 @@ const groundEmbedUrl =
       >
         <!-- CARD 1: TANPA DRONE (STANDARD VIEW) -->
         <div
-          class="group relative rounded-3xl overflow-hidden border border-white/10 bg-white/2 backdrop-blur-xs flex flex-col justify-between aspect-video shadow-2xl"
+          @click="
+            playVideo(
+              'Kamera Darat (Tanpa Drone)',
+              '12MNKfdxdjw0CV2QOdwIswSjNsl0UfAQd',
+            )
+          "
+          class="group relative rounded-3xl overflow-hidden border border-white/10 bg-white/2 backdrop-blur-xs flex flex-col justify-between aspect-video shadow-2xl cursor-pointer"
         >
-          <!-- Video Iframe (Lazy Loaded) -->
-          <Transition name="fade">
-            <div v-if="isGroundPlaying" class="absolute inset-0 z-30 bg-black">
-              <iframe
-                :src="groundEmbedUrl"
-                class="w-full h-full border-0"
-                allow="autoplay; encrypted-media"
-                allowfullscreen
-              ></iframe>
-              <button
-                @click="isGroundPlaying = false"
-                class="absolute top-4 right-4 z-40 bg-black/60 hover:bg-[#890015] text-white p-2! rounded-full transition-all duration-300 backdrop-blur-md cursor-pointer hover:scale-105"
-                title="Tutup Video"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                >
-                  <path d="M18 6L6 18M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-          </Transition>
-
           <!-- Card Cover (High-end aesthetics placeholder) -->
           <div
             class="absolute inset-0 z-10 pointer-events-none transition-all duration-700 group-hover:scale-105"
@@ -133,19 +149,12 @@ const groundEmbedUrl =
               >
                 Kamera Darat (Tanpa Drone)
               </h3>
-              <!-- <p
-                class="text-sm text-white/50 font-light leading-relaxed max-w-md"
-              >
-                Hasil video 360° klasik dari sudut pandang sejajar mata (eye-level). Sangat cocok untuk mengabadikan ekspresi seru Anda dan teman-teman secara dekat dengan pencahayaan studio yang terang.
-              </p> -->
             </div>
           </div>
 
           <!-- Play Button Overlay -->
           <div
-            v-if="!isGroundPlaying"
-            @click="isGroundPlaying = true"
-            class="absolute inset-0 z-20 flex items-center justify-center cursor-pointer group"
+            class="absolute inset-0 z-20 flex items-center justify-center group"
           >
             <div
               class="w-20 h-20 rounded-full bg-white/5 backdrop-blur-md border border-white/20 flex items-center justify-center text-white transition-all duration-500 group-hover:bg-[#890015] group-hover:border-[#890015] group-hover:scale-110 shadow-2xl group-hover:shadow-[0_0_30px_rgba(137,0,21,0.5)]"
@@ -165,36 +174,14 @@ const groundEmbedUrl =
 
         <!-- CARD 2: DENGAN DRONE (PREMIUM VIEW) -->
         <div
-          class="group relative rounded-3xl overflow-hidden border border-white/10 bg-white/2 backdrop-blur-xs flex flex-col justify-between aspect-video shadow-2xl"
+          @click="
+            playVideo(
+              'Kamera Udara (Dengan Drone)',
+              '1lc0lxptYVemM2pscakEY66QbXHzQlKIu',
+            )
+          "
+          class="group relative rounded-3xl overflow-hidden border border-white/10 bg-white/2 backdrop-blur-xs flex flex-col justify-between aspect-video shadow-2xl cursor-pointer"
         >
-          <!-- Video Iframe (Lazy Loaded) -->
-          <Transition name="fade">
-            <div v-if="isDronePlaying" class="absolute inset-0 z-30 bg-black">
-              <iframe
-                :src="droneEmbedUrl"
-                class="w-full h-full border-0"
-                allow="autoplay; encrypted-media"
-                allowfullscreen
-              ></iframe>
-              <button
-                @click="isDronePlaying = false"
-                class="absolute top-4 right-4 z-40 bg-black/60 hover:bg-[#890015] text-white p-2! rounded-full transition-all duration-300 backdrop-blur-md cursor-pointer hover:scale-105"
-                title="Tutup Video"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                >
-                  <path d="M18 6L6 18M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-          </Transition>
-
           <!-- Card Cover (High-end aesthetics placeholder) -->
           <div
             class="absolute inset-0 z-10 pointer-events-none transition-all duration-700 group-hover:scale-105"
@@ -228,19 +215,12 @@ const groundEmbedUrl =
               >
                 Kamera Udara (Dengan Drone)
               </h3>
-              <!-- <p
-                class="text-sm text-white/50 font-light leading-relaxed max-w-md"
-              >
-                Hasil video 360° sinematik yang diambil dari udara menggunakan drone. Pilihan terbaik untuk memperlihatkan kemegahan venue, dekorasi panggung, serta keseruan seluruh tamu pesta.
-              </p> -->
             </div>
           </div>
 
           <!-- Play Button Overlay -->
           <div
-            v-if="!isDronePlaying"
-            @click="isDronePlaying = true"
-            class="absolute inset-0 z-20 flex items-center justify-center cursor-pointer group"
+            class="absolute inset-0 z-20 flex items-center justify-center group"
           >
             <div
               class="w-20 h-20 rounded-full bg-white/5 backdrop-blur-md border border-white/20 flex items-center justify-center text-white transition-all duration-500 group-hover:bg-[#890015] group-hover:border-[#890015] group-hover:scale-110 shadow-2xl group-hover:shadow-[0_0_30px_rgba(137,0,21,0.5)]"
@@ -259,6 +239,61 @@ const groundEmbedUrl =
         </div>
       </div>
     </div>
+
+    <!-- Fullscreen Video Theater Modal -->
+    <Teleport to="body">
+      <Transition name="fade">
+        <div
+          v-if="isVideoModalOpen"
+          @click.self="closeVideo"
+          class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 backdrop-blur-md p-4! md:p-8!"
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            class="relative w-full max-w-5xl aspect-video bg-black border border-white/10 rounded-2xl overflow-hidden flex flex-col shadow-2xl"
+          >
+            <!-- Modal Header -->
+            <div
+              class="flex items-center justify-between px-6! py-4! border-b border-white/10 bg-[#0f0d0b]"
+            >
+              <span
+                class="font-[Cormorant_Garamond] text-lg sm:text-xl text-white font-medium tracking-wide"
+              >
+                {{ activeVideoTitle }}
+              </span>
+              <button
+                @click="closeVideo"
+                class="text-white/70 hover:text-white p-2! rounded-full hover:bg-white/5 transition-all cursor-pointer"
+                aria-label="Tutup Video"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Modal Body (Iframe) -->
+            <div class="grow bg-black relative">
+              <iframe
+                v-if="activeVideoUrl"
+                :src="activeVideoUrl"
+                class="w-full h-full border-0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </Transition>
+    </Teleport>
   </section>
 </template>
 

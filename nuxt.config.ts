@@ -42,11 +42,6 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: "icon", type: "image/png", href: "/favicon/favicon-32x32.png" },
-        {
-          rel: "preload",
-          as: "image",
-          href: "/img/portfolio/photobooth/p6.webp",
-        },
       ],
     },
   },

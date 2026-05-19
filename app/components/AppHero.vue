@@ -107,7 +107,7 @@ onUnmounted(() => {
                 class="absolute bottom-0 left-0 right-0 h-64 bg-linear-to-t from-black via-black/80 to-transparent z-1"
               ></div>
 
-              <div class="relative z-2 pb-20! lg:pb-32! w-full text-left">
+              <div class="relative z-2 pb-40! w-full text-left">
                 <div class="container">
                   <div class="max-w-3xl">
                     <div class="overflow-hidden mb-6!">
@@ -205,7 +205,7 @@ onUnmounted(() => {
             <div
               class="absolute bottom-0 left-0 right-0 h-64 bg-linear-to-t from-black via-black/80 to-transparent z-1"
             ></div>
-            <div class="relative z-2 pb-20! lg:pb-32! w-full text-left">
+            <div class="relative z-2 pb-40! w-full text-left">
               <div class="container">
                 <div class="max-w-3xl">
                   <div class="flex items-center gap-4 mb-6!">
